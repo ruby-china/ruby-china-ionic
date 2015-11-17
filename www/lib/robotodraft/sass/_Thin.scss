@@ -1,0 +1,8 @@
+/* BEGIN Thin */
+@font-face {
+	font-family: RobotoDraft;
+	@include fontdef-woff($RobotoDraftFontPath, $RobotoDraftFontName, $RobotoDraftFontVersion, "Thin");
+	font-weight: 100;
+	font-style: normal;
+}
+/* END Thin */

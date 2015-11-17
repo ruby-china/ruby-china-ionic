@@ -17,8 +17,13 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+$RobotoDraftFontPath: "../lib/robotodraft/fonts" !default; 
+$RobotoDraftFontName: "RobotoDraft";
+$RobotoDraftFontVersion: "1.0.0";
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@import "www/lib/robotodraft/sass/robotodraft";
 
 [nav-bar-transition="ios"] [nav-bar="active"] .bar,
 [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
