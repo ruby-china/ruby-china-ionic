@@ -1,0 +1,17 @@
+<ion-view id="topics" view-title="Ruby China" ng-cont>
+  <ion-content>
+    <ion-refresher pulling-text="下拉刷新..." spinner="ios" on-refresh="vm.doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-avatar" ui-sref="app.topic({topic_id: topic.id})" ng-repeat="topic in vm.topics.items" ng-if="!topic.deleted">
+        <!-- <img ng-src="{{topic.user.avatar_url}}" alt="{{ topic.user.login }}"> -->
+        <ionic-letter-avatar data="{{ topic.user.login }}" shape="round"></ionic-letter-avatar>
+        <h2>{{ topic.title }}</h2>
+        <p>{{ topic.user.login }}</p>
+        <span class="badge badge-clear">{{ topic.replies_count }}</span>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="vm.hasMore()" on-infinite="vm.loadMore()">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

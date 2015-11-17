@@ -1,0 +1,15 @@
+#main-menu {
+  .list {
+    .item-avatar {
+      border-bottom: 1px solid $light-gray;
+    }
+    &.bottom {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .item {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+body {
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 300;
+}
+
+.bg-assertive {
+  background-color: $assertive;
+  color: $light;
+}
+
+.bg-positive {
+  background-color: $positive;
+  color: $light;
+}
+
+.bg-stable {
+  background-color: $stable;
+}
+
+.bg-light-gray {
+  background-color: $light-gray;
+}
+
+.gray {
+  color: $gray;
+}
+
+.black {
+  color: black;
+}
+
+.item-narrow {
+  min-height: 40px !important;
+  padding: 10px;
+  .badge {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+}
+
+.item-divider-narrow {
+  min-height: 15px !important;
+}

@@ -1,0 +1,34 @@
+#topic-detail {
+  .list {
+    .item-avatar {
+      min-height: 48px;
+    }
+    .item {
+      border-bottom: 1px solid $light-gray;
+      span {
+        font-size: 12px;
+      }
+      h2,
+      h3 {
+        font-weight: 300;
+      }
+      h2 {
+        line-height: 40px;
+      }
+      h3 {
+        font-size: 18px;
+      }
+      &.reply {
+        padding-top: 0;
+        .item-avatar {
+          min-height: 40px;
+          padding-left: 50px;
+          img:first-child {
+            position: absolute;
+            top: 10px;
+          }
+        }
+      }
+    }
+  }
+}

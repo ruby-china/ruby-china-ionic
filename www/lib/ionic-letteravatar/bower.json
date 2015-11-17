@@ -1,0 +1,17 @@
+{
+    "name": "ionic-letteravatar",
+ 	"main": "./ionic-letteravatar.js",
+	"version": "1.0.0",
+	"keywords": [
+		"angular",
+		"ngletteravatar",
+		"letter avatar",
+		"gmail like letter icon",
+		"letter image",
+		"ionic-letteravatar",
+		"ionic letter avatar"
+	],
+	  "dependencies": {
+		"angular": "*"
+	  }
+}

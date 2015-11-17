@@ -1,0 +1,80 @@
+#user-profile {
+  .list {
+    .item {
+      margin-bottom: 1px;
+    }
+    .item-avatar,
+    .item-follow .col,
+    .item-narrow {
+      background-color: white;
+    }
+    .item-divider {
+      padding: 0;
+      border-top: none;
+      background-color: #F9F9F9;
+      line-height: inherit;
+      height: auto;
+      .row {
+        .button-round {
+          max-height: 30px;
+          max-width: 100px;
+          padding: 0 20px;
+          border-radius: 15px;
+          background-color: #EBEBEB;
+          .icon,
+          .icon:before {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .item-avatar {
+      min-height: 100px;
+      padding: 20px;
+      text-align: center;
+      img:first-child {
+        max-width: 80px;
+        max-height: 80px;
+        position: initial;
+      }
+      .level {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 3px;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 400;
+      }
+    }
+    .item-follow {
+      padding: 0;
+      color: black;
+      .row {
+        padding: 1px;
+        .col {
+          padding: 20px 20px 10px;
+          &:first-child {
+            margin-right: 1px;
+          }
+        }
+        .positive {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .item-info {
+      padding-left: 20px;
+      i {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      span.text {
+        line-height: 20px;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+}
