@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "angular-moment": "~0.10.3",
-    "angular-oauth2": "~3.0.1"
+    "angular-oauth2": "~3.0.1",
+    "ngCordova": "~0.1.23-alpha"
   }
 }

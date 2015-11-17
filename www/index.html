@@ -13,6 +13,12 @@
   <!-- endbuild -->
   <!-- bower:js -->
   <script src="lib/angular/angular.js"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src="lib/angular-moment/angular-moment.js"></script>
+  <script src="lib/angular-cookies/angular-cookies.js"></script>
+  <script src="lib/query-string/query-string.js"></script>
+  <script src="lib/angular-oauth2/dist/angular-oauth2.js"></script>
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
   <script src="lib/angular-animate/angular-animate.js"></script>
   <script src="lib/angular-sanitize/angular-sanitize.js"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
@@ -23,14 +29,28 @@
   <script src="cordova.js"></script>
   <!-- build:js dist_js/app.js -->
   <!-- inject:js -->
+  <script src="annotated_js/controllers/controller.module.js"></script>
+  <script src="annotated_js/core/core.module.js"></script>
+  <script src="annotated_js/filters/filter.module.js"></script>
+  <script src="annotated_js/services/service.module.js"></script>
   <script src="annotated_js/app.js"></script>
-  <script src="annotated_js/controllers.js"></script>
   <script src="annotated_js/templates.js"></script>
+  <script src="annotated_js/controllers/main.controller.js"></script>
+  <script src="annotated_js/controllers/topics.controller.js"></script>
+  <script src="annotated_js/core/config.core.js"></script>
+  <script src="annotated_js/core/constant.core.js"></script>
+  <script src="annotated_js/core/route.core.js"></script>
+  <script src="annotated_js/core/run.core.js"></script>
+  <script src="annotated_js/filters/exlink.filter.js"></script>
+  <script src="annotated_js/services/auth.service.js"></script>
+  <script src="annotated_js/services/base.service.js"></script>
+  <script src="annotated_js/services/topic.service.js"></script>
+  <script src="annotated_js/services/user.service.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </head>
 
-<body ng-app="starter">
+<body ng-app="rbchina" ng-strict-di>
   <ion-nav-view></ion-nav-view>
 </body>
 
