@@ -3,5 +3,9 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.1.1"
+  },
+  "dependencies": {
+    "angular-moment": "~0.10.3",
+    "angular-oauth2": "~3.0.1"
   }
 }
