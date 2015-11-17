@@ -2,7 +2,7 @@
   "name": "RubyChina App",
   "app_id": "",
   "gulpStartupTasks": [
-    "sass",
+    "wiredep",
     "watch"
   ],
   "watchPatterns": [

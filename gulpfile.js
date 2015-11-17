@@ -19,7 +19,7 @@ var paths = {
   dist: ['./www/dist/**']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'wiredep']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/style.scss')
