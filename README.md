@@ -31,7 +31,7 @@
 - 使用 `bower install ***` 安装组件时，最好加上 `--save` 参数。如果此时开发服务器正打开着，Gulp会自动将组件文件引用至`index.html`
 如果没有打开开发服务器时，可以运行 `$ gulp` 自动部署文件
 - 使用 `npm install ***` 安装组件时，最好加上 `--save-dev` 参数。
-- 完成开发时，需要部署到iOS，运行 `$ ionic build ios`（暂时只支持iOS）
+- 完成开发时，需要部署到iOS，先运行 `$ gulp useref` 生成本地 dist 目录，然后再运行 `$ ionic build ios` 生成 iOS 工程（暂时只支持iOS）
 
 ## 在 Chrome 里运行
 项目下载后（并已安装 Ionic）可以先在 Chrome 里运行查看效果

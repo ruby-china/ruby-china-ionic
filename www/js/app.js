@@ -7,6 +7,6 @@
       'app.filter',
       'app.controller',
       'app.service'
-    ])
+    ]);
 
 })();
