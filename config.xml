@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-  <widget id="org.rubychina.app" version="0.2.0 alpha" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <widget id="org.rubychina.app" version="0.2.1 alpha" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>RubyChina App</name>
     <description>
       Ruby China for iOS and Android.
