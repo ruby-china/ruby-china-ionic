@@ -4215,16 +4215,22 @@ body {
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 300; }
 
-.bg-assertive {
-  background-color: #ef473a;
+.bg-assertive,
+.bg-positive,
+.bg-balanced {
   color: #fff; }
 
+.bg-assertive {
+  background-color: #ef473a; }
+
 .bg-positive {
-  background-color: #387ef5;
-  color: #fff; }
+  background-color: #387ef5; }
 
 .bg-stable {
   background-color: #f8f8f8; }
+
+.bg-balanced {
+  background-color: #33cd5f; }
 
 .bg-light-gray {
   background-color: #f1f1f1; }

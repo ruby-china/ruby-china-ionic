@@ -3,18 +3,26 @@ body {
   font-weight: 300;
 }
 
+.bg-assertive,
+.bg-positive,
+.bg-balanced {
+  color: $light;
+}
+
 .bg-assertive {
   background-color: $assertive;
-  color: $light;
 }
 
 .bg-positive {
   background-color: $positive;
-  color: $light;
 }
 
 .bg-stable {
   background-color: $stable;
+}
+
+.bg-balanced {
+  background-color: $balanced;
 }
 
 .bg-light-gray {

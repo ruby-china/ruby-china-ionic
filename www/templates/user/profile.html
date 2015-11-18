@@ -16,7 +16,7 @@
       <div class="item item-avatar">
         <img ng-src="{{vm.current_user.avatar_url}}" alt="{{ vm.current_user.login }}">
         <span class="level" ng-class="{ 'bg-assertive': vm.current_user.level === 'admin', 
-          'bg-positive': vm.current_user.level === 'vip',
+          'bg-positive': vm.current_user.level === 'vip', 'bg-balanced': vm.current_user.level === 'hr',
           'bg-stable': vm.current_user.level === 'normal' }">{{ vm.current_user.level_name }}</span>
         <h2>{{ vm.current_user.name }}</h2>
         <p>
