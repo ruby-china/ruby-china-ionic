@@ -2,6 +2,7 @@
   .list {
     .item-avatar {
       min-height: 48px;
+      border-bottom: none;
     }
     .item {
       border-bottom: 1px solid $light-gray;

@@ -4258,6 +4258,8 @@ body {
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
   .markdown img {
     max-width: 100%; }
+    .markdown img.emoji {
+      width: 20px; }
   .markdown p,
   .markdown pre,
   .markdown ul,
@@ -4468,7 +4470,8 @@ body {
   right: 5px; }
 
 #topic-detail .list .item-avatar {
-  min-height: 48px; }
+  min-height: 48px;
+  border-bottom: none; }
 
 #topic-detail .list .item {
   border-bottom: 1px solid #f1f1f1; }

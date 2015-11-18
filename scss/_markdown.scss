@@ -10,6 +10,9 @@
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   img {
     max-width: 100%;
+    &.emoji {
+      width: 20px;
+    }
   }
   p,
   pre,
