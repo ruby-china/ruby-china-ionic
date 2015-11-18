@@ -9,14 +9,14 @@
   </ion-nav-bar>
   <ion-content>
     <div class="list">
-      <div class="item item-avatar">
+      <a class="item item-avatar" ui-sref="app.user({ login: vm.topic.user.login })">
         <img ng-src="{{vm.topic.user.avatar_url}}" alt="{{ vm.topic.user.login }}">
         <!-- <ionic-letter-avatar data="{{ vm.topic.user.login }}" shape="round"></ionic-letter-avatar> -->
         <h2>
           {{ vm.topic.user.login }}
           <span class="pull-right dark">{{ vm.topic.created_at | date: 'MM月dd日' }}</span>
         </h2>
-      </div>
+      </a>
       <div class="item">
         <h3>{{ vm.topic.title }}</h3>
       </div>

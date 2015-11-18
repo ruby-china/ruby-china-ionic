@@ -8,7 +8,9 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function UserController($stateParams, BaseService, AuthService, UserService) {
+  function UserController($stateParams,
+    ionicMaterialInk, ionicMaterialMotion, $timeout,
+    BaseService, AuthService, UserService) {
     var vm = this;
     vm.current_user = {};
 
@@ -18,6 +20,11 @@
     activate();
 
     function activate() {
+      $timeout(function() {
+        ionicMaterialInk.displayEffect();
+        ionicMaterialMotion.ripple();
+      }, 0);
+      
       BaseService.showLoading('ios', '加载中...');
       return AuthService.getUserInfo($stateParams.login)
         .then(function(result) {

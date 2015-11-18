@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function TopicsController($scope, 
-    // ionicMaterialInk, ionicMaterialMotion, $timeout,
+    ionicMaterialInk, ionicMaterialMotion, $timeout,
     $stateParams, BaseService, TopicService) {
     var vm = this;
     vm.topics = {};
@@ -22,10 +22,11 @@
     activate();
 
     function activate() {
-      // $timeout(function() {
-      //   ionicMaterialInk.displayEffect();
-      //   ionicMaterialMotion.ripple();
-      // }, 0);
+      $timeout(function() {
+        ionicMaterialInk.displayEffect();
+        ionicMaterialMotion.ripple();
+      }, 0);
+      
       BaseService.showLoading('ios', '加载中...');
       loadData($stateParams.node_id, $stateParams.type)
         .then(function() {

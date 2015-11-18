@@ -56,7 +56,7 @@
         </span>
       </div>
       <div class="item item-divider item-divider-narrow"></div>
-      <div class="item item-narrow item-info">
+      <div class="item item-narrow item-info" ng-if="vm.current_user.email">
         <i class="mdi mdi-email balanced"></i>
         <span class="text black">{{ vm.current_user.email }}</span>
       </div>

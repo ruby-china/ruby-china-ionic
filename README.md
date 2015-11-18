@@ -24,18 +24,20 @@
 - NodeJS 安装请移步：[Install NodeJS](https://nodejs.org/en/)
 - Ionic 安装请移步：[Install Ionic](http://ionicframework.com/getting-started/)
 
-进入项目根目录执行：`$ npm install && bower install`
+进入项目根目录执行：`$ npm install && bower install`  
+添加 iOS 工程 `$ cordova platform add ios`  
+添加 Android 工程 `$ cordova platform add android`
 
 ## 开发（Development）
-在开发程序时，请使用`$ foreman start`打开开发服务器，并使用 Chrome 作为调试工具
-- 使用 `bower install ***` 安装组件时，最好加上 `--save` 参数。如果此时开发服务器正打开着，Gulp会自动将组件文件引用至`index.html`
+在开发程序时，请使用 `$ foreman start` 打开开发服务器，并使用 Chrome 作为调试工具
+- 使用 `bower install ***` 安装组件时，最好加上 `--save` 参数。如果此时开发服务器正打开着，Gulp会自动将组件文件引用至 `index.html`
 如果没有打开开发服务器时，可以运行 `$ gulp` 自动部署文件
 - 使用 `npm install ***` 安装组件时，最好加上 `--save-dev` 参数。
 - 完成开发时，需要部署到iOS，先运行 `$ gulp useref` 生成本地 dist 目录，然后再运行 `$ ionic build ios` 生成 iOS 工程（暂时只支持iOS）
 
 ## 在 Chrome 里运行
 项目下载后（并已安装 Ionic）可以先在 Chrome 里运行查看效果
-在终端中运行 `$ ionic serve` 会自动打开系统默认浏览器，如果默认浏览器是 Safari，可以将地址拷贝到 Chrome 中再打开
+在终端中运行 `$ foreman start` ，然后打开 Chrome 并输入： `http://localhost:8100` 访问
 
 打开后效果如下：
 > 此时可以自行选择设备查看
