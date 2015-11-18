@@ -11,7 +11,7 @@
         <span class="badge badge-clear">{{ topic.replies_count }}</span>
       </a>
     </div>
-    <ion-infinite-scroll ng-if="vm.hasMore()" on-infinite="vm.loadMore()">
+    <ion-infinite-scroll on-infinite="vm.loadMore()" immediate-check="false" distance="1%">
     </ion-infinite-scroll>
   </ion-content>
 </ion-view>

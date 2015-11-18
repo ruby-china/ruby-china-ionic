@@ -22,16 +22,16 @@
 
     return service;
 
-    function getTopics(node_id, type) {
+    function getTopics(node_id, type, offset) {
       var q = $q.defer();
       var url = rbchina_api.url_prefix + '/topics.json';
-      if (node_id) {
-        url = url.concat('?node_id=' + node_id);
-      }
-      if (type) {
-        url = url.concat('?type=' + type);
-      }
-      $http.get(url)
+      $http.get(url, {
+          params: {
+            node_id: node_id,
+            type: type,
+            offset: offset
+          }
+        })
         .success(function(result) {
           result.header_template = _.result(_.findWhere(topics_headers, {
             node_id: node_id
