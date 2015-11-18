@@ -48,6 +48,16 @@ body {
   }
 }
 
+.item-block {
+  min-height: 40px !important;
+  padding: 0;
+}
+
 .item-divider-narrow {
   min-height: 15px !important;
+}
+
+.textarea {
+  width: 100%;
+  resize: none;
 }

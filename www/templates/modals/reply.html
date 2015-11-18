@@ -1,0 +1,29 @@
+<ion-modal-view id="reply-modal">
+  <div class="bar bar-header bar-stable flat">
+    <button class="button button-icon icon mdi mdi-close flat pull-left" ng-click="vm.closeReplyModal()"></button>
+    <h1 class="title">回复</h1>
+    <button class="button button-icon icon mdi mdi-dots-vertical flat pull-right" ng-click="vm.moreAction()"></button>
+  </div>
+  <ion-content class="has-header" scroll="false">
+    <div class="list">
+      <div class="item item-block item-reply">
+        <textarea id="topic-reply" ng-model="vm.reply_content" class="textarea" rows="14" placeholder="说点什么"></textarea>
+      </div>
+      <div class="item item-block">
+        <div class="row">
+        <!-- 下一步开发 -->
+<!--           <div class="col">
+            <button class="button button-block button-balanced">
+              <i class="mdi mdi-eye"></i> 预览
+            </button>
+          </div> -->
+          <div class="col">
+            <button class="button button-block button-positive">
+              <i class="mdi mdi-send"></i> 提交
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

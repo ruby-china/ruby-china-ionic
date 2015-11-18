@@ -113,7 +113,7 @@
     }
 
     function isAuthencated() {
-      return !!authToken;
+      return !!authToken && getCurrentUser();
     }
 
     function getAccessToken() {

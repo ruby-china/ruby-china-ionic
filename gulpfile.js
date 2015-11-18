@@ -72,7 +72,7 @@ gulp.task('templateCache', function() {
 
 gulp.task('clean-dist', function() {
   return gulp
-    .src(config.dist, {
+    .src(paths.dist, {
       read: false
     })
     .pipe($.rimraf());
@@ -109,7 +109,7 @@ gulp.task('wiredep', ['ngAnnotate'], function() {
 });
 
 
-gulp.task('useref', ['wiredep'], function() {
+gulp.task('useref', ['clean-dist', 'wiredep'], function() {
   return gulp.src(paths.useref)
     .pipe($.useref())
     .pipe(gulpif('*.js', $.uglify()))

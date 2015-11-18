@@ -4211,6 +4211,9 @@ For example, you might change some of the default colors:
 .item-content p {
   white-space: normal; }
 
+.action-sheet .button {
+  box-shadow: none; }
+
 body {
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 300; }
@@ -4250,8 +4253,16 @@ body {
     top: 10px;
     right: 20px; }
 
+.item-block {
+  min-height: 40px !important;
+  padding: 0; }
+
 .item-divider-narrow {
   min-height: 15px !important; }
+
+.textarea {
+  width: 100%;
+  resize: none; }
 
 /* Markdown Styles */
 .markdown {
@@ -4498,6 +4509,14 @@ body {
       #topic-detail .list .item.reply .item-avatar img:first-child {
         position: absolute;
         top: 10px; }
+
+#reply-modal {
+  min-height: 60%;
+  top: 40%; }
+  #reply-modal .item-reply {
+    min-height: 250px; }
+    #reply-modal .item-reply #topic-reply {
+      padding: 10px; }
 
 #user-profile .list .item {
   margin-bottom: 1px; }

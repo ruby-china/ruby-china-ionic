@@ -33,3 +33,14 @@
     }
   }
 }
+
+#reply-modal {
+  min-height: 60%;
+  top: 40%;
+  .item-reply {
+    min-height: 250px;
+    #topic-reply {
+      padding: 10px;
+    }
+  }
+}

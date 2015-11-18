@@ -9,8 +9,8 @@
 
   /* @ngInject */
   function BaseService($q, $http, $ionicLoading, $ionicPopup,
-    $ionicModal, $ionicActionSheet) {
-    
+    $ionicModal, $ionicActionSheet, AuthService, rbchina_api) {
+
     var modals = [];
     var service = {
       // 弹出框
@@ -28,6 +28,8 @@
       reserveModalById: reserveModalById,
       // ActionSheet
       showActionSheet: showActionSheet,
+      // 上传图片
+      uploadPicture: uploadPicture
     };
 
     return service;
@@ -64,7 +66,8 @@
       return $ionicLoading.show({
         template: '<ion-spinner icon="' + style +
           '" class="spinner-light"></ion-spinner><p class="text">' +
-          message + '</p>'
+          message + '</p>',
+        duration: 6000 // 为避免卡死，6秒后如无反应则隐藏
       });
     }
 
@@ -142,6 +145,57 @@
       };
       return $ionicActionSheet.show(options);
     }
+
+    // 上传图片
+    function uploadPicture(file) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/photos.json';
+      showLoading('lines', '上传中...');
+      var data = new FormData();
+      var ext = file.split(',')[0].split(':')[1].split(';')[0].split('/')[1];
+      data.append("file", dataURItoBlob(file), "photo." + ext); // 调了半天原来是这里Blob要加个name
+      $http.post(url, data, {
+          params: {
+            access_token: AuthService.getAccessToken()
+          },
+          transformRequest: angular.identity,
+          headers: {
+            'Content-Type': undefined
+          }
+        })
+        .success(function(result) {
+          hideLoading();
+          q.resolve(result);
+        })
+        .error(function(err) {
+          hideLoading();
+          q.reject(err);
+        });
+      return q.promise;
+    }
+  }
+
+  // base64字符串转图片格式
+  function dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+      byteString = atob(dataURI.split(',')[1]);
+    else
+      byteString = unescape(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ia], {
+      name: 'photo',
+      type: mimeString
+    });
   }
 
 })();
