@@ -18,6 +18,18 @@
   padding: 0;
 }
 
+.nav-bar-container { height: 35px; }
+.bar-header { box-shadow: 0 0px 3px 0 rgba(0, 0, 0, .3) !important; }
+.bar-header.flat { box-shadow: 0 0px 3px 0 rgba(0, 0, 0, .2) !important; }
+.bar {
+  height: 35px;
+  box-shadow: 0 0 0 0;
+  border: 0px solid red !important;
+  .button { width: 44px; height: 35px; max-width: 45px; min-width: 44px; max-height: 35px; min-height: 34px; font-size: 24px;}
+  .title { height: 34px; line-height: 34px; font-size: 14px; text-align: left; }
+}
+.has-header { top: 35px; }
+
 .bar .buttons.pull-right,
 .bar .title+.button:last-child,
 .bar .title+.buttons,
@@ -30,6 +42,10 @@
 
 .list .item-avatar {
   min-height: 80px;
+}
+
+.list .item {
+  border-bottom: .05em solid #e0e0e0;
 }
 
 .card>.item-avatar,
@@ -56,6 +72,7 @@
 .item-content h5,
 .item-content h6,
 .item-content p {
+  font-family: RobotoDraft, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   white-space: normal;
 }
 

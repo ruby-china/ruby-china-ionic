@@ -7,7 +7,7 @@
         <!-- <img ng-src="{{topic.user.avatar_url}}" alt="{{ topic.user.login }}"> -->
         <ionic-letter-avatar data="{{ topic.user.login }}" shape="round"></ionic-letter-avatar>
         <h2>{{ topic.title }}</h2>
-        <p>{{ topic.user.login }}</p>
+        <div class="author">{{ topic.user.login }}</div>
         <span class="badge badge-clear">{{ topic.replies_count }}</span>
       </a>
     </div>

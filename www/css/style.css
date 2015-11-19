@@ -4174,6 +4174,36 @@ For example, you might change some of the default colors:
 .flat.tabs {
   padding: 0; }
 
+.nav-bar-container {
+  height: 35px; }
+
+.bar-header {
+  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.3) !important; }
+
+.bar-header.flat {
+  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.2) !important; }
+
+.bar {
+  height: 35px;
+  box-shadow: 0 0 0 0;
+  border: 0px solid red !important; }
+  .bar .button {
+    width: 44px;
+    height: 35px;
+    max-width: 45px;
+    min-width: 44px;
+    max-height: 35px;
+    min-height: 34px;
+    font-size: 24px; }
+  .bar .title {
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    text-align: left; }
+
+.has-header {
+  top: 35px; }
+
 .bar .buttons.pull-right,
 .bar .title + .button:last-child,
 .bar .title + .buttons,
@@ -4185,6 +4215,9 @@ For example, you might change some of the default colors:
 
 .list .item-avatar {
   min-height: 80px; }
+
+.list .item {
+  border-bottom: .05em solid #e0e0e0; }
 
 .card > .item-avatar,
 .item-avatar,
@@ -4209,13 +4242,14 @@ For example, you might change some of the default colors:
 .item-content h5,
 .item-content h6,
 .item-content p {
+  font-family: RobotoDraft, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   white-space: normal; }
 
 .action-sheet .button {
   box-shadow: none; }
 
 body {
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: RobotoDraft, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 300; }
 
 .bg-assertive,
@@ -4272,7 +4306,7 @@ body {
   font-size: 14px;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
+  font-family: Roboto, "RobotoDraft", "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
   .markdown img {
     max-width: 100%; }
     .markdown img.emoji {
@@ -4469,22 +4503,42 @@ body {
   .markdown a.at_user {
     color: #0069D6 !important; }
 
-#main-menu .list .item-avatar {
-  border-bottom: 1px solid #f1f1f1; }
-
 #main-menu .list.bottom {
   position: absolute;
   bottom: 0;
   width: 100%; }
 
 #main-menu .list .item {
-  font-size: 16px; }
+  min-height: 41px;
+  font-size: 14px; }
+  #main-menu .list .item .icon {
+    font-size: 24px; }
 
-#topics .list .item h2 {
-  padding-right: 20px; }
+.user-bar {
+  background: #FFF;
+  border-bottom: 2px solid #D2D2D2; }
+  .user-bar h2 {
+    font-size: 15px;
+    color: #222;
+    font-weight: 400; }
+  .user-bar .level {
+    font-size: 10px;
+    color: #9B9B9B; }
 
-#topics .list .item .badge {
-  right: 5px; }
+#topics .list .item {
+  min-height: 55px; }
+  #topics .list .item h2 {
+    padding-right: 20px;
+    font-size: 13px;
+    font-weight: 350; }
+  #topics .list .item .author {
+    font-size: 11px;
+    color: #959595; }
+  #topics .list .item .badge {
+    color: #ABABAB;
+    font-size: 12px;
+    font-weight: normal;
+    right: 5px; }
 
 #topic-detail .list .item-avatar {
   min-height: 48px;

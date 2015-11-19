@@ -1,10 +1,20 @@
 #topics {
   .list {
     .item {
+      min-height: 55px;
       h2 {
         padding-right: 20px;
+        font-size: 13px;
+        font-weight: 350;
+      }
+      .author {
+        font-size: 11px;
+        color: #959595;
       }
       .badge {
+        color: #ABABAB;
+        font-size: 12px;
+        font-weight: normal;
         right: 5px;
       }
     }
