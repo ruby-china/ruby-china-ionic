@@ -33,8 +33,8 @@
         <a menu-close class="item item-icon-left" ui-sref="app.jobs">
           <i class="icon mdi mdi-account-location energized"></i> 招聘
         </a>
-        <a menu-close class="item item-icon-left" ui-sref="app.nopoint" 
-          ng-if="vm.current_user && vm.current_user.login === 'rubychina_app'">
+        <a menu-close class="item item-icon-left" ui-sref="app.nopoint"
+          ng-if="vm.current_user && (vm.current_user.login === 'rubychina_app' || vm.current_user.level === 'admin')">
           <i class="icon mdi mdi-crosshairs stable"></i> NoPoint
         </a>
         <a menu-close class="item item-icon-left" ng-if="vm.is_logined">
