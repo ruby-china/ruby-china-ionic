@@ -38,8 +38,34 @@
           }
         }
       })
+      .state('app.rbdev', {
+        url: '/rbdev',
+        params: {
+          node_id: '23', // 社区开发的ID是23
+          node_name: '社区开发'
+        },
+        views: {
+          'menuContent': {
+            templateUrl: 'topics.html',
+            controller: 'TopicsController as vm'
+          }
+        }
+      })
+      .state('app.nopoint',{
+        url: '/nopoint',
+        params: {
+          node_id: '61', // NoPoint的ID是61
+          node_name: 'NoPoint'
+        },
+        views: {
+          'menuContent': {
+            templateUrl: 'topics.html',
+            controller: 'TopicsController as vm'
+          }
+        }
+      })
       .state('app.topic', {
-        url: '/topics/:topic_id',
+        url: '/topic/:topic_id',
         views: {
           'menuContent': {
             templateUrl: 'topic.html',

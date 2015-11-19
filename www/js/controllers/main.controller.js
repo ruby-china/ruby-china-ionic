@@ -38,6 +38,7 @@
       vm.errorMsg = err;
       vm.current_user = AuthService.getCurrentUser() || {};
       vm.is_logined = AuthService.isAuthencated();
+      vm.account = {};
     }
 
     function showLoginModal() {
