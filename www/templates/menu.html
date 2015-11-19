@@ -13,18 +13,13 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">
-        <b><span class="assertive">Ruby</span> China</b>
-      </h1>
-    </ion-header-bar>
     <ion-content scroll="false">
       <div class="list">
-        <a menu-close class="item item-avatar" ng-if="vm.is_logined" ui-sref="app.user({login: vm.current_user.login})">
+        <a menu-close class="item item-avatar user-bar" ng-if="vm.is_logined" ui-sref="app.user({login: vm.current_user.login})">
           <!-- <img ng-src="{{vm.current_user.avatar_url}}" alt="用户头像" width="56"> -->
           <ionic-letter-avatar data="{{ vm.current_user.login }}" shape="round"></ionic-letter-avatar>
           <h2>{{ vm.current_user.login }}</h2>
-          <p>{{ vm.current_user.level_name }}</p>
+          <div class="level">{{ vm.current_user.level_name }}</div>
         </a>
         <a menu-close class="item item-icon-left" ng-click="vm.showLoginModal()" ng-if="!vm.is_logined">
           <i class="icon mdi mdi-login"></i> 登录
@@ -37,6 +32,10 @@
         </a>
         <a menu-close class="item item-icon-left" ui-sref="app.jobs">
           <i class="icon mdi mdi-account-location energized"></i> 招聘
+        </a>
+        <a menu-close class="item item-icon-left" ui-sref="app.nopoint" 
+          ng-if="vm.current_user && vm.current_user.login === 'rubychina_app'">
+          <i class="icon mdi mdi-crosshairs stable"></i> NoPoint
         </a>
         <a menu-close class="item item-icon-left" ng-if="vm.is_logined">
           <i class="icon mdi mdi-pencil balanced"></i> 发布新话题

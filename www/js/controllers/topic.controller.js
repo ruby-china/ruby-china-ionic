@@ -14,12 +14,14 @@
     var vm = this;
     vm.is_logined = false;
     vm.topic = {};
+    vm.replies = [];
     vm.reply_content = "";
 
     // Functions
     vm.showReplyModal = showReplyModal;
     vm.closeReplyModal = closeReplyModal;
     vm.moreAction = moreAction;
+    vm.createReply = createReply;
 
     activate();
 
@@ -108,6 +110,22 @@
         }
       }
       return $ionicActionSheet.show(options);
+    }
+
+
+    // 提交回帖
+    function createReply() {
+      BaseService.showLoading('ios', '提交中...');
+      TopicService.createReply($stateParams.topic_id, vm.reply_content)
+        .then(function(result) {
+          closeReplyModal();
+          vm.replies.push(result.reply);
+          vm.reply_content = "";
+          BaseService.hideLoading();
+        }).catch(function(err) {
+          BaseService.hideLoading();
+          BaseService.alert('提交回复', '', '提交失败！');
+        })
     }
 
     $scope.$on('$ionicView.leave', function(viewInfo, state) {

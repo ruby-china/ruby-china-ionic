@@ -7,7 +7,7 @@
   <ion-content class="has-header" scroll="false">
     <div class="list">
       <div class="item item-block item-reply">
-        <textarea id="topic-reply" ng-model="vm.reply_content" class="textarea" rows="14" placeholder="说点什么"></textarea>
+        <textarea id="topic-reply" ng-model="vm.reply_content" class="textarea" rows="15" placeholder="说点什么"></textarea>
       </div>
       <div class="item item-block">
         <div class="row">
@@ -18,7 +18,7 @@
             </button>
           </div> -->
           <div class="col">
-            <button class="button button-block button-positive">
+            <button class="button button-block button-positive" ng-click="vm.createReply()">
               <i class="mdi mdi-send"></i> 提交
             </button>
           </div>
