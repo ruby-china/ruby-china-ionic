@@ -13,7 +13,7 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
   <ion-side-menu side="left">
-    <ion-content scroll="false">
+    <ion-content class="has-status-bar-ios" scroll="false">
       <div class="list">
         <a menu-close class="item item-avatar user-bar" ng-if="vm.is_logined" ui-sref="app.user({login: vm.current_user.login})">
           <!-- <img ng-src="{{vm.current_user.avatar_url}}" alt="用户头像" width="56"> -->
@@ -37,7 +37,7 @@
           ng-if="vm.current_user && (vm.current_user.login === 'rubychina_app' || vm.current_user.level === 'admin')">
           <i class="icon mdi mdi-crosshairs stable"></i> NoPoint
         </a>
-        <a menu-close class="item item-icon-left" ng-if="vm.is_logined">
+        <a menu-close class="item item-icon-left" ng-click="vm.showNewTopicModal()" ng-if="vm.is_logined">
           <i class="icon mdi mdi-pencil balanced"></i> 发布新话题
         </a>
       </div>

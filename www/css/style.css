@@ -4291,12 +4291,22 @@ body {
   min-height: 40px !important;
   padding: 0; }
 
+.item-bottom {
+  position: absolute;
+  bottom: 0; }
+
 .item-divider-narrow {
   min-height: 15px !important; }
 
 .textarea {
   width: 100%;
   resize: none; }
+
+.text-sm {
+  font-size: 14px; }
+
+.has-status-bar-ios {
+  top: 20px; }
 
 /* Markdown Styles */
 .markdown {
@@ -4524,6 +4534,11 @@ body {
   .user-bar .level {
     font-size: 10px;
     color: #9B9B9B; }
+
+#new-topic-modal .item-new-topic {
+  min-height: 250px; }
+  #new-topic-modal .item-new-topic #new-topic {
+    padding: 10px; }
 
 #topics .list .item {
   min-height: 55px; }

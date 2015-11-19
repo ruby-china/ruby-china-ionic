@@ -8,17 +8,32 @@
     .item {
       min-height: 41px;
       font-size: 14px;
-
-      .icon { font-size: 24px; }
+      .icon {
+        font-size: 24px;
+      }
     }
   }
 }
 
-
 .user-bar {
   background: #FFF;
   border-bottom: 2px solid #D2D2D2;
+  h2 {
+    font-size: 15px;
+    color: #222;
+    font-weight: 400;
+  }
+  .level {
+    font-size: 10px;
+    color: #9B9B9B;
+  }
+}
 
-  h2 { font-size: 15px; color: #222; font-weight: 400; }
-  .level { font-size: 10px; color: #9B9B9B; }
+#new-topic-modal {
+  .item-new-topic {
+    min-height: 250px;
+    #new-topic {
+      padding: 10px;
+    }
+  }
 }

@@ -1,0 +1,42 @@
+<ion-modal-view id="new-topic-modal">
+  <div class="bar bar-header bar-stable flat">
+    <button class="button button-icon icon mdi mdi-close flat pull-left" ng-click="vm.closeNewTopicModal()"></button>
+    <h1 class="title"></h1>
+    <button class="button button-icon icon mdi mdi-dots-vertical flat pull-right" ng-click="vm.moreAction()"></button>
+  </div>
+  <ion-content class="has-header" scroll="false">
+    <div class="list" style="height: 100%;">
+      <label class="item item-input">
+        <i class="icon mdi mdi-message-draw placeholder-icon"></i>
+        <input type="text" ng-model="vm.new_topic.title" placeholder="主题">
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label text-sm" style="color: #aaa;">
+          <i class="icon mdi mdi-playlist-plus"></i> 话题节点
+        </div>
+        <select style="color: #aaa;" ng-model="vm.new_topic.node_id">
+          <option ng-repeat="node in vm.nodes" ng-value="node.id">{{ node.name }}</option>
+        </select>
+      </label>
+      <div class="item item-narrow item-new-topic">
+        <textarea id="new-topic" ng-model="vm.new_topic.body" class="textarea" rows="20" placeholder="说点什么"></textarea>
+      </div>
+      <div class="item item-block">
+      </div>
+      <div class="item item-block item-bottom">
+        <div class="row">
+          <!--           <div class="col">
+            <button class="button button-block button-balanced">
+              <i class="mdi mdi-eye"></i> 预览
+            </button>
+          </div> -->
+          <div class="col">
+            <button class="button button-block button-positive" ng-disabled="!vm.new_topic.title || !vm.new_topic.node_id || !vm.new_topic.body" ng-click="vm.createTopic()">
+              <i class="mdi mdi-send"></i> 提交
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

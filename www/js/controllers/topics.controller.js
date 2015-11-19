@@ -52,7 +52,7 @@
 
     function doRefresh() {
       vm.current_page = 1;
-      loadData($stateParams.node_id, $stateParams.type, 1)
+      loadData($stateParams.node_id, $stateParams.type)
         .then(function(result) {
           vm.topics = result;
           $scope.$broadcast('scroll.refreshComplete');
@@ -72,6 +72,10 @@
           }
         });
     }
+
+    $scope.$on('new_topic_success', function() {
+      doRefresh();
+    });
   }
 
 })();

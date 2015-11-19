@@ -17,7 +17,9 @@
     var service = {
       getTopics: getTopics,
       getTopicWithReplies: getTopicWithReplies,
-      createReply: createReply
+      createReply: createReply,
+      getAllNodes: getAllNodes,
+      createTopic: createTopic
     };
 
     return service;
@@ -71,11 +73,44 @@
       return q.promise;
     }
 
+    // 提交回复
     function createReply(topic_id, body) {
       var q = $q.defer();
       var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/replies.json';
       var data = {
         body: body,
+        access_token: AuthService.getAccessToken()
+      };
+      $http.post(url, data)
+        .success(function(result) {
+          q.resolve(result);
+        }).error(function(err) {
+          q.reject(err);
+        });
+      return q.promise;
+    }
+
+    // 获取所有节点名称
+    function getAllNodes() {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/nodes.json';
+      $http.get(url)
+        .success(function(result) {
+          q.resolve(result);
+        }).error(function(err) {
+          q.reject(err);
+        });
+      return q.promise;
+    }
+
+    // 创建话题
+    function createTopic(title, body, node_id) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/topics.json';
+      var data = {
+        title: title,
+        body: body,
+        node_id: node_id,
         access_token: AuthService.getAccessToken()
       };
       $http.post(url, data)
