@@ -4615,9 +4615,9 @@ body {
   #user-profile .list .item-divider .row .button-round {
     max-height: 30px;
     max-width: 100px;
-    padding: 0 20px;
+    padding: 0 10px;
     border-radius: 15px;
-    background-color: #EBEBEB; }
+    width: 100px; }
     #user-profile .list .item-divider .row .button-round .icon,
     #user-profile .list .item-divider .row .button-round .icon:before {
       font-size: 20px; }

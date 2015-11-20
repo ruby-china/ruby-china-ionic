@@ -11,7 +11,8 @@
   function UserService($q, $http, AuthService, rbchina_api) {
     var service = {
       getUserTopics: getUserTopics,
-      getUserNotifications: getUserNotifications
+      getUserNotifications: getUserNotifications,
+      userAction: userAction
     };
 
     return service;

@@ -59,7 +59,11 @@
     function getUserInfo(login) {
       var q = $q.defer();
       var url = rbchina_api.url_prefix + '/users/' + login + '.json';
-      $http.get(url)
+      $http.get(url, {
+          params: {
+            access_token: authToken
+          }
+        })
         .success(function(result) {
           q.resolve(result);
         }).error(function(err) {
