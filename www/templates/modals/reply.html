@@ -18,7 +18,8 @@
             </button>
           </div> -->
           <div class="col">
-            <button class="button button-block button-positive" ng-click="vm.createReply()">
+            <button class="button button-block button-positive" 
+              ng-disabled="!vm.reply_content" ng-click="vm.createReply()">
               <i class="mdi mdi-send"></i> 提交
             </button>
           </div>
