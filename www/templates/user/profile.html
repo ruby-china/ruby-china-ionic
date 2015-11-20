@@ -15,7 +15,7 @@
     <div class="list">
       <div class="item item-avatar">
         <img ng-src="{{vm.user.avatar_url}}" alt="{{ vm.user.login }}">
-        <span class="level" ng-class="{ 'bg-assertive': vm.user.level === 'admin', 
+        <span class="level" ng-class="{ 'bg-assertive': vm.user.level === 'admin',
           'bg-positive': vm.user.level === 'vip', 'bg-balanced': vm.user.level === 'hr',
           'bg-stable': vm.user.level === 'normal' }">{{ vm.user.level_name }}</span>
         <h2>{{ vm.user.name }}</h2>
@@ -26,12 +26,12 @@
       <div class="item item-divider" ng-if="!vm.isSelf()">
         <div class="row">
           <div class="col text-center">
-            <button class="button button-small button-round" ng-click="vm.toggleFollow()" ng-class="{ 'flat button-positive': vm.is_follow, 'button-stable': !vm.is_follow }">
+            <button class="button button-small button-round" ng-click="vm.toggleFollow()" ng-class="{ 'flat active': vm.is_follow, 'button-stable': !vm.is_follow }">
               <i class="icon mdi mdi-account-circle"></i> {{ vm.is_follow? '已关注':'关注' }}
             </button>
           </div>
           <div class="col text-center">
-            <button class="button button-small button-round" ng-click="vm.toggleBlock()" ng-class="{ 'flat button-assertive': vm.is_block, 'button-stable': !vm.is_block }">
+            <button class="button button-small button-round" ng-click="vm.toggleBlock()" ng-class="{ 'flat active': vm.is_block, 'button-stable': !vm.is_block }">
               <i class="icon mdi mdi-eye-off"></i> {{ vm.is_block? '已屏蔽':'屏蔽' }}
             </button>
           </div>
