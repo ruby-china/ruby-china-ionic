@@ -31,20 +31,19 @@
       <div class="item">
         <div class="markdown" ng-bind-html="vm.topic.body_html | externalLinks"></div>
       </div>
-      <div class="item-divider text-center">
-        <i class="mdi mdi-message-reply"></i> 回帖列表
+      <div class="item-divider replies-divider">
       </div>
       <div class="item item-narrow reply" ng-repeat="reply in vm.replies">
         <div class="row" ng-if="reply.deleted">
           <div class="col">
             <div class="text text-deleted text-center">
-              {{ $index + 1 }}楼已删除
+              {{ $index + 1 }} 楼已删除
             </div>
           </div>
         </div>
         <div class="row" ng-if="!reply.deleted">
           <div class="col item-avatar">
-            <ionic-letter-avatar data="{{ reply.user.login }}" shape="round"></ionic-letter-avatar>
+            <img ng-src="{{reply.user.avatar_url}}" alt="{{ reply.user.login }}">
             <h2>
               {{ reply.user.login }}
               <span class="pull-right gray">

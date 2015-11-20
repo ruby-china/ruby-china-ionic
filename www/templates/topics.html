@@ -4,8 +4,7 @@
     </ion-refresher>
     <div class="list">
       <a class="item item-avatar" ui-sref="app.topic({topic_id: topic.id})" ng-repeat="topic in vm.topics.items" ng-if="!topic.deleted">
-        <!-- <img ng-src="{{topic.user.avatar_url}}" alt="{{ topic.user.login }}"> -->
-        <ionic-letter-avatar data="{{ topic.user.login }}" shape="round"></ionic-letter-avatar>
+        <img ng-src="{{topic.user.avatar_url}}" alt="{{ topic.user.login }}">
         <h2>{{ topic.title }}</h2>
         <div class="author">{{ topic.user.login }}</div>
         <span class="badge badge-clear">{{ topic.replies_count }}</span>

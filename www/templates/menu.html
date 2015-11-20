@@ -16,8 +16,7 @@
     <ion-content class="has-status-bar-ios" scroll="false">
       <div class="list">
         <a menu-close class="item item-avatar user-bar" ng-if="vm.is_logined" ui-sref="app.user({login: vm.current_user.login})">
-          <!-- <img ng-src="{{vm.current_user.avatar_url}}" alt="用户头像" width="56"> -->
-          <ionic-letter-avatar data="{{ vm.current_user.login }}" shape="round"></ionic-letter-avatar>
+          <img ng-src="{{vm.current_user.avatar_url}}" alt="用户头像" width="56">
           <h2>{{ vm.current_user.login }}</h2>
           <div class="level">{{ vm.current_user.level_name }}</div>
         </a>
