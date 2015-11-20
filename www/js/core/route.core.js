@@ -51,7 +51,7 @@
           }
         }
       })
-      .state('app.nopoint',{
+      .state('app.nopoint', {
         url: '/nopoint',
         params: {
           node_id: '61', // NoPoint的ID是61

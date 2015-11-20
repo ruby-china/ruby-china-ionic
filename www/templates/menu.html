@@ -1,6 +1,6 @@
 <ion-side-menus id="main-menu" enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-assertive">
+    <ion-nav-bar back-button-type="button-icon" class="bar-assertive">
       <ion-nav-buttons side="left">
         <button class="button button-icon button-clear mdi mdi-menu" menu-toggle="left">
         </button>
@@ -32,8 +32,7 @@
         <a menu-close class="item item-icon-left" ui-sref="app.jobs">
           <i class="icon mdi mdi-account-location energized"></i> 招聘
         </a>
-        <a menu-close class="item item-icon-left" ui-sref="app.nopoint"
-          ng-if="vm.current_user && (vm.current_user.login === 'rubychina_app' || vm.current_user.level === 'admin')">
+        <a menu-close class="item item-icon-left" ui-sref="app.nopoint" ng-if="vm.current_user && (vm.current_user.login === 'rubychina_app' || vm.current_user.level === 'admin')">
           <i class="icon mdi mdi-crosshairs stable"></i> NoPoint
         </a>
         <a menu-close class="item item-icon-left" ng-click="vm.showNewTopicModal()" ng-if="vm.is_logined">

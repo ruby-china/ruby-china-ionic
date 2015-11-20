@@ -28,7 +28,7 @@
 添加 Android 工程 `$ cordova platform add android`
 
 ## 开发（Development）
-在开发程序时，请使用 `$ foreman start` 打开开发服务器，并使用 Chrome 作为调试工具
+在开发程序时，请使用 `$ foreman start` 打开开发服务器，并使用 Chrome 作为调试工具，（前提使用 `$ gem install foreman` 安装 foreman）
 - 使用 `bower install ***` 安装组件时，最好加上 `--save` 参数。如果此时开发服务器正打开着，Gulp会自动将组件文件引用至 `index.html`
 如果没有打开开发服务器时，可以运行 `$ gulp` 自动部署文件
 - 使用 `npm install ***` 安装组件时，最好加上 `--save-dev` 参数。
@@ -55,4 +55,13 @@
 ![](docs/images/doc_2.png)
 
 ## 在 Android 平台运行
-暂时还未安装安卓平台软件，如果有朋友运行起来可以截图发给我
+根据如下步骤建立安卓工程：
+
+1. 首先，运行 `$ ionic platform add android`
+2. 然后，下载安卓SDK及模拟器，Mac下可参考[Android Studio 安装](http://developer.android.com/sdk/installing/index.html?pkg=studio)
+3. 安卓开发环境准备就绪后，运行 `$ionic build android`
+4. 打开安卓模拟器，然后运行 `$ ionic emulate android`
+
+运行效果如下：
+
+![](docs/images/doc_3.png)

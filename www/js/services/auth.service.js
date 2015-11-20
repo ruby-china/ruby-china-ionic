@@ -27,7 +27,8 @@
 
     // 加载用户验证信息
     function loadUserCredentials() {
-      var token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
+      // var token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
+      var token = getAccessToken();
       if (token) {
         useCredentials(token);
       }
@@ -35,7 +36,7 @@
 
     // 存储用户验证信息
     function storeUserCredentials(token) {
-      window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
+      // window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
       useCredentials(token);
     }
 
@@ -51,7 +52,7 @@
     function destroyUserCredentials() {
       authToken = undefined;
       $http.defaults.headers.common['X-Auth-Token'] = undefined;
-      window.localStorage.removeItem(LOCAL_TOKEN_KEY);
+      // window.localStorage.removeItem(LOCAL_TOKEN_KEY);
       OAuth.revokeToken();
       setCurrentUser({});
     }

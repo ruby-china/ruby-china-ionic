@@ -18,6 +18,7 @@
     vm.errorMsg = "";
     vm.nodes = [];
     vm.new_topic = {};
+    vm.bar_color = "red";
 
     // Functions
     vm.showLoginModal = showLoginModal;
