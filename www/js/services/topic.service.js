@@ -17,6 +17,7 @@
     var service = {
       getTopics: getTopics,
       getTopicWithReplies: getTopicWithReplies,
+      getRepliesByTopic: getRepliesByTopic,
       createReply: createReply,
       getAllNodes: getAllNodes,
       createTopic: createTopic
@@ -69,6 +70,22 @@
             }).error(function(e) {
               q.reject(e);
             });
+        });
+      return q.promise;
+    }
+
+    function getRepliesByTopic(topic_id, offset) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/replies.json';
+      $http.get(url, {
+          params: {
+            offset: offset
+          }
+        })
+        .success(function(result) {
+          q.resolve(result);
+        }).error(function(e) {
+          q.reject(e);
         });
       return q.promise;
     }

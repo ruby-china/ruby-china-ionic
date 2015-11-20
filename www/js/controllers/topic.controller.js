@@ -16,12 +16,14 @@
     vm.topic = {};
     vm.replies = [];
     vm.reply_content = "";
+    vm.current_page = 1; // 当前页码
 
     // Functions
     vm.showReplyModal = showReplyModal;
     vm.closeReplyModal = closeReplyModal;
     vm.moreAction = moreAction;
     vm.createReply = createReply;
+    vm.loadMore = loadMore;
 
     activate();
 
@@ -40,6 +42,7 @@
           BaseService.hideLoading();
           vm.topic = result.topic;
           vm.replies = result.replies;
+          vm.has_more = vm.replies.length === 20; // 默认这里20条一页
           $timeout(function() {
             var exlinks = $('.ex-link');
             exlinks.click(function() {
@@ -121,6 +124,20 @@
           BaseService.hideLoading();
           BaseService.alert('提交回复', '', '提交失败！');
         })
+    }
+
+    function loadMore() {
+      vm.current_page++;
+      return TopicService.getRepliesByTopic($stateParams.topic_id, vm.current_page)
+        .then(function(result) {
+          vm.has_more = result.replies && result.replies.length > 0;
+          if (!vm.has_more) {
+            vm.current_page--;
+          } else {
+            vm.replies = _.union(vm.replies, result.replies);
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+          }
+        });
     }
 
     $scope.$on('$ionicView.leave', function(viewInfo, state) {

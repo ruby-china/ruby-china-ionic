@@ -60,6 +60,8 @@
         </div>
       </div>
     </div>
+    <ion-infinite-scroll ng-if="vm.has_more" on-infinite="vm.loadMore()" immediate-check="false" distance="1%">
+    </ion-infinite-scroll>
   </ion-content>
   <button class="button button-fab button-fab-bottom-right button-assertive icon mdi mdi-reply" ng-click="vm.showReplyModal()"></button>
 </ion-view>
