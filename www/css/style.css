@@ -4540,6 +4540,15 @@ body {
   #new-topic-modal .item-new-topic #new-topic {
     padding: 10px; }
 
+#new-topic-modal .node_seletor {
+  color: #aaa;
+  direction: ltr;
+  max-width: 100%;
+  padding-left: 0; }
+
+#new-topic-modal .has_node {
+  left: 36px; }
+
 #topics .list .item {
   min-height: 55px; }
   #topics .list .item h2 {

@@ -10,11 +10,12 @@
         <i class="icon mdi mdi-message-draw placeholder-icon"></i>
         <input type="text" ng-model="vm.new_topic.title" placeholder="主题">
       </label>
-      <label class="item item-input item-select">
-        <div class="input-label text-sm" style="color: #aaa;">
-          <i class="icon mdi mdi-playlist-plus"></i> 话题节点
+      <label class="item item-input item-select" style="color: #aaa;">
+        <i class="icon mdi mdi-playlist-plus"></i>
+        <div class="input-label text-sm" style="margin-left:6px; color: #aaa;" ng-if="!vm.new_topic.node_id">
+          话题节点
         </div>
-        <select style="color: #aaa;" ng-model="vm.new_topic.node_id">
+        <select class="node_seletor" ng-class="{ 'has_node': vm.new_topic.node_id }" ng-model="vm.new_topic.node_id">
           <option ng-repeat="node in vm.nodes" ng-value="node.id">{{ node.name }}</option>
         </select>
       </label>
