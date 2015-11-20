@@ -1,4 +1,4 @@
-<ion-view id="topic-detail" ng-cont>
+<ion-view id="topic-detail" can-swipe-back="false">
   <ion-nav-bar class="bar-stable flat">
     <ion-nav-back-button>
     </ion-nav-back-button>
@@ -62,6 +62,5 @@
       </div>
     </div>
   </ion-content>
-  <button class="button button-fab button-fab-bottom-right button-assertive icon mdi mdi-reply"
-    ng-click="vm.showReplyModal()"></button>
+  <button class="button button-fab button-fab-bottom-right button-assertive icon mdi mdi-reply" ng-click="vm.showReplyModal()"></button>
 </ion-view>
