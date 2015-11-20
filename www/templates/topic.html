@@ -53,7 +53,7 @@
             </h2>
           </div>
         </div>
-        <div class="row">
+        <div class="row" ng-if="!reply.deleted">
           <div class="col">
             <div class="markdown" ng-bind-html="reply.body_html | externalLinks"></div>
           </div>
