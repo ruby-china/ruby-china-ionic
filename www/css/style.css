@@ -4157,12 +4157,27 @@ For example, you might change some of the default colors:
 .mdi-light.mdi-inactive {
   color: rgba(255, 255, 255, 0.3); }
 
+.bg-light-gray {
+  background: #F9F9F9; }
+
+.button {
+  background: #EBEBEB;
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.19); }
+
+.button.button-stable {
+  background: #EBEBEB; }
+
 .bar-stable .button.button-clear {
   border-color: transparent;
   background: none;
   box-shadow: none;
   color: #444;
   font-size: 17px; }
+
+.button-small {
+  font-size: 13px;
+  height: 24px;
+  line-height: 24px; }
 
 .item h2 {
   font-weight: 300; }
@@ -4279,13 +4294,13 @@ body {
   color: black; }
 
 .item-narrow {
-  min-height: 40px !important;
-  padding: 10px; }
+  min-height: 30px !important;
+  padding: 6px 12px; }
   .item-narrow .badge {
     display: flex;
     position: absolute;
-    top: 10px;
-    right: 20px; }
+    top: 6px;
+    right: 0px; }
 
 .item-block {
   min-height: 40px !important;
@@ -4639,12 +4654,28 @@ body {
     font-size: 12px;
     line-height: 14px;
     font-weight: 400; }
+  #user-profile .list .item-avatar h2, #user-profile .list .item-avatar .positive {
+    font-size: 14px;
+    font-weight: normal; }
+  #user-profile .list .item-avatar .positive {
+    font-size: 13px;
+    font-weight: normal;
+    color: #5E97F6; }
+
+#user-profile .list .user-time {
+  font-size: 12px;
+  color: #CCC; }
 
 #user-profile .list .item-follow {
   padding: 0;
-  color: black; }
+  border-width: 0px; }
   #user-profile .list .item-follow .row {
-    padding: 1px; }
+    padding: 1px;
+    font-size: 12px;
+    color: #222; }
+    #user-profile .list .item-follow .row .positive {
+      color: #5E97F6;
+      font-size: 22px; }
     #user-profile .list .item-follow .row .col {
       padding: 20px 20px 10px; }
       #user-profile .list .item-follow .row .col:first-child {
@@ -4653,11 +4684,20 @@ body {
       font-size: 30px;
       margin-bottom: 10px; }
 
-#user-profile .list .item-info {
-  padding-left: 20px; }
-  #user-profile .list .item-info i {
-    font-size: 20px;
-    margin-right: 10px; }
-  #user-profile .list .item-info span.text {
-    line-height: 20px;
-    vertical-align: text-bottom; }
+#user-profile .list .item-info i {
+  font-size: 18px;
+  margin-right: 4px;
+  vertical-align: middle; }
+
+#user-profile .list .item-info a,
+#user-profile .list .item-info span.text {
+  color: #222;
+  text-decoration: none;
+  font-size: 13px; }
+
+#user-profile .list .item-info .badge {
+  background-color: transparent;
+  color: #999;
+  text-align: right;
+  font-size: 11px;
+  font-weight: normal; }

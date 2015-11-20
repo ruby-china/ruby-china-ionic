@@ -38,13 +38,13 @@ body {
 }
 
 .item-narrow {
-  min-height: 40px !important;
-  padding: 10px;
+  min-height: 30px !important;
+  padding: 6px 12px;
   .badge {
     display: flex;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 6px;
+    right: 0px;
   }
 }
 
