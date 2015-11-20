@@ -47,6 +47,10 @@
     }
 
     function toggleFollow() {
+      if (!vm.current_user) {
+        BaseService.showModal('login-modal');
+        return;
+      }
       var follow = vm.is_follow ? 'unfollow' : 'follow';
       return UserService.userAction($stateParams.login, follow)
         .then(function(result) {
@@ -56,6 +60,10 @@
     }
 
     function toggleBlock() {
+      if (!vm.current_user) {
+        BaseService.showModal('login-modal');
+        return;
+      }
       var block = vm.is_block ? 'unblock' : 'block';
       return UserService.userAction($stateParams.login, block)
         .then(function(result) {
