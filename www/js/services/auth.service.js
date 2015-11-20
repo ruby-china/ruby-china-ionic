@@ -43,7 +43,7 @@
     // 激活用户验证
     function useCredentials(token) {
       authToken = token;
-      $cookies.putObject('access_token', token);
+      $cookies.putObject('rbchina_access_token', token);
       // Set the token as header for your requests!
       $http.defaults.headers.common['X-Auth-Token'] = token;
     }
@@ -54,6 +54,7 @@
       $http.defaults.headers.common['X-Auth-Token'] = undefined;
       // window.localStorage.removeItem(LOCAL_TOKEN_KEY);
       OAuth.revokeToken();
+      $cookies.remove('rbchina_access_token');
       setCurrentUser({});
     }
 
@@ -74,11 +75,11 @@
     }
 
     function setCurrentUser(user) {
-      $cookies.putObject('current_user', user);
+      $cookies.putObject('rbchina_current_user', user);
     }
 
     function getCurrentUser() {
-      return $cookies.getObject('current_user');
+      return $cookies.getObject('rbchina_current_user');
     }
 
     function login(user) {
@@ -122,7 +123,7 @@
     }
 
     function getAccessToken() {
-      return authToken || $cookies.getObject('access_token');
+      return authToken || $cookies.getObject('rbchina_access_token');
     }
   }
 
