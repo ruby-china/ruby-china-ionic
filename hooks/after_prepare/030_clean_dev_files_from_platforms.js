@@ -6,7 +6,7 @@
  */
 var fs = require('fs');
 var path = require('path');
-
+var platform = process.env.CORDOVA_PLATFORMS;
 
 var deleteFolderRecursive = function(removePath) {
   if (fs.existsSync(removePath)) {
@@ -26,19 +26,25 @@ var iosPlatformsDir_1 = path.resolve(__dirname, '../../platforms/ios/www/css');
 var iosPlatformsDir_2 = path.resolve(__dirname, '../../platforms/ios/www/js');
 var iosPlatformsDir_3 = path.resolve(__dirname, '../../platforms/ios/www/annotated_js');
 var iosPlatformsDir_4 = path.resolve(__dirname, '../../platforms/ios/www/templates');
-// var androidPlatformsDir_1 = path.resolve(__dirname, '../../platforms/android/assets/www/css');
-// var androidPlatformsDir_2 = path.resolve(__dirname, '../../platforms/android/assets/www/js');
-// // var androidPlatformsDir_3 = path.resolve(__dirname, '../../platforms/android/assets/www/lib');
-// var androidPlatformsDir_4 = path.resolve(__dirname, '../../platforms/android/assets/www/templates');
-// var androidPlatformsDir_5 = path.resolve(__dirname, '../../platforms/android/assets/www/dist/dist_js/app');
+var androidPlatformsDir_1 = path.resolve(__dirname, '../../platforms/android/assets/www/css');
+var androidPlatformsDir_2 = path.resolve(__dirname, '../../platforms/android/assets/www/js');
+var androidPlatformsDir_3 = path.resolve(__dirname, '../../platforms/android/assets/www/annotated_js');
+var androidPlatformsDir_4 = path.resolve(__dirname, '../../platforms/android/assets/www/templates');
 
-
-deleteFolderRecursive(iosPlatformsDir_1);
-deleteFolderRecursive(iosPlatformsDir_2);
-deleteFolderRecursive(iosPlatformsDir_3);
-deleteFolderRecursive(iosPlatformsDir_4);
-// deleteFolderRecursive(androidPlatformsDir_1);
-// deleteFolderRecursive(androidPlatformsDir_2);
-// // deleteFolderRecursive(androidPlatformsDir_3);
-// deleteFolderRecursive(androidPlatformsDir_4);
-// deleteFolderRecursive(androidPlatformsDir_5);
+switch (platform) {
+  case 'ios':
+    deleteFolderRecursive(iosPlatformsDir_1);
+    deleteFolderRecursive(iosPlatformsDir_2);
+    deleteFolderRecursive(iosPlatformsDir_3);
+    deleteFolderRecursive(iosPlatformsDir_4);
+    break;
+  case 'android':
+    deleteFolderRecursive(androidPlatformsDir_1);
+    deleteFolderRecursive(androidPlatformsDir_2);
+    deleteFolderRecursive(androidPlatformsDir_3);
+    deleteFolderRecursive(androidPlatformsDir_4);
+    break;
+  default:
+    console.info('this hook only supports android and ios currently');
+    return;
+}

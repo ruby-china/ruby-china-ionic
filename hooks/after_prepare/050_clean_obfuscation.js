@@ -6,6 +6,7 @@
  */
 var fs = require('fs');
 var path = require('path');
+var platform = process.env.CORDOVA_PLATFORMS;
 
 var deleteFolderRecursive = function(removePath) {
   if (fs.existsSync(removePath)) {
@@ -22,8 +23,18 @@ var deleteFolderRecursive = function(removePath) {
 };
 
 var iosPlatformsDir_dist = path.resolve(__dirname, '../../platforms/ios/www/dist');
-// var androidPlatformsDir_dist = path.resolve(__dirname, '../../platforms/android/assets/www/dist');
+var androidPlatformsDir_dist = path.resolve(__dirname, '../../platforms/android/assets/www/dist');
+
+switch (platform) {
+  case 'ios':
+    deleteFolderRecursive(iosPlatformsDir_dist);
+    break;
+  case 'android':
+    deleteFolderRecursive(androidPlatformsDir_dist);
+    break;
+  default:
+    console.info('this hook only supports android and ios currently');
+    return;
+}
 
 
-deleteFolderRecursive(iosPlatformsDir_dist);
-// deleteFolderRecursive(androidPlatformsDir_dist);

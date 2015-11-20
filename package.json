@@ -43,6 +43,7 @@
     "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
-    "ios"
+    "ios",
+    "android"
   ]
 }

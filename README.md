@@ -1,8 +1,8 @@
 # Ruby China App
 这是 Ruby China 使用 Ionic 框架开发的适用于 iOS 和 Android 两个平台客户端 APP。
 
-🚀 **根据 Johnpapa's AngularJS Style 重构了上一版，根据设计稿重画界面（加入了 Material 元素）**
-⏳ **此外还加入了 Gulp 自动化部署脚本，使得开发更顺畅，使得部署生产软件精简包更便捷！**
+🚀 **根据 Johnpapa's AngularJS Style 重构了上一版，根据设计稿重画界面（加入了 Material 元素）**  
+⏳ **此外还加入了 Gulp 自动化部署脚本，使得开发更顺畅，使得部署生产软件精简包更便捷！**  
 🚿 **全新的视觉体验 + 全新的开发体验，让你更从容地面对前端应用开发！**
 
 ## 第一版的主要功能（已完成度）
