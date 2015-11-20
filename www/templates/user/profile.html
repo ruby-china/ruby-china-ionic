@@ -14,13 +14,13 @@
   <ion-content class="bg-light-gray" scroll="false">
     <div class="list">
       <div class="item item-avatar">
-        <img ng-src="{{vm.current_user.avatar_url}}" alt="{{ vm.current_user.login }}">
-        <span class="level" ng-class="{ 'bg-assertive': vm.current_user.level === 'admin', 
-          'bg-positive': vm.current_user.level === 'vip', 'bg-balanced': vm.current_user.level === 'hr',
-          'bg-stable': vm.current_user.level === 'normal' }">{{ vm.current_user.level_name }}</span>
-        <h2>{{ vm.current_user.name }}</h2>
+        <img ng-src="{{vm.user.avatar_url}}" alt="{{ vm.user.login }}">
+        <span class="level" ng-class="{ 'bg-assertive': vm.user.level === 'admin', 
+          'bg-positive': vm.user.level === 'vip', 'bg-balanced': vm.user.level === 'hr',
+          'bg-stable': vm.user.level === 'normal' }">{{ vm.user.level_name }}</span>
+        <h2>{{ vm.user.name }}</h2>
         <p>
-          <span class="positive">@{{ vm.current_user.login }}</span>
+          <span class="positive">@{{ vm.user.login }}</span>
         </p>
       </div>
       <div class="item item-divider" ng-if="!vm.isSelf()">
@@ -40,44 +40,44 @@
       <div class="item item-follow">
         <div class="row">
           <div class="col text-center">
-            <span class="block positive">{{ vm.current_user.followers_count }}</span>
+            <span class="block positive">{{ vm.user.followers_count }}</span>
             <span class="block">关注者</span>
           </div>
           <div class="col text-center">
-            <span class="block positive">{{ vm.current_user.following_count }}</span>
+            <span class="block positive">{{ vm.user.following_count }}</span>
             <span class="block">正在关注</span>
           </div>
         </div>
       </div>
       <div class="item item-narrow">
         <span class="block gray text-center">
-          第 {{ vm.current_user.id }} 位会员
-          <span ng-if="vm.current_user.location">/ {{ vm.current_user.location }}</span> / 注册于 {{ vm.current_user.created_at | date: 'yyyy-MM-dd' }}
+          第 {{ vm.user.id }} 位会员
+          <span ng-if="vm.user.location">/ {{ vm.user.location }}</span> / 注册于 {{ vm.user.created_at | date: 'yyyy-MM-dd' }}
         </span>
       </div>
       <div class="item item-divider item-divider-narrow"></div>
-      <div class="item item-narrow item-info" ng-if="vm.current_user.email">
+      <div class="item item-narrow item-info" ng-if="vm.user.email">
         <i class="mdi mdi-email balanced"></i>
-        <span class="text black">{{ vm.current_user.email }}</span>
+        <span class="text black">{{ vm.user.email }}</span>
       </div>
-      <div class="item item-narrow item-info" ng-if="vm.current_user.twitter">
+      <div class="item item-narrow item-info" ng-if="vm.user.twitter">
         <i class="mdi mdi-twitter-circle calm"></i>
-        <span class="text black">{{ vm.current_user.twitter }}</span>
+        <span class="text black">{{ vm.user.twitter }}</span>
       </div>
-      <div class="item item-narrow item-info" ng-if="vm.current_user.website">
+      <div class="item item-narrow item-info" ng-if="vm.user.website">
         <i class="mdi mdi-compass assertive"></i>
-        <span class="text black">{{ vm.current_user.website }}</span>
+        <span class="text black">{{ vm.user.website }}</span>
       </div>
       <div class="item item-divider item-divider-narrow"></div>
       <div class="item item-narrow item-info">
         <i class="mdi mdi-message-text positive"></i>
         <span class="text black">发布的话题</span>
-        <span class="badge badge-stable">{{ vm.current_user.topics_count }}</span>
+        <span class="badge badge-stable">{{ vm.user.topics_count }}</span>
       </div>
       <div class="item item-narrow item-info">
         <i class="mdi mdi-book-variant energized"></i>
         <span class="text black">收藏</span>
-        <span class="badge badge-stable">{{ vm.current_user.favorites_count }}</span>
+        <span class="badge badge-stable">{{ vm.user.favorites_count }}</span>
       </div>
     </div>
   </ion-content>

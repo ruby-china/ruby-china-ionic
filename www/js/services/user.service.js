@@ -43,6 +43,24 @@
         });
       return q.promise;
     }
+
+    // 关注或屏蔽用户
+    // action: follow-关注；block-屏蔽
+    function userAction(login, action) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/users/' + login + '/' + action + '.json';
+      var data = {
+        login: login,
+        access_token: AuthService.getAccessToken()
+      }
+      $http.post(url, data)
+        .success(function(result) {
+          q.resolve(result.notifications);
+        }).error(function(err) {
+          q.reject(err);
+        });
+      return q.promise;
+    }
   }
 
 })();
