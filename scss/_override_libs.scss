@@ -1,9 +1,25 @@
+.bg-light-gray {
+  background: #F9F9F9;
+}
+
+.button {
+  background: #EBEBEB;
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, .19);
+}
+
+.button.button-stable { background: #EBEBEB; }
 .bar-stable .button.button-clear {
   border-color: transparent;
   background: none;
   box-shadow: none;
   color: #444;
   font-size: 17px;
+}
+
+.button-small {
+  font-size: 13px;
+  height: 24px;
+  line-height: 24px;
 }
 
 .item h2 {

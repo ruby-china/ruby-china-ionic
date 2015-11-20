@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="item item-narrow">
-        <span class="block gray text-center">
+        <span class="block user-time text-center">
           第 {{ vm.user.id }} 位会员
           <span ng-if="vm.user.location">/ {{ vm.user.location }}</span> / 注册于 {{ vm.user.created_at | date: 'yyyy-MM-dd' }}
         </span>
@@ -58,15 +58,15 @@
       <div class="item item-divider item-divider-narrow"></div>
       <div class="item item-narrow item-info" ng-if="vm.user.email">
         <i class="mdi mdi-email balanced"></i>
-        <span class="text black">{{ vm.user.email }}</span>
+        <span class="text black"><a href="mailto:{{ vm.user.email }}">{{ vm.user.email }}</a></span>
       </div>
       <div class="item item-narrow item-info" ng-if="vm.user.twitter">
         <i class="mdi mdi-twitter-circle calm"></i>
-        <span class="text black">{{ vm.user.twitter }}</span>
+        <span class="text black"><a href="https://twitter.com/{{ vm.user.twitter }}">{{ vm.user.twitter }}</a></span>
       </div>
       <div class="item item-narrow item-info" ng-if="vm.user.website">
         <i class="mdi mdi-compass assertive"></i>
-        <span class="text black">{{ vm.user.website }}</span>
+        <span class="text black"><a href="{{ vm.user.website }}">{{ vm.user.website }}</a></span>
       </div>
       <div class="item item-divider item-divider-narrow"></div>
       <div class="item item-narrow item-info">
