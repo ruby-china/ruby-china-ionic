@@ -130,18 +130,31 @@
           TopicService.getAllNodes()
             .then(function(result) {
               vm.nodes = result.nodes;
+              vm.textarea_origin_height =
+                document.documentElement.clientHeight - $('.bar-header').height() - 96 - 40 - 12; // 减40是减掉操作条的高度
               setTextareaHeight(0);
 
-              // 键盘弹出后，把底部操作条顶上来
+              // 键盘弹出后，把底部操作条顶上来，并调整内容框高度
               window.addEventListener('native.keyboardshow', function(event) {
                 if ($("textarea[id=new-topic]:focus").length > 0) {
                   moreActionPutup(event.keyboardHeight);
                 };
+                setTextareaHeight(event.keyboardHeight);
+              });
+
+              // 键盘收回后，调整内容框高度
+              window.addEventListener('native.keyboardhide', function() {
+                setTextareaHeight(0);
+              })
+
+              $("#new-topic").on('focus', function() {
+                $ionicScrollDelegate.$getByHandle('new-topic').scrollBottom(true);
               });
 
               // 光标离开内容区，操作条回去
               $("#new-topic").on('blur', function() {
                 moreActionDown();
+                $ionicScrollDelegate.$getByHandle('new-topic').scrollTop(true);
               });
 
               return vm.nodes;
@@ -155,6 +168,24 @@
           vm.new_topic = {};
           $('#new-topic').css("max-height", "31px");
         });
+    }
+
+    // 处理操作条的方法不太完美，后期改进
+    // 操作条提上来
+    function moreActionPutup(height) {
+      $('#more-actions').css("transform", "translate(0px, -" + height + "px)");
+    }
+
+    // 操作条回到底部
+    function moreActionDown() {
+      $('#more-actions').css("transform", "translate(0px, 0px)");
+    }
+
+    // 设置文本区高度，传入的是需要减少的高度，而非设定值
+    function setTextareaHeight(height) {
+      $('#new-topic')
+        .css("max-height", vm.textarea_origin_height - height)
+        .height(vm.textarea_origin_height - height);
     }
 
     // 界面调整 2015-11-20
@@ -280,28 +311,6 @@
     // 插入表情
     function insertEmoji() {
       moreActionDown();
-    }
-
-    // 处理操作条的方法不太完美，后期改进
-    // 操作条提上来
-    function moreActionPutup(height) {
-      $('#more-actions').css("transform", "translate(0px, -" + height + "px)");
-      setTextareaHeight(height)
-        .scrollTop($('#new-topic')[0].scrollHeight);
-    }
-
-    // 操作条回到底部
-    function moreActionDown() {
-      $('#more-actions').css("transform", "translate(0px, 0px)");
-      setTextareaHeight(0);
-    }
-
-    function setTextareaHeight(height) {
-      vm.textarea_max_height =
-        document.documentElement.clientHeight - $('.bar-header').height() - 96 - 40;
-      $('#new-topic').css("max-height", vm.textarea_max_height - height)
-        .height(vm.textarea_max_height);
-      return $('#new-topic');
     }
   }
 
