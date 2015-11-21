@@ -30,12 +30,6 @@
 }
 
 #new-topic-modal {
-  .item-new-topic {
-    min-height: 250px;
-    #new-topic {
-      padding: 10px;
-    }
-  }
   .node_seletor {
     color: #aaa;
     direction: ltr;
@@ -46,5 +40,13 @@
   }
   .has_node {
     left: 36px;
+  }
+  .tabs-topic {
+    height: 40px;
+    .icon {
+      line-height: 36px;
+      height: 26px;
+      font-size: 26px;
+    }
   }
 }

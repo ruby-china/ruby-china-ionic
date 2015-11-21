@@ -65,6 +65,8 @@ body {
 .textarea {
   width: 100%;
   resize: none;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .text-sm {

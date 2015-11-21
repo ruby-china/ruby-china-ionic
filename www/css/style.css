@@ -4263,6 +4263,22 @@ For example, you might change some of the default colors:
 .action-sheet .button {
   box-shadow: none; }
 
+.bar .button.button-floating.disabled,
+.bar .button.button-floating:disabled,
+.bar .button.button-large.disabled,
+.bar .button.button-large:disabled,
+.bar .button.button:disabled,
+.bar .button.disabled,
+.bar .button.disabled.button-large,
+.button.button-floating.disabled,
+.button.button-floating:disabled,
+.button.button-large.disabled,
+.button.button-large:disabled,
+.button.button:disabled,
+.button.disabled,
+.button.disabled.button-large {
+  background-color: initial; }
+
 body {
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 400; }
@@ -4315,7 +4331,9 @@ body {
 
 .textarea {
   width: 100%;
-  resize: none; }
+  resize: none;
+  box-sizing: border-box;
+  overflow-x: hidden; }
 
 .text-sm {
   font-size: 14px; }
@@ -4553,11 +4571,6 @@ body {
     font-size: 10px;
     color: #9B9B9B; }
 
-#new-topic-modal .item-new-topic {
-  min-height: 250px; }
-  #new-topic-modal .item-new-topic #new-topic {
-    padding: 10px; }
-
 #new-topic-modal .node_seletor {
   color: #aaa;
   direction: ltr;
@@ -4568,6 +4581,13 @@ body {
 
 #new-topic-modal .has_node {
   left: 36px; }
+
+#new-topic-modal .tabs-topic {
+  height: 40px; }
+  #new-topic-modal .tabs-topic .icon {
+    line-height: 36px;
+    height: 26px;
+    font-size: 26px; }
 
 #topics .list .item {
   padding: 10px 16px 10px 65px;
