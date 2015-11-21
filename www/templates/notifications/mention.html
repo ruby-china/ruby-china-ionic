@@ -1,8 +1,10 @@
-<img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login">
-<h2>
-  {{ nf.actor.login }} 在
-  <span am-time-ago="nf.created_at"></span>在帖子
-  <span class="positive" ui-sref="app.topic({ topic_id: nf.mention.topic_id })">{{ nf.mention.topic_id }}</span> 中提及你
-</h2>
-<div class="text text-left markdown" ng-bind-html="nf.mention.body_html | externalLinks"></div>
-<span class="badge badge-energized" ng-if="!nf.read">新</span>
+<div class="item item-avatar">
+  <img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login">
+  <h2>
+    {{ nf.actor.login }} 在
+    <span am-time-ago="nf.created_at"></span>在帖子
+    <span class="positive" ui-sref="app.topic({ topic_id: nf.mention.topic_id })">{{ nf.mention.topic_id }}</span> 中提及你
+  </h2>
+  <div class="text text-left markdown" ng-bind-html="nf.mention.body_html | externalLinks"></div>
+  <span class="badge badge-energized" ng-if="!nf.read">新</span>
+</div>

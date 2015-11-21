@@ -1,14 +1,7 @@
-<div class="row">
-  <div class="avatar">
-    <img ng-src="{{ nf.actor.avatar_url }}" alt="" width="32">
-  </div>
-  <div class="col">
-    <div class="info text text-left text-sm">
-      {{ nf.actor.login }} 于
-      <span am-time-ago="nf.created_at"></span> 创建了帖子 <a href="#/app/topics/{{ nf.reply.topic_id }}">话题{{ nf.reply.topic_id }}</a>
-    </div>
-    <div class="text text-left">
-      <button class="button button-small button-block">查看详情</button>
-    </div>
-  </div>
+<div class="item item-avatar">
+  <img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login"> {{ nf.actor.login }} 于
+  <h2>
+    <span am-time-ago="nf.created_at"></span> 创建了帖子
+    <span class="positive" ui-sref="app.topic({ topic_id: nf.topic.id })">{{ nf.topic.title }}</span>
+  </h2>
 </div>

@@ -7,7 +7,9 @@
     <ion-refresher pulling-text="下拉刷新..." spinner="ios" on-refresh="vm.doRefresh()">
     </ion-refresher>
     <div class="list">
-      <a class="item item-avatar" ng-repeat="nf in vm.notifications" ng-include src="'templates/notifications/' + nf.type.toLowerCase() + '.html'"></a>
+      <div ng-repeat="nf in vm.notifications">
+        <ng-include src="'notifications/' + nf.type.toLowerCase() + '.html'"></ng-include>
+      </div>
     </div>
     <ion-infinite-scroll ng-if="vm.has_more" on-infinite="vm.loadMore()" immediate-check="false" distance="1%">
     </ion-infinite-scroll>

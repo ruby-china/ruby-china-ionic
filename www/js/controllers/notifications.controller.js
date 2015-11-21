@@ -12,7 +12,7 @@
     var vm = this;
     vm.current_page = 1; // 当前页码
     vm.notifications = [];
-    
+
     // Functions
     vm.doRefresh = doRefresh;
     vm.loadMore = loadMore;
@@ -24,7 +24,6 @@
       BaseService.showLoading('ios', '加载中...');
       loadData().then(function(result) {
         vm.notifications = result;
-        vm.has_more = result.length === 20;
         BaseService.hideLoading();
       });
     }
