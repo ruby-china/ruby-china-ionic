@@ -14,7 +14,6 @@
     "lodash": "~3.10.1",
     "ionic-letteravatar": "ionic-letter-avatar#*",
     "jquery": "~2.1.4",
-    "ng-file-upload": "~10.0.2",
-    "textarea-autosize": "~0.4.1"
+    "ng-file-upload": "~10.0.2"
   }
 }

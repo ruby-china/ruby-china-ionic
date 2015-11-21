@@ -92,7 +92,7 @@
           TopicService.getAllNodes()
             .then(function(result) {
               vm.nodes = result.nodes;
-              setTextareaHeight(0).textareaAutoSize();
+              setTextareaHeight(0);
 
               // 键盘弹出后，把底部操作条顶上来
               window.addEventListener('native.keyboardshow', function(event) {
