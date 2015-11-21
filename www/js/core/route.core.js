@@ -81,6 +81,15 @@
             controller: 'UserController as vm'
           }
         }
+      })
+      .state('app.notification', {
+        url: '/notifications',
+        views: {
+          'menuContent': {
+            templateUrl: 'notifications.html',
+            controller: 'NotificationsController as vm'
+          }
+        }
       });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/topics/last_actived');

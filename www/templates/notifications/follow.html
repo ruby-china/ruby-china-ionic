@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="avatar">
+    <img ng-src="{{ nf.actor.avatar_url }}" alt="" width="32">
+  </div>
+  <div class="col">
+    <div class="info text text-left text-sm">
+      {{ nf.actor.login }} 于
+      <span am-time-ago="nf.created_at"></span> 开始关注你了。
+    </div>
+  </div>
+</div>

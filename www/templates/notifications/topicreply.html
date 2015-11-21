@@ -1,0 +1,8 @@
+<img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login">
+<h2>
+  {{ nf.actor.login }} 于
+  <span am-time-ago="nf.created_at"></span>在帖子
+  <span class="positive" ui-sref="app.topic({ topic_id: nf.reply.topic_id })">{{ nf.reply.topic_title }}</span> 中回复了：
+</h2>
+<div class="text text-left markdown" ng-bind-html="nf.reply.body_html | externalLinks"></div>
+<span class="badge badge-energized" ng-if="!nf.read">新</span>

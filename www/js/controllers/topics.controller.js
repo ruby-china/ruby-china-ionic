@@ -14,6 +14,7 @@
     var vm = this;
     vm.topics = {};
     vm.current_page = 1; // 当前页码
+    vm.has_new_notice = false;
 
     // Functions
     vm.doRefresh = doRefresh;

@@ -1,0 +1,27 @@
+#notifications {
+  .list {
+    .item {
+      padding: 10px 16px 10px 65px;
+      min-height: 55px;
+      img { top: 8px; }
+      h2 {
+        padding-right: 20px;
+        margin-top: 3px;
+        font-size: 13px;
+        font-weight: 350;
+      }
+      .author {
+        font-size: 11px;
+        line-height: 11px;
+        margin-top: 5px;
+        color: #959595;
+      }
+      .badge {
+        color: #CD8546;
+        font-size: 12px;
+        font-weight: normal;
+        right: 5px;
+      }
+    }
+  }
+}

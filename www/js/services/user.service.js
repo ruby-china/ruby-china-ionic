@@ -32,11 +32,15 @@
     }
 
     // 获取用户通知列表
-    function getUserNotifications() {
+    function getUserNotifications(offset) {
       var q = $q.defer();
       var url = rbchina_api.url_prefix + '/notifications.json';
-      url = url.concat('?access_token=' + AuthService.getAccessToken());
-      $http.get(url)
+      $http.get(url, {
+          params: {
+            offset: offset,
+            access_token: AuthService.getAccessToken()
+          }
+        })
         .success(function(result) {
           q.resolve(result.notifications);
         }).error(function(err) {
