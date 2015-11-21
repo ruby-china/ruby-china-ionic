@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function MainController($rootScope, $scope, ionicMaterialInk,
-    ionicMaterialMotion, $ionicScrollDelegate,
+    ionicMaterialMotion, $ionicScrollDelegate, $ionicPopup,
     $timeout, BaseService, AuthService,
     CameraService, TopicService) {
 
@@ -20,6 +20,44 @@
     vm.errorMsg = "";
     vm.nodes = [];
     vm.new_topic = {};
+
+    vm.codes = [{
+      id: 'ruby',
+      name: 'Ruby'
+    }, {
+      id: 'erb',
+      name: 'HTML / ERB'
+    }, {
+      id: 'scss',
+      name: 'CSS / SCSS'
+    }, {
+      id: 'js',
+      name: 'JavaScript'
+    }, {
+      id: 'yml',
+      name: 'YAML(.yml)'
+    }, {
+      id: 'coffee',
+      name: 'CoffeeScript'
+    }, {
+      id: 'conf',
+      name: 'Nginx / Redis'
+    }, {
+      id: 'python',
+      name: 'Python'
+    }, {
+      id: 'php',
+      name: 'PHP'
+    }, {
+      id: 'java',
+      name: 'Java'
+    }, {
+      id: 'erlang',
+      name: 'Erlang'
+    }, {
+      id: 'shell',
+      name: 'Shell / Bash'
+    }];
 
     // Functions
     vm.showLoginModal = showLoginModal;
@@ -209,7 +247,25 @@
 
     // 插入代码
     function insertCode() {
-      moreActionDown();
+      // moreActionDown();
+      var popup = $ionicPopup.show({
+        templateUrl: 'modals/code_selector.html',
+        title: '请选择代码语言',
+        scope: $scope,
+        buttons: [{
+          text: '<b>确认</b>',
+          type: 'button-positive',
+          onTap: function(e) {
+            if (vm.code_id) {
+              var code = "```" + vm.code_id + "\r\n" + "\r\n" + "```";
+              var prev = (!vm.new_topic.body || vm.new_topic.body.length === 0) ? '' : vm.new_topic.body + "\r\n";
+              vm.new_topic.body = prev + code;
+            };
+          }
+        }, {
+          text: '取消'
+        }]
+      });
     }
 
     // @某人
