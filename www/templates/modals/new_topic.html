@@ -19,7 +19,7 @@
           <option ng-repeat="node in vm.nodes" ng-value="node.id">{{ node.name }}</option>
         </select>
       </label>
-      <ion-scroll delegate-handle="topic_body" zooming="false" direction="y" style="width:100%; height:{{ vm.textarea_max_height }}px;">
+      <ion-scroll delegate-handle="topic_body" scrollbar-y="false" zooming="false" direction="y" style="width:100%; min-height:{{ vm.textarea_max_height }}px;">
         <div class="item item-narrow item-new-topic" style="border: none;">
           <textarea id="new-topic" ng-model="vm.new_topic.body" class="textarea" rows="1" placeholder=" 说点什么"></textarea>
         </div>
