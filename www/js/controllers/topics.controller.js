@@ -10,9 +10,10 @@
   /* @ngInject */
   function TopicsController($scope,
     ionicMaterialInk, ionicMaterialMotion, $timeout,
-    $stateParams, BaseService, TopicService) {
+    $stateParams, BaseService, AuthService, TopicService) {
     var vm = this;
     vm.topics = {};
+    vm.is_logined = AuthService.isAuthencated();
     vm.current_page = 1; // 当前页码
     vm.has_new_notice = false;
 

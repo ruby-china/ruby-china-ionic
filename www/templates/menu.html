@@ -6,7 +6,8 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear mdi mdi-bell-outline" ui-sref="app.notification">
+        <button class="button button-icon button-clear mdi mdi-bell-outline" 
+          ng-if="vm.is_logined" ui-sref="app.notification">
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
