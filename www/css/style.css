@@ -4589,6 +4589,10 @@ body {
     height: 26px;
     font-size: 26px; }
 
+.code_selector {
+  height: 50%;
+  top: 20%; }
+
 #topics .list .item {
   padding: 10px 16px 10px 65px;
   min-height: 55px; }

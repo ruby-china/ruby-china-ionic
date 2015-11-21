@@ -251,6 +251,7 @@
       var popup = $ionicPopup.show({
         templateUrl: 'modals/code_selector.html',
         title: '请选择代码语言',
+        cssClass: 'code_selector',
         scope: $scope,
         buttons: [{
           text: '<b>确认</b>',
@@ -266,6 +267,9 @@
           text: '取消'
         }]
       });
+      popup.then(function() {
+        vm.code_id = undefined;
+      })
     }
 
     // @某人
