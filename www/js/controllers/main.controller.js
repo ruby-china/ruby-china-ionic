@@ -139,8 +139,8 @@
               // 光标进入内容区，操作条上来 
               $("#new-topic").on('focus', function(event) {
                 $location.hash('new-topic');
-                moreActionPutup($rootScope.keyboardHeight);
                 $ionicScrollDelegate.$getByHandle('new-topic').anchorScroll(true);
+                moreActionPutup($rootScope.keyboardHeight);
               });
 
               // 光标离开内容区，操作条回去
@@ -148,6 +148,11 @@
                 moreActionDown();
                 $ionicScrollDelegate.$getByHandle('new-topic').scrollTop(true);
               });
+
+              $("#new-topic-title").on('focus', function() {
+                setTextareaHeight($rootScope.keyboardHeight);
+                $ionicScrollDelegate.$getByHandle('new-topic').scrollTop(true);
+              })
 
               return vm.nodes;
             });
