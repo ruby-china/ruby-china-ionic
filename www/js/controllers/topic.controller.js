@@ -8,7 +8,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function TopicController($scope, $stateParams, $timeout, $ionicActionSheet,
+  function TopicController($rootScope, $scope, $stateParams, $timeout, $ionicActionSheet,
     ionicMaterialInk, ionicMaterialMotion, $cordovaInAppBrowser,
     BaseService, AuthService, TopicService, CameraService) {
     var vm = this;
@@ -35,7 +35,9 @@
 
       vm.is_logined = AuthService.isAuthencated();
       vm.reply_content = "";
-      BaseService.registModal('modals/reply.html', 'reply-modal', $scope);
+      BaseService.registModal('modals/reply.html', 'reply-modal', $scope, {
+        focusFirstInput: true
+      });
       BaseService.showLoading('ios', '加载中...');
       return TopicService.getTopicWithReplies($stateParams.topic_id)
         .then(function(result) {
@@ -70,7 +72,17 @@
       if (!vm.is_logined) {
         BaseService.showModal('login-modal');
       } else {
-        BaseService.showModal('reply-modal');
+        BaseService.showModal('reply-modal')
+          .then(function() {
+            $('#topic-reply').on('focus', function() {
+              $('#reply-modal')
+                .css("transform", "translate(0px, -" + $rootScope.keyboardHeight + "px)");
+            })
+            $('#topic-reply').on('blur', function() {
+              $('#reply-modal')
+                .css("transform", "translate(0px, 0px)");
+            })
+          });
       }
     }
 

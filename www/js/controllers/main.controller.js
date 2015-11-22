@@ -10,7 +10,7 @@
   /* @ngInject */
   function MainController($rootScope, $scope, ionicMaterialInk,
     ionicMaterialMotion, $ionicScrollDelegate, $ionicPopup,
-    $timeout, BaseService, AuthService,
+    $timeout, BaseService, AuthService, $location,
     CameraService, TopicService) {
 
     var vm = this;
@@ -130,25 +130,17 @@
           TopicService.getAllNodes()
             .then(function(result) {
               vm.nodes = result.nodes;
+              // 减40是减掉操作条的高度；减12是减掉padding
               vm.textarea_origin_height =
-                document.documentElement.clientHeight - $('.bar-header').height() - 96 - 40 - 12; // 减40是减掉操作条的高度
-              setTextareaHeight(0);
+                document.documentElement.clientHeight - $('.bar-header').height() - 40 - 12;
 
-              // 键盘弹出后，把底部操作条顶上来，并调整内容框高度
-              window.addEventListener('native.keyboardshow', function(event) {
-                if ($("textarea[id=new-topic]:focus").length > 0) {
-                  moreActionPutup(event.keyboardHeight);
-                };
-                setTextareaHeight(event.keyboardHeight);
-              });
+              setTextareaHeight($rootScope.keyboardHeight);
 
-              // 键盘收回后，调整内容框高度
-              window.addEventListener('native.keyboardhide', function() {
-                setTextareaHeight(0);
-              })
-
-              $("#new-topic").on('focus', function() {
-                $ionicScrollDelegate.$getByHandle('new-topic').scrollBottom(true);
+              // 光标进入内容区，操作条上来 
+              $("#new-topic").on('focus', function(event) {
+                $location.hash('new-topic');
+                moreActionPutup($rootScope.keyboardHeight);
+                $ionicScrollDelegate.$getByHandle('new-topic').anchorScroll(true);
               });
 
               // 光标离开内容区，操作条回去
@@ -173,12 +165,14 @@
     // 处理操作条的方法不太完美，后期改进
     // 操作条提上来
     function moreActionPutup(height) {
-      $('#more-actions').css("transform", "translate(0px, -" + height + "px)");
+      $('#more-actions')
+        .css("transform", "translate(0px, -" + height + "px)");
     }
 
     // 操作条回到底部
     function moreActionDown() {
-      $('#more-actions').css("transform", "translate(0px, 0px)");
+      $('#more-actions')
+        .css("transform", "translate(0px, 0px)");
     }
 
     // 设置文本区高度，传入的是需要减少的高度，而非设定值

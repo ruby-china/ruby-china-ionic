@@ -58,6 +58,10 @@ body {
   bottom: 0;
 }
 
+.item-noborder {
+  border: none !important;
+}
+
 .item-divider-narrow {
   min-height: 15px !important;
 }
@@ -67,6 +71,7 @@ body {
   resize: none;
   box-sizing: border-box;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .text-sm {

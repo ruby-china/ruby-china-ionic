@@ -4326,6 +4326,9 @@ body {
   position: absolute;
   bottom: 0; }
 
+.item-noborder {
+  border: none !important; }
+
 .item-divider-narrow {
   min-height: 15px !important; }
 
@@ -4333,7 +4336,8 @@ body {
   width: 100%;
   resize: none;
   box-sizing: border-box;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  overflow-y: scroll; }
 
 .text-sm {
   font-size: 14px; }

@@ -9,7 +9,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function ionicRun($ionicPlatform, amMoment) {
+  function ionicRun($rootScope, $ionicPlatform, amMoment) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -21,6 +21,9 @@
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+      window.addEventListener('native.keyboardshow', function(event) {
+        $rootScope.keyboardHeight = event.keyboardHeight;
+      });
     });
     amMoment.changeLocale('zh-cn');
   }

@@ -19,9 +19,10 @@
           <option ng-repeat="node in vm.nodes" ng-value="node.id">{{ node.name }}</option>
         </select>
       </label>
-      <div class="item item-narrow item-new-topic" style="border: none;">
+      <div class="item item-narrow item-new-topic item-noborder">
         <textarea id="new-topic" ng-model="vm.new_topic.body" class="textarea" rows="1" placeholder=" 说点什么"></textarea>
       </div>
+      <div class="item item-block item-noborder"></div>
     </div>
   </ion-content>
   <ion-footer-bar id="more-actions">
