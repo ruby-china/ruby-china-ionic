@@ -149,6 +149,11 @@
 //   }
 // }
 
+#loading-bar .bar {
+  top: 64px !important;
+}
+
 #loading-bar-spinner {
+  top: 30px !important;
   left: 50%;
 }

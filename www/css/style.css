@@ -4279,7 +4279,11 @@ For example, you might change some of the default colors:
 .button.disabled.button-large {
   background-color: initial; }
 
+#loading-bar .bar {
+  top: 64px !important; }
+
 #loading-bar-spinner {
+  top: 30px !important;
   left: 50%; }
 
 body {

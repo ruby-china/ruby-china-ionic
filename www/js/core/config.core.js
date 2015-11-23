@@ -27,8 +27,7 @@
 
   /* @ngInject */
   function loadbarConfig(cfpLoadingBarProvider) {
-    cfpLoadingBarProvider.loadingBarTemplate =
-      '<div id="loading-bar"><div class="bar" style="top: 35px;"><div class="peg"></div></div></div>';
+    
   }
 
 })();

@@ -109,7 +109,7 @@ gulp.task('wiredep', ['ngAnnotate'], function() {
 });
 
 
-gulp.task('useref', ['clean-dist', 'wiredep'], function() {
+gulp.task('useref', ['clean-dist', 'sass', 'wiredep'], function() {
   return gulp.src(paths.useref)
     .pipe($.useref())
     .pipe(gulpif('*.js', $.uglify()))
