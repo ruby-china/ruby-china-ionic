@@ -4,7 +4,8 @@
   angular
     .module('app.core')
     .config(oauthConfig)
-    .config(backButtonConfig);
+    .config(backButtonConfig)
+    .config(loadbarConfig);
 
   ////////////////////////////////////////////////////////////
 
@@ -22,6 +23,12 @@
   /* @ngInject */
   function backButtonConfig($ionicConfigProvider) {
     $ionicConfigProvider.backButton.text('').icon('mdi mdi-arrow-left');
+  }
+
+  /* @ngInject */
+  function loadbarConfig(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.loadingBarTemplate =
+      '<div id="loading-bar"><div class="bar" style="top: 35px;"><div class="peg"></div></div></div>';
   }
 
 })();

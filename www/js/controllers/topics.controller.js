@@ -29,11 +29,11 @@
         ionicMaterialMotion.ripple();
       }, 0);
       vm.current_page = 1;
-      BaseService.showLoading('ios', '加载中...');
+      
       loadData($stateParams.node_id, $stateParams.type)
         .then(function(result) {
           vm.topics = result;
-          BaseService.hideLoading();
+          
         });
     }
 

@@ -38,10 +38,10 @@
       BaseService.registModal('modals/reply.html', 'reply-modal', $scope, {
         focusFirstInput: true
       });
-      BaseService.showLoading('ios', '加载中...');
+      
       return TopicService.getTopicWithReplies($stateParams.topic_id)
         .then(function(result) {
-          BaseService.hideLoading();
+          
           vm.topic = result.topic;
           vm.replies = result.replies;
           vm.has_more = vm.replies.length === 20; // 默认这里20条一页
@@ -133,15 +133,14 @@
 
     // 提交回帖
     function createReply() {
-      BaseService.showLoading('ios', '提交中...');
       TopicService.createReply($stateParams.topic_id, vm.reply_content)
         .then(function(result) {
           closeReplyModal();
           vm.replies.push(result.reply);
           vm.reply_content = "";
-          BaseService.hideLoading();
+          
         }).catch(function(err) {
-          BaseService.hideLoading();
+          
           BaseService.alert('提交回复', '', '提交失败！');
         })
     }

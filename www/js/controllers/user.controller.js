@@ -30,10 +30,10 @@
         ionicMaterialMotion.ripple();
       }, 0);
 
-      BaseService.showLoading('ios', '加载中...');
+      
       return AuthService.getUserInfo($stateParams.login)
         .then(function(result) {
-          BaseService.hideLoading();
+          
           vm.user = result.user;
           vm.is_follow = result.meta.followed;
           vm.is_block = result.meta.blocked;

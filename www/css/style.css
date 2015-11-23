@@ -4279,6 +4279,9 @@ For example, you might change some of the default colors:
 .button.disabled.button-large {
   background-color: initial; }
 
+#loading-bar-spinner {
+  left: 50%; }
+
 body {
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 400; }

@@ -107,15 +107,14 @@
     }
 
     function login() {
-      BaseService.showLoading('ios', '登录中...');
       return AuthService.login(vm.account)
         .then(function(result) {
           loadData("");
-          BaseService.hideLoading();
+          
           BaseService.hideModal('login-modal');
         }, function(err) {
           vm.errorMsg = err;
-          BaseService.hideLoading();
+          
         })
     }
 
@@ -222,15 +221,14 @@
 
     // 发表新话题
     function createTopic() {
-      BaseService.showLoading('ios', '提交中...');
       TopicService.createTopic(vm.new_topic.title, vm.new_topic.body, vm.new_topic.node_id)
         .then(function(result) {
           closeNewTopicModal();
           $scope.$broadcast('new_topic_success');
           vm.new_topic = {};
-          BaseService.hideLoading();
+          
         }, function(err) {
-          BaseService.hideLoading();
+          
           BaseService.alert('发表新话题', '提交失败', err.error);
         })
     }
