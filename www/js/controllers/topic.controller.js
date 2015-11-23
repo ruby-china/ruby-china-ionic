@@ -46,6 +46,7 @@
           vm.replies = result.replies;
           vm.has_more = vm.replies.length === 20; // 默认这里20条一页
           $timeout(function() {
+            // 处理外部链接
             var exlinks = $('.ex-link');
             exlinks.click(function() {
               var url = $(this).attr('href');
@@ -62,6 +63,13 @@
                   // error
                 });
               return false;
+            });
+
+            // 处理@链接
+            var atuser_links = $('.at_user');
+            _.forEach(atuser_links, function(link) {
+              var orig = $(link).attr("href");
+              $(link).attr("href", "#/app/user/" + orig.slice(1));
             });
           });
         });
