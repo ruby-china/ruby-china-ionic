@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="org.rubychina.app" version="0.2.2 alpha" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>RubyChina App</name>
+<widget id="org.ruby-china.app" version="0.2.2 alpha" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Ruby China</name>
   <description>
-      Ruby China for iOS and Android.
+      Official Ruby China Mobile App for iOS and Android.
     </description>
   <author email="dothide@gmail.com" href="https://ruby-china.org/">
       Ruby China Team

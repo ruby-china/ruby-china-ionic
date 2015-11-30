@@ -1,7 +1,7 @@
 {
-  "name": "rubychina-app",
+  "name": "ruby-china-app",
   "version": "1.1.1",
-  "description": "RubyChina App: An Ionic project",
+  "description": "Official Ruby China Mobile App",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
