@@ -43,9 +43,9 @@
         </div>
         <div class="row" ng-if="!reply.deleted">
           <div class="col item-avatar">
-            <img ng-src="{{reply.user.avatar_url}}" alt="{{ reply.user.login }}">
+            <img ng-src="{{reply.user.avatar_url}}" ui-sref="app.user({ login: reply.user.login })" alt="{{ reply.user.login }}">
             <h2>
-              {{ reply.user.login }}
+              <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}<span>
               <span class="pull-right gray">
                 <span class="like"><i class="mdi mdi-thumb-up"></i> {{ reply.likes_count }} 个赞</span>
                 #{{ $index +1 }}
