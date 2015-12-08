@@ -12,5 +12,6 @@ plugins/
 *.log
 *.DS_Store
 www/dist/**
+www/css
 www/annotated_js/**
 npm-debug.log

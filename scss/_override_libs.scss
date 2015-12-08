@@ -50,22 +50,10 @@
 }
 
 .bar {
-  height: 35px;
   box-shadow: 0 0 0 0;
   border: 0px solid red !important;
-  .button {
-    width: 44px;
-    height: 35px;
-    max-width: 45px;
-    min-width: 44px;
-    max-height: 35px;
-    min-height: 34px;
-    font-size: 24px;
-  }
+
   .title {
-    height: 34px;
-    line-height: 34px !important;
-    font-size: 14px;
     text-align: left;
   }
 }
