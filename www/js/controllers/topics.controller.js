@@ -29,15 +29,16 @@
         ionicMaterialMotion.ripple();
       }, 0);
       vm.current_page = 1;
-      
+
       loadData($stateParams.node_id, $stateParams.type)
         .then(function(result) {
           vm.topics = result;
-          
+
         });
     }
 
-    function loadData(node_id, node_type, offset) {
+    function loadData(node_id, node_type, page) {
+      var offset = ((page || 1) - 1) * 20;
       return TopicService.getTopics(node_id, node_type, offset)
         .then(function(result) {
           var topics = {};

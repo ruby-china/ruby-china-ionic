@@ -14,7 +14,7 @@
         <!-- <ionic-letter-avatar data="{{ vm.topic.user.login }}" shape="round"></ionic-letter-avatar> -->
         <h2>
           {{ vm.topic.user.login }}
-          <span class="pull-right dark">{{ vm.topic.created_at | date: 'MM月dd日' }}</span>
+          <span class="pull-right dark">{{ vm.topic.node_name }} {{ vm.topic.created_at | date: 'MM月dd日' }}</span>
         </h2>
       </a>
       <div class="item">
@@ -47,6 +47,7 @@
             <h2>
               {{ reply.user.login }}
               <span class="pull-right gray">
+                <span class="like"><i class="mdi mdi-thumb-up"></i> {{ reply.likes_count }} 个赞</span>
                 #{{ $index +1 }}
                 <span class="dark">{{ reply.created_at | date: 'MM月dd日' }}</span>
               </span>

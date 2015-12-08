@@ -32,7 +32,8 @@
           params: {
             node_id: node_id,
             type: type,
-            offset: offset
+            offset: offset,
+            limit: 20
           }
         })
         .success(function(result) {
@@ -79,7 +80,8 @@
       var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/replies.json';
       $http.get(url, {
           params: {
-            offset: offset
+            offset: offset,
+            limit: 20
           }
         })
         .success(function(result) {

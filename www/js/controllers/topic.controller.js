@@ -38,10 +38,10 @@
       BaseService.registModal('modals/reply.html', 'reply-modal', $scope, {
         focusFirstInput: true
       });
-      
+
       return TopicService.getTopicWithReplies($stateParams.topic_id)
         .then(function(result) {
-          
+
           vm.topic = result.topic;
           vm.replies = result.replies;
           vm.has_more = vm.replies.length === 20; // 默认这里20条一页
@@ -138,16 +138,17 @@
           closeReplyModal();
           vm.replies.push(result.reply);
           vm.reply_content = "";
-          
+
         }).catch(function(err) {
-          
+
           BaseService.alert('提交回复', '', '提交失败！');
         })
     }
 
     function loadMore() {
       vm.current_page++;
-      return TopicService.getRepliesByTopic($stateParams.topic_id, vm.current_page)
+      var offset = ((vm.current_page || 0) - 1) * 20;
+      return TopicService.getRepliesByTopic($stateParams.topic_id, offset)
         .then(function(result) {
           vm.has_more = result.replies && result.replies.length > 0;
           if (!vm.has_more) {
