@@ -58,10 +58,6 @@
   }
 }
 
-.has-header {
-  top: 35px;
-}
-
 .bar .buttons.pull-right,
 .bar .title+.button:last-child,
 .bar .title+.buttons,
@@ -138,10 +134,9 @@
 // }
 
 #loading-bar .bar {
-  top: 64px !important;
+  top:0px !important;
 }
 
 #loading-bar-spinner {
-  top: 30px !important;
-  left: 50%;
+  display: none;
 }
