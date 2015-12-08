@@ -7,14 +7,16 @@
       h2 {
         padding-right: 20px;
         margin-top: 3px;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 350;
+        color: #999;
+        margin-bottom: 6px;
       }
       .author {
-        font-size: 11px;
-        line-height: 11px;
+        font-size: 13px;
         margin-top: 5px;
-        color: #959595;
+        font-weight: 400;
+        color: #555;
       }
       .badge {
         color: #CD8546;
@@ -22,6 +24,8 @@
         font-weight: normal;
         right: 5px;
       }
+
+      .positive { color: #333; font-size: 14px;}
     }
   }
 }
