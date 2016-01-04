@@ -45,7 +45,7 @@
       authToken = token;
       $cookies.putObject('rbchina_access_token', token);
       // Set the token as header for your requests!
-      $http.defaults.headers.common['X-Auth-Token'] = token;
+      $http.defaults.headers.common['Authorization'] = "Bearer " + token;
     }
 
     // 销毁用户验证

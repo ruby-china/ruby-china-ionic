@@ -25,15 +25,10 @@
     activate();
 
     function activate() {
-      $timeout(function() {
-        ionicMaterialInk.displayEffect();
-        ionicMaterialMotion.ripple();
-      }, 0);
 
-      
       return AuthService.getUserInfo($stateParams.login)
         .then(function(result) {
-          
+
           vm.user = result.user;
           vm.is_follow = result.meta.followed;
           vm.is_block = result.meta.blocked;

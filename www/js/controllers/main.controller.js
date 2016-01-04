@@ -78,10 +78,6 @@
     activate();
 
     function activate() {
-      $timeout(function() {
-        ionicMaterialInk.displayEffect();
-        ionicMaterialMotion.ripple();
-      }, 0);
       loadData("");
       BaseService.registModal('modals/login.html', 'login-modal', $scope, {
         focusFirstInput: true
@@ -110,11 +106,11 @@
       return AuthService.login(vm.account)
         .then(function(result) {
           loadData("");
-          
+
           BaseService.hideModal('login-modal');
         }, function(err) {
           vm.errorMsg = err;
-          
+
         })
     }
 
@@ -135,7 +131,7 @@
 
               setTextareaHeight($rootScope.keyboardHeight);
 
-              // 光标进入内容区，操作条上来 
+              // 光标进入内容区，操作条上来
               $("#new-topic").on('focus', function(event) {
                 $location.hash('new-topic');
                 $ionicScrollDelegate.$getByHandle('new-topic').anchorScroll(true);
@@ -226,9 +222,9 @@
           closeNewTopicModal();
           $scope.$broadcast('new_topic_success');
           vm.new_topic = {};
-          
+
         }, function(err) {
-          
+
           BaseService.alert('发表新话题', '提交失败', err.error);
         })
     }

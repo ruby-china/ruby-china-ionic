@@ -24,10 +24,6 @@
     activate();
 
     function activate() {
-      $timeout(function() {
-        ionicMaterialInk.displayEffect();
-        ionicMaterialMotion.ripple();
-      }, 0);
       vm.current_page = 1;
 
       loadData($stateParams.node_id, $stateParams.type)

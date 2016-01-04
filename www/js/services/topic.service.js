@@ -20,7 +20,10 @@
       getRepliesByTopic: getRepliesByTopic,
       createReply: createReply,
       getAllNodes: getAllNodes,
-      createTopic: createTopic
+      createTopic: createTopic,
+      likeTopic: likeTopic,
+      unlikeTopic: unlikeTopic,
+      favorite: favorite
     };
 
     return service;
@@ -58,12 +61,56 @@
       return q.promise;
     }
 
+    function likeTopic(topic_id) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/likes.json';
+      var params = {
+        obj_type: 'topic',
+        obj_id: topic_id,
+        access_token: AuthService.getAccessToken()
+      };
+
+      $http.post(url, params).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
+      return q.promise;
+    }
+
+    function unlikeTopic(topic_id) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/likes.json?obj_type=topic&obj_id=' + topic_id;
+
+      $http.delete(url).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
+      return q.promise;
+    }
+
+    function favorite(topic_id, favorite) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/favorite.json';
+      var method = favorite == true ? 'DELETE' : 'POST';
+      $http({
+        method: method,
+        url: url
+      }).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
+      return q.promise;
+    }
+
     function getTopicWithReplies(topic_id) {
       var q = $q.defer();
-      var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/replies.json';
       getTopic(topic_id)
         .then(function(result) {
           var topic = result;
+          var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/replies.json';
           $http.get(url)
             .success(function(response) {
               topic.replies = response.replies;

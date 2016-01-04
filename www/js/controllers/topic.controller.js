@@ -13,12 +13,14 @@
     BaseService, AuthService, TopicService, CameraService) {
     var vm = this;
     vm.is_logined = false;
-    vm.topic = {};
+    vm.meta = {};
+    vm.topic = { likes_count: 0 };
     vm.replies = [];
     vm.reply_content = "";
     vm.current_page = 1; // 当前页码
 
     // Functions
+    vm.showTopicPopupMenu = showTopicPopupMenu;
     vm.showReplyModal = showReplyModal;
     vm.closeReplyModal = closeReplyModal;
     vm.moreAction = moreAction;
@@ -28,10 +30,6 @@
     activate();
 
     function activate() {
-      $timeout(function() {
-        ionicMaterialInk.displayEffect();
-        ionicMaterialMotion.ripple();
-      }, 0);
 
       vm.is_logined = AuthService.isAuthencated();
       vm.reply_content = "";
@@ -41,7 +39,8 @@
 
       return TopicService.getTopicWithReplies($stateParams.topic_id)
         .then(function(result) {
-
+          vm.meta = result.meta;
+          console.log(result.meta);
           vm.topic = result.topic;
           vm.replies = result.replies;
           vm.has_more = vm.replies.length === 20; // 默认这里20条一页
@@ -96,6 +95,55 @@
 
     function closeReplyModal() {
       BaseService.hideModal('reply-modal');
+    }
+
+    function showTopicPopupMenu() {
+      var likeButton = { text: '<i class="mdi mdi-thumb-up"></i> 赞' };
+      var unlikeButton = { text: '<i class="mdi mdi-thumb-up"></i> 取消赞' };
+      var favoriteButton = { text: '<i class="mdi mdi-star"></i> 收藏' };
+      var unfavoriteButton = { text: '<i class="mdi mdi-star"></i> 取消收藏' };
+
+      var buttons = [];
+      if (vm.meta.liked) {
+        buttons.push(unlikeButton);
+      } else {
+        buttons.push(likeButton);
+      }
+
+      if (vm.meta.favorited) {
+        buttons.push(unfavoriteButton);
+      } else {
+        buttons.push(favoriteButton);
+      }
+
+      var options = {
+        buttons: buttons,
+        cancelText: '取消',
+        buttonClicked: function(index) {
+          if (index == buttons.indexOf(likeButton)) {
+            TopicService.likeTopic(vm.topic.id).then(function(result) {
+              vm.topic.likes_count = result.count;
+              vm.meta.liked = true;
+            });
+          }
+
+          if (index == buttons.indexOf(unlikeButton)) {
+            TopicService.unlikeTopic(vm.topic.id).then(function(result) {
+              vm.topic.likes_count = result.count;
+              vm.meta.liked = false;
+            });
+          }
+
+          if (index == buttons.indexOf(favoriteButton) || index == buttons.indexOf(unfavoriteButton)) {
+            TopicService.favorite(vm.topic.id).then(function(result) {
+              vm.meta.favorited = !vm.meta.favorited;
+            });
+          }
+
+          return true;
+        }
+      };
+      return $ionicActionSheet.show(options);
     }
 
     function moreAction() {

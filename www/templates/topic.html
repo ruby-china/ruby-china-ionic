@@ -3,7 +3,7 @@
     <ion-nav-back-button>
     </ion-nav-back-button>
     <ion-nav-buttons side="right">
-      <button class="button button-icon button-clear mdi mdi-dots-vertical flat">
+      <button class="button button-icon button-clear mdi mdi-dots-vertical flat" ng-click="vm.showTopicPopupMenu()">
       </button>
     </ion-nav-buttons>
   </ion-nav-bar>
@@ -22,7 +22,9 @@
       </div>
       <div class="item item-narrow gray">
         <span class="pull-left">
-          <i class="mdi mdi-thumb-up"></i> {{ vm.topic.likes_count }} 个赞
+          <span ng-class="{ 'active': vm.meta.liked === true, '': vm.meta.liked === false}">
+            <i class="mdi mdi-thumb-up"></i> <span ng-bind-html="vm.topic.likes_count">{{ vm.topic.likes_count }}></span> 个赞
+          </span>
         </span>
         <span class="pull-right">
           <i class="mdi mdi-message-reply"></i> {{ vm.topic.replies_count }} 条回复
