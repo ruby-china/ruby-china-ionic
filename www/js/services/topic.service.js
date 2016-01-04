@@ -23,7 +23,8 @@
       createTopic: createTopic,
       likeTopic: likeTopic,
       unlikeTopic: unlikeTopic,
-      favorite: favorite
+      favorite: favorite,
+      follow: follow
     };
 
     return service;
@@ -90,14 +91,23 @@
       return q.promise;
     }
 
-    function favorite(topic_id, favorite) {
+    function favorite(topic_id, favorited) {
       var q = $q.defer();
-      var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/favorite.json';
-      var method = favorite == true ? 'DELETE' : 'POST';
-      $http({
-        method: method,
-        url: url
-      }).success(function(result) {
+      var method = favorited == true ? 'unfavorite' : 'favorite';
+      var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/'+ method +'.json';
+      $http.post(url).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
+      return q.promise;
+    }
+
+    function follow(topic_id, followd) {
+      var q = $q.defer();
+      var method = followd == true ? 'unfollow' : 'follow';
+      var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/' + method + '.json';
+      $http.post(url).success(function(result) {
         q.resolve(result);
       }).error(function(err) {
         q.reject(err);

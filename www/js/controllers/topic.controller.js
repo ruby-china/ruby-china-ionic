@@ -102,6 +102,8 @@
       var unlikeButton = { text: '<i class="mdi mdi-thumb-up"></i> 取消赞' };
       var favoriteButton = { text: '<i class="mdi mdi-star"></i> 收藏' };
       var unfavoriteButton = { text: '<i class="mdi mdi-star"></i> 取消收藏' };
+      var followButton = { text: '<i class="mdi mdi-eye"></i> 关注' };
+      var unfollowButton = { text: '<i class="mdi mdi-eye"></i> 取消关注' };
 
       var buttons = [];
       if (vm.meta.liked) {
@@ -114,6 +116,12 @@
         buttons.push(unfavoriteButton);
       } else {
         buttons.push(favoriteButton);
+      }
+
+      if (vm.meta.followed) {
+        buttons.push(unfollowButton);
+      } else {
+        buttons.push(followButton);
       }
 
       var options = {
@@ -135,8 +143,14 @@
           }
 
           if (index == buttons.indexOf(favoriteButton) || index == buttons.indexOf(unfavoriteButton)) {
-            TopicService.favorite(vm.topic.id).then(function(result) {
+            TopicService.favorite(vm.topic.id, vm.meta.favorited).then(function(result) {
               vm.meta.favorited = !vm.meta.favorited;
+            });
+          }
+
+          if (index == buttons.indexOf(followButton) || index == buttons.indexOf(unfollowButton)) {
+            TopicService.follow(vm.topic.id, vm.meta.followed).then(function(result) {
+              vm.meta.followed = !vm.meta.followed;
             });
           }
 
