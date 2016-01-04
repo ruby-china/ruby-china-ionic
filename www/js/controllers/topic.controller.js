@@ -14,7 +14,14 @@
     var vm = this;
     vm.is_logined = false;
     vm.meta = {};
-    vm.topic = { likes_count: 0 };
+    vm.topic = {
+      user: {
+        avatar_url: '/img/default_avatar.png'
+      },
+      likes_count: 0,
+      body_html: '',
+      title: ''
+    };
     vm.replies = [];
     vm.reply_content = "";
     vm.current_page = 1; // 当前页码
@@ -40,7 +47,6 @@
       return TopicService.getTopicWithReplies($stateParams.topic_id)
         .then(function(result) {
           vm.meta = result.meta;
-          console.log(result.meta);
           vm.topic = result.topic;
           vm.replies = result.replies;
           vm.has_more = vm.replies.length === 20; // 默认这里20条一页

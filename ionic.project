@@ -1,6 +1,6 @@
 {
   "name": "RubyChina App",
-  "app_id": "",
+  "app_id": "61fdad52",
   "gulpStartupTasks": [
     "wiredep",
     "watch",
