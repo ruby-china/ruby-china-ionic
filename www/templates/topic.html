@@ -35,31 +35,40 @@
       </div>
       <div class="item-divider replies-divider">
       </div>
-      <div class="item item-narrow reply" ng-repeat="reply in vm.replies">
-        <div class="row" ng-if="reply.deleted">
-          <div class="col">
-            <div class="text text-deleted text-center">
-              {{ $index + 1 }} 楼已删除
+      <div class="reply-item" ng-repeat="reply in vm.replies">
+        <div class="item item-narrow reply" ng-click="vm.visable_reply_button = reply.id">
+          <div class="row" ng-if="reply.deleted">
+            <div class="col">
+              <div class="text text-deleted text-center">
+                {{ $index + 1 }} 楼已删除
+              </div>
+            </div>
+          </div>
+          <div class="row" ng-if="!reply.deleted">
+            <div class="col item-avatar">
+              <img ng-src="{{reply.user.avatar_url}}" ui-sref="app.user({ login: reply.user.login })" alt="{{ reply.user.login }}">
+              <h2>
+                <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}<span>
+                <span class="pull-right gray">
+                  <span class="like"><i class="mdi mdi-thumb-up"></i> {{ reply.likes_count }} 个赞</span>
+                  #{{ $index +1 }}
+                  <span class="dark">{{ reply.created_at | date: 'MM月dd日' }}</span>
+                </span>
+              </h2>
+            </div>
+          </div>
+          <div class="row" ng-if="!reply.deleted">
+            <div class="col">
+              <div class="markdown" ng-bind-html="reply.body_html | externalLinks"></div>
             </div>
           </div>
         </div>
-        <div class="row" ng-if="!reply.deleted">
-          <div class="col item-avatar">
-            <img ng-src="{{reply.user.avatar_url}}" ui-sref="app.user({ login: reply.user.login })" alt="{{ reply.user.login }}">
-            <h2>
-              <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}<span>
-              <span class="pull-right gray">
-                <span class="like"><i class="mdi mdi-thumb-up"></i> {{ reply.likes_count }} 个赞</span>
-                #{{ $index +1 }}
-                <span class="dark">{{ reply.created_at | date: 'MM月dd日' }}</span>
-              </span>
-            </h2>
-          </div>
-        </div>
-        <div class="row" ng-if="!reply.deleted">
-          <div class="col">
-            <div class="markdown" ng-bind-html="reply.body_html | externalLinks"></div>
-          </div>
+
+        <div class="item tabs tabs-positive" ng-class="{ 'visable': vm.visable_reply_button == reply.id }">
+          <a class="tab-item" href="#"><i class="mdi mdi-reply"></i></a>
+          <a class="tab-item" href="#"><i class="mdi mdi-thumb-up"></i></a>
+          <a class="tab-item" href="#"><i class="mdi mdi-pencil-box-outline"></i></a>
+          <a class="tab-item" href="#"><i class="mdi mdi-delete"></i></a>
         </div>
       </div>
     </div>

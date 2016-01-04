@@ -8,8 +8,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function MainController($rootScope, $scope, ionicMaterialInk,
-    ionicMaterialMotion, $ionicScrollDelegate, $ionicPopup,
+  function MainController($rootScope, $scope, $ionicScrollDelegate, $ionicPopup,
     $timeout, BaseService, AuthService, $location,
     CameraService, TopicService) {
 

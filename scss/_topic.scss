@@ -2,6 +2,14 @@
   .list {
     .gray,
     .dark { color: #929292; font-size: 12px; }
+    .tabs {
+      display:none;
+      border-top: 0px;
+      .tab-item {
+        .mdi { font-size: 22px; }
+      }
+    }
+    .tabs.visable { display: flex; }
     .item-avatar {
       min-height: 30px;
       border-bottom: none;

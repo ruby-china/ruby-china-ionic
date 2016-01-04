@@ -8,8 +8,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function TopicsController($scope,
-    ionicMaterialInk, ionicMaterialMotion, $timeout,
+  function TopicsController($scope, $timeout,
     $stateParams, BaseService, AuthService, TopicService) {
     var vm = this;
     vm.topics = {};
