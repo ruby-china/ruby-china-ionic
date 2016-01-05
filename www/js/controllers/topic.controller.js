@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function TopicController($rootScope, $scope, $stateParams, $timeout, $ionicActionSheet,
-    ionicMaterialInk, ionicMaterialMotion, $cordovaInAppBrowser,
+    ionicMaterialInk, ionicMaterialMotion, $ionicPopup, $cordovaInAppBrowser, $location,
     BaseService, AuthService, TopicService, CameraService) {
     var vm = this;
     vm.is_logined = false;
@@ -89,12 +89,8 @@
           .then(function() {
             $('#topic-reply').on('focus', function() {
               $('#reply-modal')
-                .css("transform", "translate(0px, -" + $rootScope.keyboardHeight + "px)");
-            })
-            $('#topic-reply').on('blur', function() {
-              $('#reply-modal')
                 .css("transform", "translate(0px, 0px)");
-            })
+            });
           });
       }
     }
@@ -110,6 +106,8 @@
       var unfavoriteButton = { text: '<i class="mdi mdi-star"></i> 取消收藏' };
       var followButton = { text: '<i class="mdi mdi-eye"></i> 关注' };
       var unfollowButton = { text: '<i class="mdi mdi-eye"></i> 取消关注' };
+      var editButton = { text: '<i class="mdi mdi-pencil-box-outline"></i> 编辑' };
+      var deleteButton = { text: '<i class="mdi mdi-delete"></i> 删除' };
 
       var buttons = [];
       if (vm.meta.liked) {
@@ -128,6 +126,14 @@
         buttons.push(unfollowButton);
       } else {
         buttons.push(followButton);
+      }
+
+      if (vm.topic.abilities.update) {
+        buttons.push(editButton);
+      }
+
+      if (vm.topic.abilities.destroy) {
+        buttons.push(deleteButton);
       }
 
       var options = {
@@ -157,6 +163,17 @@
           if (index == buttons.indexOf(followButton) || index == buttons.indexOf(unfollowButton)) {
             TopicService.follow(vm.topic.id, vm.meta.followed).then(function(result) {
               vm.meta.followed = !vm.meta.followed;
+            });
+          }
+
+          if (index == buttons.indexOf(editButton)) {
+          }
+
+          if (index == buttons.indexOf(deleteButton)) {
+            BaseService.confirm('删除确认', '', '你确定要删除这个话题么？').then(function(res) {
+              TopicService.destroy(vm.topic.id).then(function(result) {
+                $location.path('/app/topics/last_actived');
+              });
             });
           }
 

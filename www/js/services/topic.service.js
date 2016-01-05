@@ -24,7 +24,8 @@
       likeTopic: likeTopic,
       unlikeTopic: unlikeTopic,
       favorite: favorite,
-      follow: follow
+      follow: follow,
+      destroy: destroy
     };
 
     return service;
@@ -195,6 +196,17 @@
         }).error(function(err) {
           q.reject(err);
         });
+      return q.promise;
+    }
+
+    function destroy(topic_id) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/topics/' + topic_id + '.json';
+      $http.delete(url).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
       return q.promise;
     }
 

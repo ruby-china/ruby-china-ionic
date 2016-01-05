@@ -51,7 +51,7 @@
     // 销毁用户验证
     function destroyUserCredentials() {
       authToken = undefined;
-      $http.defaults.headers.common['X-Auth-Token'] = undefined;
+      $http.defaults.headers.common['Authorization'] = undefined;
       // window.localStorage.removeItem(LOCAL_TOKEN_KEY);
       OAuth.revokeToken();
       $cookies.remove('rbchina_access_token');
