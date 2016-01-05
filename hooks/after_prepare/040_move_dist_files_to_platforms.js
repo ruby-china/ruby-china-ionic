@@ -98,10 +98,10 @@ function moveAndroidFolder() {
 
 switch (platform) {
   case 'ios':
-    moveIosFolder();
+    // moveIosFolder();
     break;
   case 'android':
-    moveAndroidFolder();
+    // moveAndroidFolder();
     break;
   default:
     console.info('this hook only supports android and ios currently');

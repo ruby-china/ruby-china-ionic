@@ -33,16 +33,16 @@ var androidPlatformsDir_4 = path.resolve(__dirname, '../../platforms/android/ass
 
 switch (platform) {
   case 'ios':
-    deleteFolderRecursive(iosPlatformsDir_1);
-    deleteFolderRecursive(iosPlatformsDir_2);
-    deleteFolderRecursive(iosPlatformsDir_3);
-    deleteFolderRecursive(iosPlatformsDir_4);
+    // deleteFolderRecursive(iosPlatformsDir_1);
+    // deleteFolderRecursive(iosPlatformsDir_2);
+    // deleteFolderRecursive(iosPlatformsDir_3);
+    // deleteFolderRecursive(iosPlatformsDir_4);
     break;
   case 'android':
-    deleteFolderRecursive(androidPlatformsDir_1);
-    deleteFolderRecursive(androidPlatformsDir_2);
-    deleteFolderRecursive(androidPlatformsDir_3);
-    deleteFolderRecursive(androidPlatformsDir_4);
+    // deleteFolderRecursive(androidPlatformsDir_1);
+    // deleteFolderRecursive(androidPlatformsDir_2);
+    // deleteFolderRecursive(androidPlatformsDir_3);
+    // deleteFolderRecursive(androidPlatformsDir_4);
     break;
   default:
     console.info('this hook only supports android and ios currently');
