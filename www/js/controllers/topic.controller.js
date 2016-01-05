@@ -85,13 +85,7 @@
       if (!vm.is_logined) {
         BaseService.showModal('login-modal');
       } else {
-        BaseService.showModal('reply-modal')
-          .then(function() {
-            $('#topic-reply').on('focus', function() {
-              $('#reply-modal')
-                .css("transform", "translate(0px, 0px)");
-            });
-          });
+        BaseService.showModal('reply-modal');
       }
     }
 
@@ -100,6 +94,12 @@
     }
 
     function showTopicPopupMenu() {
+      vm.is_logined = AuthService.isAuthencated();
+      if (!vm.is_logined) {
+        BaseService.showModal('login-modal');
+        return true;
+      };
+
       var likeButton = { text: '<i class="mdi mdi-thumb-up"></i> 赞' };
       var unlikeButton = { text: '<i class="mdi mdi-thumb-up"></i> 取消赞' };
       var favoriteButton = { text: '<i class="mdi mdi-star"></i> 收藏' };
