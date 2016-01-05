@@ -2,20 +2,60 @@
   .list {
     .gray,
     .dark { color: #929292; font-size: 12px; }
-    .tabs {
-      display:none;
+    .toolbar {
+      height: 0px;
+      overflow: hidden;
+      perspective: 200px;
+      position: relative;
+      transition: height 0.2s ease-in-out;
       border-top: 0px;
       .tab-item {
         .mdi { font-size: 20px; }
       }
+
+      .tabs {
+        position: absolute;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        transform: rotateX(60deg);
+      }
+
+      &.open .tabs {
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+
+      .fold-top, .fold-bottom {
+        height: 20px;
+        width: 312px;
+        left: 4px;
+        position: absolute;
+        transition: all 0.22s ease-in-out;
+      }
+
+      &.open .fold-top, &.open .fold-bottom {
+        background: #387ef5;
+        transform: rotateX(0deg);
+        width: 100%;
+        left: 0;
+      }
+
+      .fold-top {
+        transform-origin: top center;
+        transform: rotateX(-90deg);
+        top: 0;
+        background: #387ef5;
+      }
+
+      .fold-bottom {
+        transform-origin: bottom center;
+        transform: rotateX(90deg);
+        bottom: 0;
+        background: #387ef5;
+      }
     }
-    .tabs.visable {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -moz-box;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
+    .toolbar.open {
+      height: 48px;
     }
     .item-avatar {
       min-height: 30px;

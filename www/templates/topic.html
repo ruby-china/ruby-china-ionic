@@ -64,11 +64,15 @@
           </div>
         </div>
 
-        <div class="item tabs tabs-positive" ng-class="{ 'visable': vm.visable_reply_button == reply.id }">
-          <a class="tab-item" href="#"><i class="mdi mdi-reply"></i></a>
-          <a class="tab-item" href="#"><i class="mdi mdi-thumb-up"></i></a>
-          <a class="tab-item" href="#"><i class="mdi mdi-pencil-box-outline"></i></a>
-          <a class="tab-item" href="#"><i class="mdi mdi-delete"></i></a>
+        <div class="toolbar" ng-class="{ 'open': vm.visable_reply_button == reply.id }">
+          <div class="fold-top"></div>
+          <div class="fold-bottom"></div>
+          <div class="item tabs tabs-positive">
+            <a class="tab-item" href="#"><i class="mdi mdi-reply"></i></a>
+            <a class="tab-item" href="#"><i class="mdi mdi-thumb-up"></i></a>
+            <a class="tab-item" href="#"><i class="mdi mdi-pencil-box-outline"></i></a>
+            <a class="tab-item" href="#"><i class="mdi mdi-delete"></i></a>
+          </div>
         </div>
       </div>
     </div>
