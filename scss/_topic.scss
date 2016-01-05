@@ -37,7 +37,7 @@
       }
 
       &.open .fold-top, &.open .fold-bottom {
-        background: #E2B4B4;
+        background: #FFE054;
         transform: rotateX(0deg);
         width: 100%;
         left: 0;
@@ -47,14 +47,14 @@
         transform-origin: top center;
         transform: rotateX(-90deg);
         top: 0;
-        background: #E2B4B4;
+        background: #FFE054;
       }
 
       .fold-bottom {
         transform-origin: bottom center;
         transform: rotateX(90deg);
         bottom: 0;
-        background: #E2B4B4;
+        background: #FFE054;
       }
     }
     .toolbar.open {
