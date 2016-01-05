@@ -16,8 +16,11 @@
       .tabs {
         position: absolute;
         opacity: 0;
+        background: #FFE054;
         transition: all 0.2s ease-in-out;
         transform: rotateX(60deg);
+
+        .active { color: #DC5B2E; }
       }
 
       &.open .tabs {
@@ -34,7 +37,7 @@
       }
 
       &.open .fold-top, &.open .fold-bottom {
-        background: #387ef5;
+        background: #E2B4B4;
         transform: rotateX(0deg);
         width: 100%;
         left: 0;
@@ -44,14 +47,14 @@
         transform-origin: top center;
         transform: rotateX(-90deg);
         top: 0;
-        background: #387ef5;
+        background: #E2B4B4;
       }
 
       .fold-bottom {
         transform-origin: bottom center;
         transform: rotateX(90deg);
         bottom: 0;
-        background: #387ef5;
+        background: #E2B4B4;
       }
     }
     .toolbar.open {

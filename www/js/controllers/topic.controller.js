@@ -13,6 +13,7 @@
     BaseService, AuthService, TopicService, CameraService) {
     var vm = this;
     vm.is_logined = false;
+    vm.user_liked_reply_ids = [];
     vm.meta = {};
     vm.topic = {
       user: {
@@ -31,8 +32,13 @@
     vm.showReplyModal = showReplyModal;
     vm.closeReplyModal = closeReplyModal;
     vm.moreAction = moreAction;
-    vm.createReply = createReply;
+    vm.saveReply = saveReply;
     vm.loadMore = loadMore;
+    vm.quoteReply = quoteReply;
+    vm.editReply = editReply;
+    vm.destroyReply = destroyReply;
+    vm.likeReply = likeReply;
+    vm.isReplyLiked = isReplyLiked;
 
     activate();
 
@@ -49,6 +55,7 @@
           vm.meta = result.meta;
           vm.topic = result.topic;
           vm.replies = result.replies;
+          vm.user_liked_reply_ids = result.user_liked_reply_ids;
           vm.has_more = vm.replies.length === 20; // 默认这里20条一页
           $timeout(function() {
             // 处理外部链接
@@ -81,12 +88,54 @@
     }
 
     function showReplyModal() {
+      vm.edit_reply_id = null;
+      vm.reply_content = "";
       vm.is_logined = AuthService.isAuthencated();
       if (!vm.is_logined) {
         BaseService.showModal('login-modal');
       } else {
         BaseService.showModal('reply-modal');
       }
+    }
+
+    function quoteReply(reply, floor) {
+      vm.current_edit_reply = null;
+      vm.reply_content = "#" + floor + "楼 @" + reply.user.login + " ";
+      BaseService.showModal('reply-modal');
+    }
+
+    function likeReply(reply) {
+      var liked = isReplyLiked(reply);
+      TopicService.like('reply', reply.id, liked).then(function(result) {
+        reply.likes_count = result.count;
+        if (liked) {
+          _.remove(vm.user_liked_reply_ids, function(id) {
+            return id == reply.id
+          });
+        } else {
+          vm.user_liked_reply_ids.push(reply.id);
+        }
+      });
+    }
+
+    function isReplyLiked(reply) {
+      return vm.user_liked_reply_ids.indexOf(reply.id) != -1;
+    }
+
+    function editReply(reply) {
+      vm.current_edit_reply = reply;
+      TopicService.getReply(reply.id).then(function(result) {
+        vm.reply_content = result.reply.body;
+        BaseService.showModal('reply-modal');
+      });
+    }
+
+    function destroyReply(reply) {
+      BaseService.confirm('删除确认', '', '你确定要删除这个回帖么？').then(function(res) {
+        TopicService.destroyReply(reply.id).then(function(result) {
+          reply.deleted = true;
+        });
+      });
     }
 
     function closeReplyModal() {
@@ -217,17 +266,26 @@
 
 
     // 提交回帖
-    function createReply() {
-      TopicService.createReply($stateParams.topic_id, vm.reply_content)
-        .then(function(result) {
-          closeReplyModal();
-          vm.replies.push(result.reply);
-          vm.reply_content = "";
-
-        }).catch(function(err) {
-
-          BaseService.alert('提交回复', '', '提交失败！');
-        })
+    function saveReply() {
+      if (vm.current_edit_reply) {
+        TopicService.updateReply(vm.current_edit_reply.id, vm.reply_content)
+          .then(function(result) {
+            closeReplyModal();
+            var idx = vm.replies.indexOf(vm.current_edit_reply);
+            vm.replies[idx].body_html = result.reply.body_html;
+            vm.current_edit_reply = null;
+            vm.reply_content = '';
+          });
+      } else {
+        TopicService.createReply($stateParams.topic_id, vm.reply_content)
+          .then(function(result) {
+            closeReplyModal();
+            vm.replies.push(result.reply);
+            vm.reply_content = "";
+          }).catch(function(err) {
+            BaseService.alert('提交回复', '', '提交失败！');
+          })
+        }
     }
 
     function loadMore() {
@@ -240,6 +298,7 @@
             vm.current_page--;
           } else {
             vm.replies = _.union(vm.replies, result.replies);
+            vm.user_liked_reply_ids =  _.union(vm.user_liked_reply_ids, result.meta.user_liked_reply_ids);
             $scope.$broadcast('scroll.infiniteScrollComplete');
           }
         });

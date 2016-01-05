@@ -50,7 +50,7 @@
               <h2>
                 <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}<span>
                 <span class="pull-right gray">
-                  <span class="like"><i class="mdi mdi-thumb-up"></i> {{ reply.likes_count }} 个赞</span>
+                  <span class="like" ng-class="{ 'active': vm.isReplyLiked(reply) == true }"><i class="mdi mdi-thumb-up"></i> <span ng-bind-html="reply.likes_count">{{ reply.likes_count }}</span> 个赞</span>
                   #{{ $index +1 }}
                   <span class="dark">{{ reply.created_at | date: 'MM月dd日' }}</span>
                 </span>
@@ -64,14 +64,14 @@
           </div>
         </div>
 
-        <div class="toolbar" ng-class="{ 'open': vm.visable_reply_button == reply.id }">
+        <div class="toolbar" ng-if="vm.is_logined && !reply.deleted" ng-class="{ 'open': vm.visable_reply_button == reply.id }">
           <div class="fold-top"></div>
           <div class="fold-bottom"></div>
           <div class="item tabs tabs-positive">
-            <a class="tab-item" href="#"><i class="mdi mdi-reply"></i></a>
-            <a class="tab-item" href="#"><i class="mdi mdi-thumb-up"></i></a>
-            <a class="tab-item" href="#"><i class="mdi mdi-pencil-box-outline"></i></a>
-            <a class="tab-item" href="#"><i class="mdi mdi-delete"></i></a>
+            <a class="tab-item" ng-click="vm.quoteReply(reply, $index +1)"><i class="mdi mdi-reply"></i></a>
+            <a class="tab-item" ng-class="{ 'active': vm.isReplyLiked(reply) == true }" ng-click="vm.likeReply(reply)"><i class="mdi mdi-thumb-up"></i></a>
+            <a class="tab-item" ng-if="reply.abilities.update == true" ng-click="vm.editReply(reply)"><i class="mdi mdi-pencil-box-outline"></i></a>
+            <a class="tab-item" ng-if="reply.abilities.destroy == true" ng-click="vm.destroyReply(reply)"><i class="mdi mdi-delete"></i></a>
           </div>
         </div>
       </div>

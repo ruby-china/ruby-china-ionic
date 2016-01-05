@@ -19,10 +19,14 @@
       getTopicWithReplies: getTopicWithReplies,
       getRepliesByTopic: getRepliesByTopic,
       createReply: createReply,
+      getReply: getReply,
+      updateReply: updateReply,
+      destroyReply: destroyReply,
       getAllNodes: getAllNodes,
       createTopic: createTopic,
       likeTopic: likeTopic,
       unlikeTopic: unlikeTopic,
+      like: like,
       favorite: favorite,
       follow: follow,
       destroy: destroy
@@ -56,6 +60,22 @@
       var q = $q.defer();
       var url = rbchina_api.url_prefix + '/topics/' + topic_id + '.json';
       $http.get(url).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
+      return q.promise;
+    }
+
+    function like(able_type, able_id, liked) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/likes.json?obj_type=' + able_type + '&obj_id=' + able_id;
+      var method = liked == true ? 'DELETE' : 'POST';
+
+      $http({
+        method: method,
+        url: url
+      }).success(function(result) {
         q.resolve(result);
       }).error(function(err) {
         q.reject(err);
@@ -125,6 +145,7 @@
           $http.get(url)
             .success(function(response) {
               topic.replies = response.replies;
+              topic.user_liked_reply_ids = response.meta.user_liked_reply_ids;
               q.resolve(topic);
             }).error(function(e) {
               q.reject(e);
@@ -150,6 +171,19 @@
       return q.promise;
     }
 
+    function getReply(reply_id) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/replies/' + reply_id + '.json';
+
+      $http.get(url)
+        .success(function(result) {
+          q.resolve(result);
+        }).error(function(err) {
+          q.reject(err);
+        });
+      return q.promise;
+    }
+
     // 提交回复
     function createReply(topic_id, body) {
       var q = $q.defer();
@@ -159,6 +193,32 @@
         access_token: AuthService.getAccessToken()
       };
       $http.post(url, data)
+        .success(function(result) {
+          q.resolve(result);
+        }).error(function(err) {
+          q.reject(err);
+        });
+      return q.promise;
+    }
+
+    function updateReply(reply_id, body) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/replies/' + reply_id + '.json';
+
+      $http.post(url, { body: body })
+        .success(function(result) {
+          q.resolve(result);
+        }).error(function(err) {
+          q.reject(err);
+        });
+      return q.promise;
+    }
+
+    function destroyReply(reply_id) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/replies/' + reply_id + '.json';
+
+      $http.delete(url)
         .success(function(result) {
           q.resolve(result);
         }).error(function(err) {
