@@ -6,10 +6,17 @@
       display:none;
       border-top: 0px;
       .tab-item {
-        .mdi { font-size: 22px; }
+        .mdi { font-size: 20px; }
       }
     }
-    .tabs.visable { display: flex; }
+    .tabs.visable {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
     .item-avatar {
       min-height: 30px;
       border-bottom: none;
