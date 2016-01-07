@@ -76,6 +76,7 @@
 
     $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {
       BaseService.statusBar(0);
+      doRefresh();
     });
 
     $scope.$on('$ionicView.beforeLeave', function(viewInfo, state) {

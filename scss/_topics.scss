@@ -1,6 +1,9 @@
 #topics {
   .list {
     .item {
+      &:visited {
+        h2 { color: #666; }
+      }
       padding: 10px 16px 10px 65px;
       min-height: 55px;
       img { top: 8px; }

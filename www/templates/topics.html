@@ -3,7 +3,7 @@
     <ion-refresher pulling-text="下拉刷新..." spinner="ios" on-refresh="vm.doRefresh()">
     </ion-refresher>
     <div class="list">
-      <a class="item item-avatar" ui-sref="app.topic({topic_id: topic.id})" ng-repeat="topic in vm.topics.items" ng-if="!topic.deleted">
+      <a class="item item-avatar" href="#/app/topic/{{topic.id}}/{{topic.replies_count}}" ui-sref="app.topic({topic_id: topic.id, replies_count: topic.replies_count})" ng-repeat="topic in vm.topics.items" ng-if="!topic.deleted">
         <img ng-src="{{topic.user.avatar_url}}" alt="{{ topic.user.login }}">
         <h2>{{ topic.title }}</h2>
         <div class="author"><span class="node">{{ topic.node_name }}</span> {{ topic.user.login }} </div>
