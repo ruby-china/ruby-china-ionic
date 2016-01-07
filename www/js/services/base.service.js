@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function BaseService($q, $http, $ionicLoading, $ionicPopup,
-    $ionicModal, $ionicActionSheet, $cordovaInAppBrowser, AuthService, rbchina_api) {
+    $ionicModal, $ionicActionSheet, $timeout, $cordovaInAppBrowser, AuthService, rbchina_api) {
 
     var modals = [];
     var statusBarStyle = 0;
@@ -33,12 +33,31 @@
       uploadPicture: uploadPicture,
       openUrl: openUrl,
       dismissSafari: dismissSafari,
-      statusBar: statusBar
+      statusBar: statusBar,
+      formatTopicBody: formatTopicBody
     };
 
     return service;
 
     //////////////////////////////////////////////////////////////////////
+    function formatTopicBody() {
+      $timeout(function() {
+        // 处理外部链接
+        var exlinks = $('.ex-link');
+        exlinks.click(function() {
+          var url = $(this).attr('href');
+          BaseService.openUrl(url);
+          return false;
+        });
+
+        // 处理@链接
+        var atuser_links = $('.at_user');
+        _.forEach(atuser_links, function(link) {
+          var orig = $(link).attr("href");
+          $(link).attr("href", "#/app/user/" + orig.slice(1));
+        });
+      });
+    }
 
     // 弹出警告框
     function alert(title, subTitle, message) {

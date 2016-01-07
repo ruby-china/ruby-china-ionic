@@ -29,6 +29,8 @@
         });
         var ids = _.pluck(unread_items, 'id');
         UserService.markNotificationsRead(ids);
+
+        BaseService.formatTopicBody();
       });
     }
 

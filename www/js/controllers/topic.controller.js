@@ -61,22 +61,7 @@
           vm.replies = result.replies;
           vm.user_liked_reply_ids = result.user_liked_reply_ids;
           vm.has_more = vm.replies.length === 20; // 默认这里20条一页
-          $timeout(function() {
-            // 处理外部链接
-            var exlinks = $('.ex-link');
-            exlinks.click(function() {
-              var url = $(this).attr('href');
-              BaseService.openUrl(url);
-              return false;
-            });
-
-            // 处理@链接
-            var atuser_links = $('.at_user');
-            _.forEach(atuser_links, function(link) {
-              var orig = $(link).attr("href");
-              $(link).attr("href", "#/app/user/" + orig.slice(1));
-            });
-          });
+          BaseService.formatTopicBody();
         });
     }
 
