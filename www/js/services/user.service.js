@@ -11,6 +11,7 @@
   function UserService($q, $http, AuthService, rbchina_api) {
     var service = {
       getUserTopics: getUserTopics,
+      getUnreadNotificationsCount: getUnreadNotificationsCount,
       getUserNotifications: getUserNotifications,
       markNotificationsRead: markNotificationsRead,
       userAction: userAction
@@ -23,6 +24,18 @@
     function getUserTopics(login) {
       var q = $q.defer();
       var url = rbchina_api.url_prefix + '/users/' + login + '/topics.json';
+      $http.get(url)
+        .success(function(result) {
+          q.resolve(result);
+        }).error(function(err) {
+          q.reject(err);
+        });
+      return q.promise;
+    }
+
+    function getUnreadNotificationsCount() {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/notifications/unread_count.json';
       $http.get(url)
         .success(function(result) {
           q.resolve(result);

@@ -6,5 +6,5 @@
     <span class="positive" ui-sref="app.topic({ topic_id: nf.mention.topic_id })">{{ nf.mention.topic.title }}</span> 中提及你
   </h2>
   <div class="text text-left markdown" ng-bind-html="nf.mention.body_html | externalLinks"></div>
-  <span class="badge badge-energized" ng-if="!nf.read">新</span>
+  <span class="badge" ng-if="!nf.read"></span>
 </div>

@@ -4,4 +4,5 @@
     <span am-time-ago="nf.created_at"></span> 创建了帖子
     <span class="positive" ui-sref="app.topic({ topic_id: nf.topic.id })">{{ nf.topic.title }}</span>
   </h2>
+  <span class="badge" ng-if="!nf.read"></span>
 </div>

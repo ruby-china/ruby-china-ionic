@@ -6,7 +6,7 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear mdi mdi-bell-outline"
+        <button class="button button-icon button-clear mdi mdi-bell-outline" ng-class="{ 'new': vm.unread_notifications_count > 0 }"
           ng-if="vm.is_logined" ui-sref="app.notification">
         </button>
       </ion-nav-buttons>
@@ -41,6 +41,9 @@
         </a>
       </div>
       <div class="list">
+        <a menu-close class="item item-icon-left item-notification" ng-class="{ 'active': vm.unread_notifications_count > 0 }" ui-sref="app.notification" ng-if="vm.is_logined">
+          <i class="icon mdi mdi-bell-outline"></i> 通知 <span class='count' ng-bind-html="vm.unread_notifications_count"></span>
+        </a>
         <a menu-close class="item item-icon-left" ng-if="vm.is_logined">
           <i class="icon mdi mdi-settings"></i> 设置
         </a>

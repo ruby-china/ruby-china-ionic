@@ -18,7 +18,7 @@
     vm.meta = {};
     vm.topic = {
       user: {
-        avatar_url: '/img/default_avatar.png'
+        avatar_url: 'img/default_avatar.png'
       },
       likes_count: 0,
       body_html: '',

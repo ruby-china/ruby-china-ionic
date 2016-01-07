@@ -9,7 +9,7 @@
         margin-top: 3px;
         font-size: 12px;
         font-weight: 350;
-        color: #999;
+        color: #666;
         margin-bottom: 6px;
       }
       .author {
@@ -19,8 +19,13 @@
         color: #555;
       }
       .badge {
-        color: #CD8546;
+        background: #F9F33B;
+        display: block;
+        position: absoulte;
+        width: 10px; height: 10px;
         font-size: 12px;
+        line-height: 100%;
+        padding: 2px;
         font-weight: normal;
         right: 5px;
       }

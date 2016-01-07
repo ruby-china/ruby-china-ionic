@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function MainController($rootScope, $scope, $ionicScrollDelegate, $ionicPopup,
-    $timeout, BaseService, AuthService, $location, $cordovaAppVersion,
+    $timeout, BaseService, UserService, AuthService, $location, $cordovaAppVersion,
     CameraService, TopicService) {
 
     var vm = this;
@@ -73,12 +73,18 @@
     vm.insertCode = insertCode;
     vm.atSomebody = atSomebody;
     vm.insertEmoji = insertEmoji;
+    vm.unread_notifications_count = 0;
 
     activate();
     loadAppVerion();
 
     function activate() {
       loadData("");
+
+      UserService.getUnreadNotificationsCount().then(function(res) {
+        vm.unread_notifications_count = res.count;
+      });
+
       BaseService.registModal('modals/login.html', 'login-modal', $scope, {
         focusFirstInput: true
       });
