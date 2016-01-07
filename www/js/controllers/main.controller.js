@@ -60,6 +60,7 @@
 
     // Functions
     vm.showLoginModal = showLoginModal;
+    vm.showRegisterModal = showRegisterModal;
     vm.closeLoginModal = closeLoginModal;
     vm.login = login;
     vm.logout = logout;
@@ -112,6 +113,10 @@
 
     function showLoginModal() {
       BaseService.showModal('login-modal');
+    }
+
+    function showRegisterModal() {
+      BaseService.openUrl('https://ruby-china.org/account/sign_up');
     }
 
     function closeLoginModal() {

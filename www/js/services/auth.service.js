@@ -53,6 +53,7 @@
       $http.defaults.headers.common['Authorization'] = undefined;
       OAuth.revokeToken();
       $window.localStorage['access_token'] = null;
+      $window.localStorage['current_user'] = null;
       setCurrentUser({});
     }
 
@@ -77,7 +78,11 @@
     }
 
     function getCurrentUser() {
-      return JSON.parse($window.localStorage['current_user'] || '{}');
+      var info = $window.localStorage['current_user'];
+      if (!info) {
+        return null
+      }
+      return JSON.parse(info);
     }
 
 
@@ -118,7 +123,7 @@
     }
 
     function isAuthencated() {
-      return !!authToken && getCurrentUser();
+      return !!authToken && getCurrentUser().login;
     }
 
     function getAccessToken() {

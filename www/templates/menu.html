@@ -22,7 +22,10 @@
           <div class="level">{{ vm.current_user.level_name }}</div>
         </a>
         <a menu-close class="item item-icon-left" ng-click="vm.showLoginModal()" ng-if="!vm.is_logined">
-          <i class="icon mdi mdi-login"></i> 登录
+          <i class="icon mdi mdi-account-box-outline"></i> 登录
+        </a>
+        <a menu-close class="item item-icon-left" ng-click="vm.showRegisterModal()" ng-if="!vm.is_logined">
+          <i class="icon mdi mdi-ticket-account"></i> 注册新账号
         </a>
         <a menu-close class="item item-icon-left" ui-sref="app.topics({type: 'last_actived'})">
           <i class="icon mdi mdi-message-text calm"></i> 讨论区
