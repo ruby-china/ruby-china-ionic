@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function TopicController($rootScope, $scope, $stateParams, $timeout, $ionicActionSheet,
-    ionicMaterialInk, ionicMaterialMotion, $ionicPopup, $cordovaInAppBrowser, $location,
+    ionicMaterialInk, ionicMaterialMotion, $ionicPopup, $location,
     BaseService, AuthService, TopicService, CameraService) {
     var vm = this;
     vm.is_logined = false;
@@ -65,18 +65,7 @@
             var exlinks = $('.ex-link');
             exlinks.click(function() {
               var url = $(this).attr('href');
-              var options = {
-                location: 'yes',
-                clearcache: 'yes',
-                toolbar: 'yes'
-              };
-              $cordovaInAppBrowser.open(encodeURI(url), '_blank', options)
-                .then(function(event) {
-                  // success
-                })
-                .catch(function(event) {
-                  // error
-                });
+              BaseService.openUrl(url);
               return false;
             });
 

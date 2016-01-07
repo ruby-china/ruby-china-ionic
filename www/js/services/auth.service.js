@@ -85,22 +85,22 @@
     function login(user) {
       var q = $q.defer();
       if (!user.username) {
-        q.reject("请填写用户！");
+        q.reject("用户名或 Email 没有填写");
         return q.promise;
       }
-      if (user.username.match(/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/)) {
-        q.reject("暂不支持邮箱登录！");
-        return q.promise;
-      }
+
       if (!user.password) {
-        q.reject("请填写密码！");
+        q.reject("还没未填写密码");
         return q.promise;
       }
+
       OAuth.getAccessToken(user)
         .then(function(result) {
           storeUserCredentials(result.data.access_token);
+
+          console.log(result.data);
           // 获取用户信息并存储
-          getUserInfo(user.username)
+          getUserInfo('me')
             .then(function(response) {
               // 输出用户信息
               setCurrentUser(response.user);
@@ -109,7 +109,7 @@
               q.reject(error);
             });
         }).catch(function(err) {
-          q.reject("用户名或密码错误！");
+          q.reject("对不起，用户名或密码错误！");
         });
       return q.promise;
     }

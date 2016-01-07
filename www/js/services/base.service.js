@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function BaseService($q, $http, $ionicLoading, $ionicPopup,
-    $ionicModal, $ionicActionSheet, AuthService, rbchina_api) {
+    $ionicModal, $ionicActionSheet, $cordovaInAppBrowser, AuthService, rbchina_api) {
 
     var modals = [];
     var service = {
@@ -29,7 +29,9 @@
       // ActionSheet
       showActionSheet: showActionSheet,
       // 上传图片
-      uploadPicture: uploadPicture
+      uploadPicture: uploadPicture,
+      openUrl: openUrl,
+      dismissSafari: dismissSafari
     };
 
     return service;
@@ -172,6 +174,43 @@
           q.reject(err);
         });
       return q.promise;
+    }
+
+    // https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller
+    function openUrl(url) {
+      url = encodeURI(url);
+      SafariViewController.isAvailable(function (available) {
+        if (available) {
+          SafariViewController.show({
+                url: url,
+                animated: false, // default true, note that 'hide' will reuse this preference (the 'Done' button will always animate though)
+                enterReaderModeIfAvailable: false // default false
+              },
+              // this success handler will be invoked for the lifecycle events 'opened', 'loaded' and 'closed'
+              function(result) {
+              },
+              function(msg) {
+              })
+        } else {
+          // potentially powered by InAppBrowser because that (currently) clobbers window.open
+          var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'yes'
+          };
+          $cordovaInAppBrowser.open(url, '_blank', options)
+            .then(function(event) {
+              // success
+            })
+            .catch(function(event) {
+              // error
+            });
+        }
+      })
+    }
+
+    function dismissSafari() {
+      SafariViewController.hide();
     }
   }
 

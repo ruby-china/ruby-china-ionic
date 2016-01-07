@@ -3,13 +3,13 @@
 
   angular
     .module('app.core')
-    .config(oauthConfig)
-    // .config(oauthConfigDevelopment)
+    // .config(oauthConfig)
+    .config(oauthConfigDevelopment)
     .config(backButtonConfig)
     .config(loadbarConfig)
     .constant('rbchina_api', {
-      url_prefix: "https://ruby-china.org/api/v3"
-      // url_prefix: "http://localhost:3000/api/v3"
+      // url_prefix: "https://ruby-china.org/api/v3"
+      url_prefix: "http://localhost:3000/api/v3"
     });
 
   ////////////////////////////////////////////////////////////
