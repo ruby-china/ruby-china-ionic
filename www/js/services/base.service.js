@@ -12,6 +12,7 @@
     $ionicModal, $ionicActionSheet, $cordovaInAppBrowser, AuthService, rbchina_api) {
 
     var modals = [];
+    var statusBarStyle = 0;
     var service = {
       // 弹出框
       alert: alert,
@@ -31,7 +32,8 @@
       // 上传图片
       uploadPicture: uploadPicture,
       openUrl: openUrl,
-      dismissSafari: dismissSafari
+      dismissSafari: dismissSafari,
+      statusBar: statusBar
     };
 
     return service;
@@ -99,12 +101,14 @@
 
     // 弹出模态框
     function showModal(modal_id) {
+      changeStatusBar(1);
       var modal = _.find(modals, "id", modal_id).modal;
       return modal.show();
     }
 
     // 隐藏模态框
     function hideModal(modal_id) {
+      statusBar(statusBarStyle);
       var modal = _.find(modals, "id", modal_id).modal;
       return modal.hide();
     }
@@ -211,6 +215,23 @@
 
     function dismissSafari() {
       SafariViewController.hide();
+    }
+
+    function statusBar(style) {
+      statusBarStyle = style;
+      changeStatusBar(style);
+    }
+
+    function changeStatusBar(style) {
+      if (!window.StatusBar) {
+        return;
+      }
+
+      if (style == 0) {
+        StatusBar.styleLightContent();
+      } else {
+        StatusBar.styleDefault();
+      }
     }
   }
 

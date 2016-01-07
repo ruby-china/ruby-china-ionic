@@ -21,10 +21,10 @@
 
     function activate() {
       vm.current_page = 1;
-      
+
       loadData().then(function(result) {
         vm.notifications = result;
-        
+
       });
     }
 

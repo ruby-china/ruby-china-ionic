@@ -34,7 +34,8 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-safariviewcontroller",
-    "cordova-plugin-app-version"
+    "cordova-plugin-app-version",
+    "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
     "ios"

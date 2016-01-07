@@ -10,6 +10,9 @@
   /* @ngInject */
   function TopicsController($scope, $timeout,
     $stateParams, BaseService, AuthService, TopicService) {
+
+    BaseService.statusBar(0);
+
     var vm = this;
     vm.topics = {};
     vm.is_logined = AuthService.isAuthencated();
@@ -70,6 +73,15 @@
           }
         });
     }
+
+    $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {
+      BaseService.statusBar(0);
+    });
+
+    $scope.$on('$ionicView.beforeLeave', function(viewInfo, state) {
+      BaseService.statusBar(1);
+    });
+
 
     $scope.$on('new_topic_success', function() {
       doRefresh();

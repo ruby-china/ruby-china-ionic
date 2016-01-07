@@ -8,5 +8,4 @@
       'app.controller',
       'app.service'
     ]);
-
 })();

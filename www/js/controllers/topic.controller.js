@@ -11,6 +11,7 @@
   function TopicController($rootScope, $scope, $stateParams, $timeout, $ionicActionSheet,
     ionicMaterialInk, ionicMaterialMotion, $ionicPopup, $location,
     BaseService, AuthService, TopicService, CameraService) {
+
     var vm = this;
     vm.is_logined = false;
     vm.user_liked_reply_ids = [];
