@@ -24,7 +24,11 @@
 
       loadData().then(function(result) {
         vm.notifications = result;
-
+        var unread_items = _.filter(result, function(item) {
+          return item.read == false;
+        });
+        var ids = _.pluck(unread_items, 'id');
+        UserService.markNotificationsRead(ids);
       });
     }
 

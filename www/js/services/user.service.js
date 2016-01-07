@@ -12,6 +12,7 @@
     var service = {
       getUserTopics: getUserTopics,
       getUserNotifications: getUserNotifications,
+      markNotificationsRead: markNotificationsRead,
       userAction: userAction
     };
 
@@ -40,6 +41,20 @@
             offset: offset,
             access_token: AuthService.getAccessToken()
           }
+        })
+        .success(function(result) {
+          q.resolve(result.notifications);
+        }).error(function(err) {
+          q.reject(err);
+        });
+      return q.promise;
+    }
+
+    function markNotificationsRead(ids) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/notifications/read.json';
+      $http.post(url, {
+          ids: ids
         })
         .success(function(result) {
           q.resolve(result.notifications);
