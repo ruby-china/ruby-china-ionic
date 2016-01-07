@@ -32,7 +32,10 @@
     "wiredep": "^3.0.0",
     "yargs": "^3.30.0"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "cordova-plugin-safariviewcontroller",
+    "cordova-plugin-app-version"
+  ],
   "cordovaPlatforms": [
     "ios"
   ]

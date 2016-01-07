@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function MainController($rootScope, $scope, $ionicScrollDelegate, $ionicPopup,
-    $timeout, BaseService, AuthService, $location,
+    $timeout, BaseService, AuthService, $location, $cordovaAppVersion,
     CameraService, TopicService) {
 
     var vm = this;
@@ -75,6 +75,7 @@
     vm.insertEmoji = insertEmoji;
 
     activate();
+    loadAppVerion();
 
     function activate() {
       loadData("");
@@ -91,6 +92,16 @@
       vm.current_user = AuthService.getCurrentUser() || {};
       vm.is_logined = AuthService.isAuthencated();
       vm.account = {};
+    }
+
+    function loadAppVerion() {
+      document.addEventListener("deviceready", function () {
+        // only working on Device, not browser
+        $cordovaAppVersion.getVersionNumber().then(function (version) {
+          console.log(version);
+          vm.appVersion = version;
+        });
+      }, false);
     }
 
     function showLoginModal() {
