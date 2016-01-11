@@ -8,7 +8,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function MainController($rootScope, $scope, $ionicScrollDelegate, $ionicPopup,
+  function MainController($rootScope, $scope, $ionicScrollDelegate, $ionicPopup, $ionicHistory,
     $timeout, BaseService, UserService, AuthService, $location, $cordovaAppVersion,
     CameraService, TopicService) {
 
@@ -19,6 +19,11 @@
     vm.errorMsg = "";
     vm.nodes = [];
     vm.new_topic = {};
+
+    $ionicHistory.nextViewOptions({
+     historyRoot: true,
+     disableAnimate: true
+    });
 
     vm.codes = [{
       id: 'ruby',
