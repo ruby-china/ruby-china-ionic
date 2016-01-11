@@ -17,6 +17,7 @@
       logout: logout,
       getUserInfo: getUserInfo,
       getAccessToken: getAccessToken,
+      refreshAccessToken: refreshAccessToken,
       isAuthencated: isAuthencated,
       getCurrentUser: getCurrentUser
     };
@@ -54,6 +55,7 @@
       OAuth.revokeToken();
       $window.localStorage['access_token'] = null;
       $window.localStorage['current_user'] = null;
+      $window.localStorage['auth_info'] = null;
       setCurrentUser({});
     }
 
@@ -99,8 +101,10 @@
         return q.promise;
       }
 
+
       OAuth.getAccessToken(user)
         .then(function(result) {
+          $window.localStorage['auth_info'] = JSON.stringify(user);
           storeUserCredentials(result.data.access_token);
 
           // 获取用户信息并存储
@@ -128,6 +132,19 @@
 
     function getAccessToken() {
       return authToken || $window.localStorage['access_token'] || null;
+    }
+
+    function refreshAccessToken() {
+      var q = $q.defer();
+      var info = $window.localStorage['auth_info'] || '{}';
+      var user = JSON.parse(info) || {};
+      if (!user.username || !user.password) {
+        console.warn('There is not user login info stored');
+        q.reject("No auth info")
+        return q.promise;
+      }
+
+      return login(user);
     }
   }
 

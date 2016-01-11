@@ -3,16 +3,41 @@
 
   angular
     .module('app.core')
-    .config(oauthConfig)
-    // .config(oauthConfigDevelopment)
+    // .config(oauthConfig)
+    .config(oauthConfigDevelopment)
     .config(backButtonConfig)
     .config(loadbarConfig)
+    .config(httpConfig)
     .constant('rbchina_api', {
-      url_prefix: "https://ruby-china.org/api/v3"
-      // url_prefix: "http://localhost:3000/api/v3"
+      // url_prefix: "https://ruby-china.org/api/v3"
+      url_prefix: "http://localhost:3000/api/v3"
     });
 
   ////////////////////////////////////////////////////////////
+
+  function httpConfig($httpProvider) {
+    $httpProvider.interceptors.push(function($rootScope) {
+      return {
+        request: function(config) {
+          $rootScope.$broadcast('loading:show');
+          return config;
+        },
+        response: function(response) {
+          $rootScope.$broadcast('loading:hide');
+          return response;
+        },
+
+        responseError: function(response) {
+          $rootScope.$broadcast('loading:hide');
+          if (response.status == 401) {
+            $rootScope.$broadcast('relogin');
+            console.log('access_token is invalid, status', 401);
+          }
+          return response;
+        }
+      }
+    })
+  }
 
   /* @ngInject */
   function oauthConfig(OAuthProvider) {

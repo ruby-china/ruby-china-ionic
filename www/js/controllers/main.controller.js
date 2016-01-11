@@ -326,6 +326,17 @@
     function insertEmoji() {
       moreActionDown();
     }
+
+    $rootScope.$on('relogin', function() {
+      // 自动重新登录
+      AuthService.refreshAccessToken().then(function(res) {
+        console.log('refreshAccessToken result', res);
+      }).catch(function(err) {
+        console.log('Will logout');
+        AuthService.logout();
+        showLoginModal();
+      });
+    });
   }
 
 })();
