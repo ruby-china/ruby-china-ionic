@@ -7,7 +7,7 @@
       overflow: hidden;
       perspective: 200px;
       position: relative;
-      transition: height 0.2s ease-in-out;
+      transition: height 0.3s ease-in-out;
       border-top: 0px;
       .tab-item {
         .mdi { font-size: 20px; }
@@ -17,7 +17,7 @@
         position: absolute;
         opacity: 0;
         background: #FFE054;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.3s ease-in-out;
         transform: rotateX(60deg);
 
         .active { color: #DC5B2E; }
@@ -33,7 +33,7 @@
         width: 312px;
         left: 4px;
         position: absolute;
-        transition: all 0.22s ease-in-out;
+        transition: all 0.32s ease-in-out;
       }
 
       &.open .fold-top, &.open .fold-bottom {

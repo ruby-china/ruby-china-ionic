@@ -3,14 +3,13 @@
 
   angular
     .module('app.core')
-    // .config(oauthConfig)
-    .config(oauthConfigDevelopment)
+    .config(oauthConfig)
+    // .config(oauthConfigDevelopment)
     .config(backButtonConfig)
-    .config(loadbarConfig)
     .config(httpConfig)
     .constant('rbchina_api', {
-      // url_prefix: "https://ruby-china.org/api/v3"
-      url_prefix: "http://localhost:3000/api/v3"
+      url_prefix: "https://ruby-china.org/api/v3"
+      // url_prefix: "http://localhost:3000/api/v3"
     });
 
   ////////////////////////////////////////////////////////////
@@ -45,8 +44,8 @@
       baseUrl: 'https://ruby-china.org',
       grantPath: '/oauth/token',
       revokePath: '/oauth/revoke',
-      clientId: 'b9a6f45c',
-      clientSecret: '469278baa8fa3a9eee54f0c618c6924893e45fc02263e2163a693402d62a7f9d'
+      clientId: '1c58e228',
+      clientSecret: '6d2c9cbef3e4baa56e1cf1d0db41d213105221aeff01281ac7009d21af810c58'
     });
   }
 
@@ -64,10 +63,4 @@
   function backButtonConfig($ionicConfigProvider) {
     $ionicConfigProvider.backButton.text('').icon('mdi mdi-arrow-left');
   }
-
-  /* @ngInject */
-  function loadbarConfig(cfpLoadingBarProvider) {
-
-  }
-
 })();

@@ -44,7 +44,7 @@
         <a menu-close class="item item-icon-left" ng-click="vm.showNewTopicModal()" ng-if="vm.is_logined">
           <i class="icon mdi mdi-pencil "></i> 发布新话题
         </a>
-        <a menu-close class="item item-icon-left item-notification" ng-class="{ 'active': vm.unread_notifications_count > 0 }" ui-sref="app.notification" ng-if="vm.is_logined">
+        <a menu-close style="display:none" class="item item-icon-left item-notification" ng-class="{ 'active': vm.unread_notifications_count > 0 }" ui-sref="app.notification" ng-if="vm.is_logined">
           <i class="icon mdi mdi-bell-outline"></i> 通知 <span class='count' ng-bind-html="vm.unread_notifications_count"></span>
         </a>
         <a menu-close class="item item-icon-left" ng-click="vm.logout()" ng-if="vm.is_logined">

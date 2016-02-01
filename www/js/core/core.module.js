@@ -6,7 +6,7 @@
       // Ionic modules
       'ionic', 'ngCordova',
       // Vendors
-      'angularMoment', 'angular-oauth2', 'angular-loading-bar',
+      'angularMoment', 'angular-oauth2',
       'ionic-material', 'ngFileUpload', 'templates'
     ]);
 
