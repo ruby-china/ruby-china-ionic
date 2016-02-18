@@ -44,9 +44,18 @@
       $timeout(function() {
         // 处理外部链接
         var exlinks = $('.ex-link');
+
+        // 先去掉 href 属性，防止触发内部浏览器
+        _.forEach(exlinks, function(link) {
+          var orig = $(link).attr("href");
+          $(link).removeAttr("href");
+          $(link).data('url', orig);
+          // $(link).attr("ng-click", "vm.openExternLinks('" + orig + "')");
+        });
+
         exlinks.click(function() {
-          var url = $(this).attr('href');
-          BaseService.openUrl(url);
+          var url = $(this).data('url');
+          openUrl(url);
           return false;
         });
 
@@ -202,18 +211,16 @@
     // https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller
     function openUrl(url) {
       url = encodeURI(url);
-      SafariViewController.isAvailable(function (available) {
+      SafariViewController.isAvailable(function(available) {
         if (available) {
           SafariViewController.show({
-                url: url,
-                animated: false, // default true, note that 'hide' will reuse this preference (the 'Done' button will always animate though)
-                enterReaderModeIfAvailable: false // default false
-              },
-              // this success handler will be invoked for the lifecycle events 'opened', 'loaded' and 'closed'
-              function(result) {
-              },
-              function(msg) {
-              })
+              url: url,
+              animated: false, // default true, note that 'hide' will reuse this preference (the 'Done' button will always animate though)
+              enterReaderModeIfAvailable: false // default false
+            },
+            // this success handler will be invoked for the lifecycle events 'opened', 'loaded' and 'closed'
+            function(result) {},
+            function(msg) {})
         } else {
           // potentially powered by InAppBrowser because that (currently) clobbers window.open
           var options = {
