@@ -5,6 +5,13 @@
   </div>
   <ion-content class="padding has-header" scroll="false">
     <form novalidate id="loginForm">
+      <div class="row" ng-if="vm.errorMsg">
+        <div class="col">
+          <p class="text assertive">
+            <i class="mdi mdi-alert-circle"></i> <span ng-bind="vm.errorMsg"></span>
+          </p>
+        </div>
+      </div>
       <div class="list">
         <label class="item item-input">
           <i class="icon placeholder-icon mdi mdi-account"></i>
@@ -19,12 +26,5 @@
         </label>
       </div>
     </form>
-    <div class="row" ng-if="vm.errorMsg">
-      <div class="col">
-        <p class="text text-center assertive">
-          <i class="mdi mdi-alert-circle"></i> {{ vm.errorMsg }}
-        </p>
-      </div>
-    </div>
   </ion-content>
 </ion-modal-view>

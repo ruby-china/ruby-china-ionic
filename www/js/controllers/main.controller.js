@@ -136,7 +136,6 @@
           BaseService.hideModal('login-modal');
         }, function(err) {
           vm.errorMsg = err;
-
         })
     }
 

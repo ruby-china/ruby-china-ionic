@@ -104,18 +104,24 @@
 
       OAuth.getAccessToken(user)
         .then(function(result) {
-          $window.localStorage['auth_info'] = JSON.stringify(user);
-          storeUserCredentials(result.data.access_token);
+          if (result.status == 200) {
+            $window.localStorage['auth_info'] = JSON.stringify(user);
+            storeUserCredentials(result.data.access_token);
 
-          // 获取用户信息并存储
-          getUserInfo('me')
-            .then(function(response) {
-              // 输出用户信息
-              setCurrentUser(response.user);
-              q.resolve(response.user);
-            }).catch(function(error) {
-              q.reject(error);
-            });
+            // 获取用户信息并存储
+            getUserInfo('me')
+              .then(function(response) {
+                // 输出用户信息
+                setCurrentUser(response.user);
+                q.resolve(response.user);
+              }).catch(function(error) {
+                q.reject(error);
+              });
+          } else if (result.status == 401) {
+            q.reject("对不起，用户名或密码错误！");
+          } else {
+            q.reject("未知异常，登陆失败，请稍后再重试。")
+          }
         }).catch(function(err) {
           q.reject("对不起，用户名或密码错误！");
         });
