@@ -1,0 +1,122 @@
+#topic-detail {
+  .list {
+    .gray,
+    .dark { color: #929292; font-size: 12px; }
+    .toolbar {
+      height: 0px;
+      overflow: hidden;
+      perspective: 200px;
+      position: relative;
+      transition: height 0.3s ease-in-out;
+      border-top: 0px;
+      .tab-item {
+        .mdi { font-size: 20px; }
+      }
+
+      .tabs {
+        position: absolute;
+        opacity: 0;
+        background: #FFE054;
+        transition: all 0.3s ease-in-out;
+        transform: rotateX(60deg);
+
+        .active { color: #DC5B2E; }
+      }
+
+      &.open .tabs {
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+
+      .fold-top, .fold-bottom {
+        height: 20px;
+        width: 312px;
+        left: 4px;
+        position: absolute;
+        transition: all 0.32s ease-in-out;
+      }
+
+      &.open .fold-top, &.open .fold-bottom {
+        background: #FFE054;
+        transform: rotateX(0deg);
+        width: 100%;
+        left: 0;
+      }
+
+      .fold-top {
+        transform-origin: top center;
+        transform: rotateX(-90deg);
+        top: 0;
+        background: #FFE054;
+      }
+
+      .fold-bottom {
+        transform-origin: bottom center;
+        transform: rotateX(90deg);
+        bottom: 0;
+        background: #FFE054;
+      }
+    }
+    .toolbar.open {
+      height: 48px;
+    }
+    .item-avatar {
+      min-height: 53px;
+      border-bottom: none;
+      padding: 6px 10px 6px 55px;
+      img { width: 30px; height: 30px; top: 12px; }
+      h2 {
+        font-size: 13px; line-height: 30px;
+        .gray { font-size: 0.8em; }
+      }
+    }
+    .item {
+      border-bottom: 1px solid $light-gray;
+      span {
+        font-size: 12px;
+      }
+      h2,
+      h3 {
+        font-weight: 300;
+      }
+      h2 {
+        line-height: 40px;
+      }
+      h3 {
+        font-size: 18px;
+      }
+      &.reply {
+        .row { padding: 0px; }
+        padding-top: 0;
+        .item-avatar {
+          padding: 10px 0;
+          padding-left: 40px;
+          img:first-child {
+            position: absolute;
+            max-width: 30px;
+            max-height: 30px;
+            top: 10px;
+          }
+          h2 {
+            line-height: 30px !important;
+            font-size: 13px; color: #202020;
+            .like { margin-right: 10px; }
+            .gray { font-size: 12px !important; }
+            .dark { color: #777; font-size:12px;}
+          }
+        }
+      }
+    }
+  }
+
+  .replies-divider { padding: 2px; min-height: 5px; }
+}
+
+#reply-modal {
+  .item-reply {
+    min-height: 250px;
+    #topic-reply {
+      padding: 10px;
+    }
+  }
+}

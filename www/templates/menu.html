@@ -1,0 +1,59 @@
+<ion-side-menus id="main-menu" enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar back-button-type="button-icon" class="bar-assertive">
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear mdi mdi-menu" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear mdi mdi-bell-outline" ng-class="{ 'new': vm.unread_notifications_count > 0 }"
+          ng-if="vm.is_logined" ui-sref="app.notification">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left">
+    <ion-content class="has-status-bar-ios" scroll="false">
+      <div class="list">
+        <a menu-close class="item item-avatar user-bar" ng-if="vm.is_logined" ui-sref="app.user({login: vm.current_user.login})">
+          <img ng-src="{{vm.current_user.avatar_url}}" alt="用户头像" width="56">
+          <h2>{{ vm.current_user.login }}</h2>
+          <div class="level">{{ vm.current_user.level_name }}</div>
+        </a>
+        <a menu-close class="item item-icon-left" ng-click="vm.showLoginModal()" ng-if="!vm.is_logined">
+          <i class="icon mdi mdi-account-box-outline"></i> 登录
+        </a>
+        <a menu-close class="item item-icon-left" ng-click="vm.showRegisterModal()" ng-if="!vm.is_logined">
+          <i class="icon mdi mdi-ticket-account"></i> 注册新账号
+        </a>
+        <a menu-close class="item item-icon-left" ui-sref="app.topics({type: 'last_actived'})">
+          <i class="icon mdi mdi-message-text assertive"></i> 讨论区
+        </a>
+        <a menu-close class="item item-icon-left" ui-sref="app.topics({type: 'excellent'})">
+          <i class="icon mdi mdi-ticket energized"></i> 优质帖子
+        </a>
+        <a menu-close class="item item-icon-left" ui-sref="app.topics({type: 'recent'})">
+          <i class="icon mdi mdi-timetable calm"></i> 最新创建
+        </a>
+        <a menu-close class="item item-icon-left" ui-sref="app.jobs">
+          <i class="icon mdi mdi-account-location balanced"></i> 招聘
+        </a>
+      </div>
+      <div class="list">
+        <a menu-close class="item item-icon-left" ng-click="vm.showNewTopicModal()" ng-if="vm.is_logined">
+          <i class="icon mdi mdi-pencil "></i> 发布新话题
+        </a>
+        <a menu-close style="display:none" class="item item-icon-left item-notification" ng-class="{ 'active': vm.unread_notifications_count > 0 }" ui-sref="app.notification" ng-if="vm.is_logined">
+          <i class="icon mdi mdi-bell-outline"></i> 通知 <span class='count' ng-bind-html="vm.unread_notifications_count"></span>
+        </a>
+        <a menu-close class="item item-icon-left" ng-click="vm.logout()" ng-if="vm.is_logined">
+          <i class="icon mdi mdi-power"></i> 登出
+        </a>
+      </div>
+      <div class="list bottom">
+        <a class="item item-center item-version">版本: <span ng-bind-html="vm.appVersion">0.0.0</span></a>
+      </div>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,83 @@
+<ion-view id="topic-detail" can-swipe-back="true">
+  <ion-nav-bar class="bar-stable flat">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear mdi mdi-dots-vertical flat" ng-click="vm.showTopicPopupMenu()">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="list">
+      <a class="item item-avatar" ui-sref="app.user({ login: vm.topic.user.login })">
+        <img ng-src="{{vm.topic.user.avatar_url}}" alt="{{ vm.topic.user.login }}">
+        <!-- <ionic-letter-avatar data="{{ vm.topic.user.login }}" shape="round"></ionic-letter-avatar> -->
+        <h2>
+          {{ vm.topic.user.login }}
+          <span class="pull-right dark">{{ vm.topic.node_name }} {{ vm.topic.created_at | date: 'MM月dd日' }}</span>
+        </h2>
+      </a>
+      <div class="item">
+        <h3>{{ vm.topic.title }}</h3>
+      </div>
+      <div class="item item-narrow gray">
+        <span class="pull-left">
+          <span ng-class="{ 'active': vm.meta.liked === true, '': vm.meta.liked === false}">
+            <i class="mdi mdi-thumb-up"></i> <span ng-bind-html="vm.topic.likes_count">{{ vm.topic.likes_count }}></span> 个赞
+          </span>
+        </span>
+        <span class="pull-right">
+          <i class="mdi mdi-message-reply"></i> {{ vm.topic.replies_count }} 条回复
+        </span>
+      </div>
+      <div class="item">
+        <div class="markdown" ng-bind-html="vm.topic.body_html | externalLinks"></div>
+      </div>
+      <div class="item-divider replies-divider">
+      </div>
+      <div class="reply-item" ng-repeat="reply in vm.replies">
+        <div class="item item-narrow reply" ng-click="vm.visable_reply_button = reply.id">
+          <div class="row" ng-if="reply.deleted">
+            <div class="col">
+              <div class="text text-deleted text-center">
+                {{ $index + 1 }} 楼已删除
+              </div>
+            </div>
+          </div>
+          <div class="row" ng-if="!reply.deleted">
+            <div class="col item-avatar">
+              <img ng-src="{{reply.user.avatar_url}}" ui-sref="app.user({ login: reply.user.login })" alt="{{ reply.user.login }}">
+              <h2>
+                <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}<span>
+                <span class="pull-right gray">
+                  <span class="like" ng-class="{ 'active': vm.isReplyLiked(reply) == true }"><i class="mdi mdi-thumb-up"></i> <span ng-bind-html="reply.likes_count">{{ reply.likes_count }}</span> 个赞</span>
+                  #{{ $index +1 }}
+                  <span class="dark">{{ reply.created_at | date: 'MM月dd日' }}</span>
+                </span>
+              </h2>
+            </div>
+          </div>
+          <div class="row" ng-if="!reply.deleted">
+            <div class="col">
+              <div class="markdown" ng-bind-html="reply.body_html | externalLinks"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="toolbar" ng-if="vm.is_logined && !reply.deleted" ng-class="{ 'open': vm.visable_reply_button == reply.id }">
+          <div class="fold-top"></div>
+          <div class="fold-bottom"></div>
+          <div class="item tabs tabs-positive">
+            <a class="tab-item" ng-click="vm.quoteReply(reply, $index +1)"><i class="mdi mdi-reply"></i></a>
+            <a class="tab-item" ng-class="{ 'active': vm.isReplyLiked(reply) == true }" ng-click="vm.likeReply(reply)"><i class="mdi mdi-thumb-up"></i></a>
+            <a class="tab-item" ng-if="reply.abilities.update == true" ng-click="vm.editReply(reply)"><i class="mdi mdi-pencil-box-outline"></i></a>
+            <a class="tab-item" ng-if="reply.abilities.destroy == true" ng-click="vm.destroyReply(reply)"><i class="mdi mdi-delete"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll ng-if="vm.has_more" on-infinite="vm.loadMore()" immediate-check="false" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+  <button class="button button-fab button-fab-bottom-right button-assertive icon mdi mdi-reply" ng-click="vm.showReplyModal()"></button>
+</ion-view>

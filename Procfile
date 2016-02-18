@@ -1,0 +1,1 @@
+ionic: ionic serve -w chrome -a

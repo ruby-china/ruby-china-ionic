@@ -1,0 +1,142 @@
+.bg-light-gray {
+  background: #F9F9F9;
+}
+
+.button {
+  background: #EBEBEB;
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, .19);
+}
+
+.button.button-stable {
+  background: #EBEBEB;
+}
+
+.bar-stable .button.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #444;
+  font-size: 17px;
+}
+
+.button-small {
+  font-size: 13px;
+  height: 24px;
+  line-height: 24px;
+}
+
+.item h2 {
+  font-weight: 300;
+}
+
+.flat,
+.flat.button,
+.flat.button.icon,
+.flat.hero,
+.flat.tabs {
+  padding: 0;
+}
+
+.nav-bar-container {
+  height: 35px;
+}
+
+.bar-header {
+  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, .3) !important;
+}
+
+.bar-header.flat {
+  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, .2) !important;
+}
+
+.bar {
+  box-shadow: 0 0 0 0;
+  border: 0px solid red !important;
+
+  .title {
+    text-align: left;
+  }
+}
+
+.bar .buttons.pull-right,
+.bar .title+.button:last-child,
+.bar .title+.buttons,
+.bar>.button+.button:last-child,
+.bar>.button.pull-right {
+  top: initial;
+  right: 0;
+  bottom: initial;
+}
+
+.list .item-avatar {
+  min-height: 80px;
+}
+
+.list .item {
+  border-bottom: .05em solid #e0e0e0;
+}
+
+.card>.item-avatar,
+.item-avatar,
+.item-avatar .item-content,
+.item-avatar-left,
+.item-avatar-left .item-content {
+  padding-left: 70px;
+}
+
+.item,
+.item h1,
+.item h2,
+.item h3,
+.item h4,
+.item h5,
+.item h6,
+.item p,
+.item-content,
+.item-content h1,
+.item-content h2,
+.item-content h3,
+.item-content h4,
+.item-content h5,
+.item-content h6,
+.item-content p {
+  font-family: RobotoDraft, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  white-space: normal;
+}
+
+.action-sheet {
+  .button {
+    box-shadow: none;
+  }
+}
+
+.bar .button.button-floating.disabled,
+.bar .button.button-floating:disabled,
+.bar .button.button-large.disabled,
+.bar .button.button-large:disabled,
+.bar .button.button:disabled,
+.bar .button.disabled,
+.bar .button.disabled.button-large,
+.button.button-floating.disabled,
+.button.button-floating:disabled,
+.button.button-large.disabled,
+.button.button-large:disabled,
+.button.button:disabled,
+.button.disabled,
+.button.disabled.button-large {
+  background-color: initial;
+}
+
+// .keyboard-open {
+//   .bar-footer {
+//     transform: translate3d(0px, -213px, 0px) !important;
+//   }
+// }
+
+#loading-bar .bar {
+  top:0px !important;
+}
+
+#loading-bar-spinner {
+  display: none;
+}

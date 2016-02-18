@@ -1,0 +1,84 @@
+<ion-view id="user-profile" cache-view="false">
+  <ion-nav-bar class="bar-stable flat">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear mdi mdi-menu flat" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear mdi mdi-dots-vertical flat">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="bg-light-gray" scroll="false">
+    <div class="list">
+      <div class="item item-avatar">
+        <img ng-src="{{vm.user.avatar_url}}" alt="{{ vm.user.login }}">
+        <span class="level" ng-class="{ 'bg-assertive': vm.user.level === 'admin',
+          'bg-positive': vm.user.level === 'vip', 'bg-balanced': vm.user.level === 'hr',
+          'bg-stable': vm.user.level === 'normal' }">{{ vm.user.level_name }}</span>
+        <h2>{{ vm.user.name }}</h2>
+        <p>
+          <span class="positive">@{{ vm.user.login }}</span>
+        </p>
+      </div>
+      <div class="item item-divider" ng-if="!vm.isSelf()">
+        <div class="row">
+          <div class="col text-center">
+            <button class="button button-small button-round" ng-click="vm.toggleFollow()" ng-class="{ 'flat active': vm.is_follow, 'button-stable': !vm.is_follow }">
+              <i class="icon mdi mdi-account-circle"></i> {{ vm.is_follow? '已关注':'关注' }}
+            </button>
+          </div>
+          <div class="col text-center">
+            <button class="button button-small button-round" ng-click="vm.toggleBlock()" ng-class="{ 'flat active': vm.is_block, 'button-stable': !vm.is_block }">
+              <i class="icon mdi mdi-eye-off"></i> {{ vm.is_block? '已屏蔽':'屏蔽' }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="item item-follow">
+        <div class="row">
+          <div class="col text-center">
+            <span class="block positive">{{ vm.user.followers_count }}</span>
+            <span class="block">关注者</span>
+          </div>
+          <div class="col text-center">
+            <span class="block positive">{{ vm.user.following_count }}</span>
+            <span class="block">正在关注</span>
+          </div>
+        </div>
+      </div>
+      <div class="item item-narrow">
+        <span class="block user-time text-center">
+          第 {{ vm.user.id }} 位会员
+          <span ng-if="vm.user.location">/ {{ vm.user.location }}</span> / 注册于 {{ vm.user.created_at | date: 'yyyy-MM-dd' }}
+        </span>
+      </div>
+      <div class="item item-divider item-divider-narrow"></div>
+      <div class="item item-narrow item-info" ng-if="vm.user.email">
+        <i class="mdi mdi-email balanced"></i>
+        <span class="text black"><a href="mailto:{{ vm.user.email }}">{{ vm.user.email }}</a></span>
+      </div>
+      <div class="item item-narrow item-info" ng-if="vm.user.twitter">
+        <i class="mdi mdi-twitter-circle calm"></i>
+        <span class="text black"><a href="https://twitter.com/{{ vm.user.twitter }}">{{ vm.user.twitter }}</a></span>
+      </div>
+      <div class="item item-narrow item-info" ng-if="vm.user.website">
+        <i class="mdi mdi-compass assertive"></i>
+        <span class="text black"><a href="{{ vm.user.website }}">{{ vm.user.website }}</a></span>
+      </div>
+      <div class="item item-divider item-divider-narrow"></div>
+      <div class="item item-narrow item-info">
+        <i class="mdi mdi-message-text positive"></i>
+        <span class="text black">发布的话题</span>
+        <span class="badge badge-stable">{{ vm.user.topics_count }}</span>
+      </div>
+      <div class="item item-narrow item-info">
+        <i class="mdi mdi-book-variant energized"></i>
+        <span class="text black">收藏</span>
+        <span class="badge badge-stable">{{ vm.user.favorites_count }}</span>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

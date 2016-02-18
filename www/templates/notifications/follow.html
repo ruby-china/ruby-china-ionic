@@ -1,0 +1,8 @@
+<div class="item item-avatar">
+  <img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login">
+  <h2>
+    <span class="author">{{ nf.actor.login }}</span> 于
+    <span am-time-ago="nf.created_at"></span> 开始关注你了。
+    <span class="badge" ng-if="!nf.read"></span>
+  </h2>
+</div>

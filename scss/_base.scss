@@ -1,0 +1,89 @@
+body {
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 400;
+}
+
+.bg-assertive,
+.bg-positive,
+.bg-balanced {
+  color: $light;
+}
+
+.bg-assertive {
+  background-color: $assertive;
+}
+
+.bg-positive {
+  background-color: $positive;
+}
+
+.bg-stable {
+  background-color: $stable;
+}
+
+.bg-balanced {
+  background-color: $balanced;
+}
+
+.bg-light-gray {
+  background-color: $light-gray;
+}
+
+.gray {
+  color: $gray;
+}
+
+.black {
+  color: black;
+}
+
+.active { color: #F44336;}
+
+.item-narrow {
+  min-height: 30px !important;
+  padding: 6px 12px;
+  .badge {
+    display: flex;
+    position: absolute;
+    top: 6px;
+    right: 0px;
+  }
+}
+
+.item-block {
+  min-height: 40px !important;
+  padding: 0;
+}
+
+.item-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.item-noborder {
+  border: none !important;
+}
+
+.item-divider-narrow {
+  min-height: 15px !important;
+}
+
+.textarea {
+  width: 100%;
+  resize: none;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.text-sm {
+  font-size: 14px;
+}
+
+.has-status-bar-ios {
+  top: 20px;
+}
+
+.text-deleted {
+  text-decoration: line-through;
+}

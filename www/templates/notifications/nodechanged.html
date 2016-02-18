@@ -1,0 +1,7 @@
+<div class="item item-avatar">
+  <h2>
+    你发布的话题 <a ui-sref="app.topic({ topic_id: nf.topic.id })">{{nf.topic.title}}</a> 由于内容原因于
+    <span am-time-ago="nf.created_at"></span> 被管理员移动到了 {{ nf.node.name }} 节点，请注意查看节点说明。
+  </h2>
+  <span class="badge" ng-if="!nf.read"></span>
+</div>

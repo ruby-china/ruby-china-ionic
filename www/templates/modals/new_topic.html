@@ -1,0 +1,47 @@
+<ion-modal-view id="new-topic-modal">
+  <div class="bar bar-header bar-stable flat">
+    <button class="button button-icon icon mdi mdi-close flat pull-left" ng-click="vm.closeNewTopicModal()"></button>
+    <h1 class="title"></h1>
+    <button class="button button-icon icon mdi mdi-send flat pull-right" ng-disabled="!vm.new_topic.title || !vm.new_topic.node_id || !vm.new_topic.body" ng-click="vm.createTopic()"></button>
+  </div>
+  <ion-content class="has-header" scroll="true" delegate-handle="new-topic">
+    <div class="list">
+      <label class="item item-input">
+        <i class="icon mdi mdi-message-draw placeholder-icon"></i>
+        <input type="text" id="new-topic-title" ng-model="vm.new_topic.title" placeholder="主题">
+      </label>
+      <label class="item item-input item-select" style="color: #aaa;">
+        <i class="icon mdi mdi-playlist-plus"></i>
+        <div class="input-label text-sm" style="margin-left:6px; color: #aaa;" ng-if="!vm.new_topic.node_id">
+          话题节点
+        </div>
+        <select class="node_seletor" ng-class="{ 'has_node': vm.new_topic.node_id }" ng-model="vm.new_topic.node_id">
+          <option ng-repeat="node in vm.nodes" ng-value="node.id">{{ node.name }}</option>
+        </select>
+      </label>
+      <div class="item item-narrow item-new-topic item-noborder">
+        <textarea id="new-topic" ng-model="vm.new_topic.body" class="textarea" rows="1" placeholder=" 说点什么"></textarea>
+      </div>
+      <div class="item item-block item-noborder"></div>
+    </div>
+  </ion-content>
+  <ion-footer-bar id="more-actions">
+    <div class="tabs tabs-icon-only tabs-topic">
+      <a class="tab-item" ng-click="vm.imageByGallery()">
+        <i class="icon mdi mdi-image-area"></i>
+      </a>
+      <a class="tab-item" ng-click="vm.imageByCamera()">
+        <i class="icon mdi mdi-camera"></i>
+      </a>
+      <a class="tab-item" ng-click="vm.insertCode()">
+        <i class="icon mdi mdi-code-tags"></i>
+      </a>
+      <a class="tab-item" ng-click="vm.atSomebody()" disabled>
+        <i class="icon mdi mdi-at"></i>
+      </a>
+      <a class="tab-item" ng-click="vm.insertEmoji()" disabled>
+        <i class="icon mdi mdi-emoticon"></i>
+      </a>
+    </div>
+  </ion-footer-bar>
+</ion-modal-view>

@@ -1,0 +1,13 @@
+{
+  "name": "RubyChina App",
+  "app_id": "61fdad52",
+  "gulpStartupTasks": [
+    "wiredep",
+    "watch",
+    "sass"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
