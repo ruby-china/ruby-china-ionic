@@ -19,7 +19,8 @@
       getAccessToken: getAccessToken,
       refreshAccessToken: refreshAccessToken,
       isAuthencated: isAuthencated,
-      getCurrentUser: getCurrentUser
+      getCurrentUser: getCurrentUser,
+      submitDeviceToken: submitDeviceToken
     };
 
     // 载入用户登录信息
@@ -87,7 +88,31 @@
       return JSON.parse(info);
     }
 
+    function submitDeviceToken(token) {
+      var q = $q.defer();
 
+      // 如果有传 Token，记录到 localStorage
+      if (token != undefined) {
+        $window.localStorage['device_token'] = token;
+      }
+
+      if (!isAuthencated()) {
+        return q.promise;
+      }
+
+      var deviceToken = $window.localStorage['device_token'];
+      var params = {
+        platform: 'ios',
+        token: deviceToken
+      };
+      var url = rbchina_api.url_prefix + '/devices.json';
+      $http.post(url, params).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
+      return q.promise;
+    }
 
     function login(user) {
       var q = $q.defer();
@@ -113,6 +138,8 @@
               .then(function(response) {
                 // 输出用户信息
                 setCurrentUser(response.user);
+
+                submitDeviceToken().then(function() { });
                 q.resolve(response.user);
               }).catch(function(error) {
                 q.reject(error);

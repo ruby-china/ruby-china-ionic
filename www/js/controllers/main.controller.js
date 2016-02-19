@@ -9,8 +9,10 @@
 
   /* @ngInject */
   function MainController($rootScope, $scope, $ionicScrollDelegate, $ionicPopup, $ionicHistory,
-    $timeout, BaseService, UserService, AuthService, $location, $cordovaAppVersion,
+    $timeout, BaseService, UserService, AuthService, $location, $cordovaAppVersion, $cordovaPush,
     CameraService, TopicService) {
+
+    initPushNotification();
 
     var vm = this;
     vm.current_user = {};
@@ -331,6 +333,25 @@
       moreActionDown();
     }
 
+    function initPushNotification() {
+      var iosConfig = {
+        "badge": true,
+        "sound": true,
+        "alert": true,
+      };
+
+      document.addEventListener("deviceready", function(){
+        $cordovaPush.register(iosConfig).then(function(deviceToken) {
+          // Success -- send deviceToken to server, and store for future use
+          console.log("deviceToken: " + deviceToken)
+          AuthService.submitDeviceToken(deviceToken).then(function(res) {
+          });
+        }, function(err) {
+          console.log("Registration error: " + err)
+        });
+      }, false);
+    }
+
     $rootScope.$on('relogin', function() {
       // 自动重新登录
       AuthService.refreshAccessToken().then(function(res) {
@@ -340,6 +361,26 @@
         AuthService.logout();
         showLoginModal();
       });
+    });
+
+    $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
+      // if (notification.alert) {
+      //   navigator.notification.alert(notification.alert);
+      // }
+
+      if (notification.sound) {
+        var snd = new Media(event.sound);
+        snd.play();
+      }
+
+      if (notification.badge) {
+        vm.unread_notifications_count = notification.badge;
+        $cordovaPush.setBadgeNumber(notification.badge).then(function(result) {
+          // Success!
+        }, function(err) {
+          // An error occurred. Show a message to the user
+        });
+      }
     });
   }
 
