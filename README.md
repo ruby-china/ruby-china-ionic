@@ -3,14 +3,14 @@
 
 ### 安装 Installation
 
-本项目需要按以下步骤运行：
+本项目需要按以下步骤运行：  
 1）安装 Ionic2
 `$ npm install -g ionic@beta`
 
-2）安装项目组件
+2）安装项目组件  
 在项目根目录下 `$ npm install`
 
-3）运行项目
+3）运行项目  
 `$ ionic serve`
 > 运行时添加 -l 参数可以浏览 iOS / Android 双屏结果 `$ ionic serve -l`
 
