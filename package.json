@@ -22,7 +22,11 @@
     "cordova-plugin-device",
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-splashscreen"
   ],
-  "cordovaPlatforms": ["ios"]
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }

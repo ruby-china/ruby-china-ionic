@@ -1,7 +1,5 @@
-import {Injectable} from "angular2/core";
+import {Injectable, Inject} from "angular2/core";
 import {Http} from "angular2/http";
-import 'rxjs/Rx';
-import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class TopicService {
@@ -13,13 +11,25 @@ export class TopicService {
     // console.info('Topic Service worked.', http);
   }
 
-  getTopicsDefault(type) {
-    return this.http.get("https://ruby-china.org/api/v3/topics.json?type=" + type)
-      .map(res => res.json())
-      .catch(err => {
-        this.handleError(err);
-        return Observable.throw(err.json());
-      });
+  // 按类型载入帖子列表
+  loadTopics(type) {
+    let url = "https://ruby-china.org/api/v3/topics.json?type=" + type;
+    return this.load(url);
+  }
+
+  // 根据 URL 载入数据
+  load(url) {
+    // if (this.data) {
+    //   return Promise.resolve(this.data);
+    // }
+
+    return new Promise(resolve => {
+      this.http.get(url)
+        .subscribe(res => {
+          this.data = res.json();
+          resolve(this.data);
+        });
+    });
   }
 
   handleError(err) {

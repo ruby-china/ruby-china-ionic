@@ -6,12 +6,14 @@
 </ion-navbar>
 <ion-content class="topics">
   <ion-list>
-    <ion-item *ngFor="#topic of topics" (click)="navTopicDetail(topic)">
-      <ion-avatar item-left>
-        <img src="{{topic.user.avatar_url}}">
-      </ion-avatar>
-      <h2>{{ topic.title }}</h2>
-      <div class="info">{{ topic.node_name }} <span class="author">{{ topic.user.login }}</span></div>
-    </ion-item>
+    <ion-item-sliding *ngFor="#topic of topics" #slidingTopics>
+      <button ion-item (click)="navTopicDetail(topic)">
+        <ion-avatar item-left>
+          <img src="{{topic.user.avatar_url}}">
+        </ion-avatar>
+        <h2>{{ topic.title }}</h2>
+        <div class="info">{{ topic.node_name }} <span class="author">{{ topic.user.login }}</span></div>
+      </button>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
