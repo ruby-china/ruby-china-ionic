@@ -2,7 +2,7 @@ import {App, IonicApp, Platform} from 'ionic-framework/ionic';
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
 import {Type} from 'angular2/core';
 
-import {TopicsPage} from "./topics/topics.page";
+import {TopicsPage} from "./pages/topics/topics.page";
 
 interface Page {
   title: string,
@@ -11,14 +11,18 @@ interface Page {
 }
 
 @App({
-  templateUrl: 'build/pages/app.html',
+  templateUrl: 'build/app.html',
+  prodMode: true,
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 class RubyChinaApp {
   rootPage: Type = TopicsPage;
   pages: Array<Page>;
 
-  constructor(private app: IonicApp, private platform: Platform) {
+  constructor(
+    private app: IonicApp,
+    private platform: Platform
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation

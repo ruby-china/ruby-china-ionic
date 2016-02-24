@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Rx';
 export class TopicService {
 
   constructor(public http: Http) {
-    console.info('Topic Service worked.', http);
+    // console.info('Topic Service worked.', http);
   }
 
   getTopicsDefault() {

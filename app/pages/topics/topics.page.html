@@ -6,7 +6,7 @@
 </ion-navbar>
 <ion-content class="topics">
   <ion-list>
-    <ion-item *ngFor="#topic of topics">
+    <ion-item *ngFor="#topic of topics" (click)="navTopicDetail(topic)">
       <ion-avatar item-left>
         <img src="{{topic.user.avatar_url}}">
       </ion-avatar>

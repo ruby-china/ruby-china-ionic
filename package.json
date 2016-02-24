@@ -15,5 +15,14 @@
     "typescript": "1.7.5"
   },
   "name": "rubychina",
-  "description": "RubyChina: An Ionic project"
+  "description": "RubyChina: An Ionic project",
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": []
 }

@@ -4,7 +4,7 @@ module.exports = {
   paths: {
     html : {
       src: ['app/**/*.html'],
-      dest: "www/build/pages"
+      dest: "www/build"
     },
     sass: {
       src: ['./theme/app.*.scss'],
