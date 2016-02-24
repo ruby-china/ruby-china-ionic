@@ -1,0 +1,17 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Ruby China</ion-title>
+</ion-navbar>
+<ion-content class="topics">
+  <ion-list>
+    <ion-item *ngFor="#topic of topics" (click)="navTopicDetail(topic)">
+      <ion-avatar item-left>
+        <img src="{{topic.user.avatar_url}}">
+      </ion-avatar>
+      <h2>{{ topic.title }}</h2>
+      <div class="info">{{ topic.node_name }} <span class="author">{{ topic.user.login }}</span></div>
+    </ion-item>
+  </ion-list>
+</ion-content>
