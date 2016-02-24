@@ -7,4 +7,5 @@ platforms/
 plugins/
 *.swp
 .DS_Store
+README.html
 Thumbs.db
