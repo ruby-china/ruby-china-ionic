@@ -10,7 +10,8 @@
       <ion-avatar item-left>
         <img src="{{topic.user.avatar_url}}">
       </ion-avatar>
-      <topic [topic]="topic"></topic>
+      <h2>{{ topic.title }}</h2>
+      <div class="info">{{ topic.node_name }} <span class="author">{{ topic.user.login }}</span></div>
     </ion-item>
   </ion-list>
 </ion-content>
