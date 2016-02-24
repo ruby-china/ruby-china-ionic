@@ -17,12 +17,14 @@ export class TopicService {
     return this.load(url);
   }
 
+  // 根据 ID 载入帖子
+  loadTopic(id) {
+    let url = "https://ruby-china.org/api/v3/topics/" + id + ".json";
+    return this.load(url);
+  }
+
   // 根据 URL 载入数据
   load(url) {
-    // if (this.data) {
-    //   return Promise.resolve(this.data);
-    // }
-
     return new Promise(resolve => {
       this.http.get(url)
         .subscribe(res => {
@@ -30,9 +32,5 @@ export class TopicService {
           resolve(this.data);
         });
     });
-  }
-
-  handleError(err) {
-    console.log('handleError in service - err = ' + err);
   }
 }

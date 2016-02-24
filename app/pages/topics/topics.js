@@ -1,7 +1,6 @@
 import {Page, NavController, NavParams} from 'ionic-framework/ionic';
 import {Inject} from 'angular2/core';
 import {TopicService} from "../../services/topic.service";
-
 import {TopicPage} from "../topic/topic";
 
 @Page({
@@ -22,7 +21,12 @@ export class TopicsPage {
   updateTopics(type) {
     this.service.loadTopics(type)
       .then(data => {
-        this.topics = data.topics;
+        this.topics =
+          data.topics.map(topic => {
+            topic._created_at = new Date(topic.created_at);
+            // console.info(topic);
+            return topic;
+          });
       });
   }
 
