@@ -30,7 +30,7 @@
       </h2>
     </ion-item>
     <ion-item *ngIf="loaded" divider-bottom>
-      <div class="markdown" [innerHTML]="topic.body_html"></div>
+      <div class="markdown" [innerHTML]="topic.body_html | exlink"></div>
     </ion-item>
     <ion-item-divider light narrow></ion-item-divider>
     <ion-item-sliding *ngFor="#reply of replies; #i = index" #slidingReplies replies>
@@ -47,7 +47,7 @@
             {{ reply.created_at | dateFormat: "MM月DD日" }}
           </span>
         </h2>
-        <div class="markdown" [innerHTML]="reply.body_html"></div>
+        <div class="markdown" [innerHTML]="reply.body_html | exlink"></div>
       </button>
     </ion-item-sliding>
   </ion-list>

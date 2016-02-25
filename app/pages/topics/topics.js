@@ -1,4 +1,4 @@
-import {Page, NavController, NavParams} from 'ionic-framework/ionic';
+import {Page, NavController, NavParams, MenuController} from 'ionic-framework/ionic';
 import {Inject} from 'angular2/core';
 import {TopicService} from "../../services/topic.service";
 import {TopicPage} from "../topic/topic";
@@ -8,12 +8,13 @@ import {TopicPage} from "../topic/topic";
 })
 export class TopicsPage {
   static get parameters() {
-    return [[NavController], [TopicService], [NavParams]];
+    return [[NavController], [TopicService], [NavParams], [MenuController]];
   }
-  constructor(nav, service, navParams) {
+  constructor(nav, service, navParams, menu) {
     this.nav = nav;
     this.service = service;
     this.navParams = navParams;
+    this.menu = menu;
     let type = this.navParams.get("type");
     this.updateTopics(type);
   }
@@ -28,5 +29,9 @@ export class TopicsPage {
 
   navTopicDetail(topic) {
     this.nav.push(TopicPage, topic);
+  }
+
+  onPageLoaded() {
+    this.menu.swipeEnable(true);
   }
 }

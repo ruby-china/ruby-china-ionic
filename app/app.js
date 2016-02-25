@@ -1,11 +1,14 @@
-import {App, IonicApp, Platform} from 'ionic-framework/ionic';
-import {TutorialPage} from './pages/tutorial/tutorial';
-import {TopicService} from "./services/topic.service";
-import {TopicsPage} from './pages/topics/topics';
+import { App, IonicApp, Platform } from 'ionic-framework/ionic';
+import { HTTP_PROVIDERS } from "angular2/http";
+// import { BrowserDomAdapter } from "angular2/platform/browser";
+import { TutorialPage } from './pages/tutorial/tutorial';
+import { TopicService } from "./services/topic.service";
+import { WeberService } from "./services/weber.service";
+import { TopicsPage } from './pages/topics/topics';
 
 @App({
   templateUrl: 'build/app.html',
-  providers: [TopicService],
+  providers: [HTTP_PROVIDERS, TopicService, WeberService],
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class RubyChinaApp {
@@ -13,12 +16,13 @@ export class RubyChinaApp {
     return [[IonicApp], [Platform]];
   }
 
-  constructor(app, platform) {
+  constructor(app, platform, view) {
     this.app = app;
     this.platform = platform;
+
     this.rootPage = TutorialPage;
     this.appPages = [
-      { title: "讨论区", component: TopicsPage, type: "last_actived", icon: "chatboxes", color: "red"  },
+      { title: "讨论区", component: TopicsPage, type: "last_actived", icon: "chatboxes", color: "red" },
       { title: "优质帖子", component: TopicsPage, type: "excellent", icon: "star", color: "orange" }
     ];
   }
