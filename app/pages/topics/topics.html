@@ -12,7 +12,11 @@
           <img src="{{topic.user.avatar_url}}">
         </ion-avatar>
         <h2>{{ topic.title }}</h2>
-        <div class="info">{{ topic.node_name }} <span class="author">{{ topic.user.login }}</span></div>
+        <div class="info">
+          {{ topic.node_name }}
+          <span class="author">{{ topic.user.login }}</span>
+        </div>
+        <ion-badge item-right class="replies_count">{{ topic.replies_count }}</ion-badge>
       </button>
     </ion-item-sliding>
   </ion-list>

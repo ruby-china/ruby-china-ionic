@@ -34,4 +34,12 @@ export class RubyChinaApp {
     let nav = this.app.getComponent('nav');
     nav.setRoot(page.component, { type: page.type });
   }
+
+  // onPageLoaded() {}
+  // onPageWillEnter() {}
+  // onPageDidEnter() {}
+  // onPageWillLeave() {}
+  // onPageDidLeave() {}
+  // onPageWillUnload() {}
+  // onPageDidUnload() {}
 }

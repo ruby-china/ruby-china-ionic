@@ -13,20 +13,31 @@
     }
   }
   .item {
-    h2 {
-      padding-right: 20px;
-      margin-top: 3px;
-      font-size: 1.4rem;
-      font-weight: 400;
-    }
-    .info {
-      font-size: 1.1rem;
-      color: #959595;
-      margin-top: 5px;
-      font-weight: bold;
-      span.author {
-        margin-left: 6px;
+    .item-inner {
+      background: none !important;
+      padding-right: 0 !important;
+      h2 {
+        padding-right: 20px;
+        margin-top: 3px;
+        font-size: 1.4rem;
+        font-weight: 400;
+        white-space: normal;
+      }
+      .info {
+        font-size: 1.1rem;
+        color: #959595;
+        margin-top: 5px;
+        font-weight: bold;
+        span.author {
+          margin-left: 6px;
+          font-weight: normal;
+        }
+      }
+      .replies_count {
+        color: #ABABAB;
+        font-size: 1.2rem;
         font-weight: normal;
+        background-color: initial;
       }
     }
   }

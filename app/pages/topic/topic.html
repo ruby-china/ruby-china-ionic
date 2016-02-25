@@ -2,7 +2,7 @@
   <ion-title></ion-title>
 </ion-navbar>
 <ion-content class="topic">
-  <ion-list>
+  <ion-list class="topic-detail">
     <ion-item>
       <ion-avatar item-left>
         <img src="{{ topic.user.avatar_url }}">
@@ -10,7 +10,7 @@
       <h2>
         {{ topic.user.login }}
         <span class="info">
-          {{ topic.node_name }}
+          <b>{{ topic.node_name }}</b> {{ topic.created_at | dateFormat: 'MM月DD日' }}
         </span>
       </h2>
     </ion-item>
@@ -29,8 +29,26 @@
         </span>
       </h2>
     </ion-item>
-    <ion-item *ngIf="loaded">
+    <ion-item *ngIf="loaded" divider-bottom>
       <div class="markdown" [innerHTML]="topic.body_html"></div>
     </ion-item>
+    <ion-item-divider light narrow></ion-item-divider>
+    <ion-item-sliding *ngFor="#reply of replies; #i = index" #slidingReplies replies>
+      <button ion-item>
+        <h2>
+          <div class="avatar">
+            <img src="{{ reply.user.avatar_url }}">
+          </div>
+          {{ reply.user.login }}
+          <span class="info">
+            <ion-icon name="thumbs-up"></ion-icon> 
+            <span class="likes">{{ reply.likes_count }} 个赞</span>
+            #{{ i+1 }} 
+            {{ reply.created_at | dateFormat: "MM月DD日" }}
+          </span>
+        </h2>
+        <div class="markdown" [innerHTML]="reply.body_html"></div>
+      </button>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>

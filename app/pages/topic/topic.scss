@@ -32,14 +32,53 @@
         word-wrap: normal;
       }
     }
-
     .markdown {
       font-size: 1.2rem;
     }
-
     &[narrow] {
       min-height: 1rem;
       height: 2.4rem
+    }
+    &[divider-bottom] {
+      .item-inner {
+        border: none;
+      }
+    }
+  }
+  ion-item-divider[narrow] {
+    padding: 10px 16px;
+    min-height: 5px;
+  }
+  ion-item-sliding[replies] {
+    .item {
+      .item-inner {
+        background: none;
+        padding-right: 0;
+        h2 {
+          line-height: 2.6rem;
+          color: lighten(#333333, .8);
+          .avatar {
+            min-width: 2.6rem;
+            min-height: 2.6rem;
+            width: 2.6rem;
+            margin-right: 10px;
+            float: left;
+            img {
+              max-width: 2.6rem;
+              max-height: 2.6rem;
+              border-radius: 1.3rem;
+            }
+          }
+          .info {
+            .likes {
+              margin-right: 10px;
+            }
+          }
+        }
+        .markdown {
+          margin-top: 15px;
+        }
+      }
     }
   }
 }

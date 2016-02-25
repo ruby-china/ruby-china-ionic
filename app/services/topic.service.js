@@ -23,6 +23,12 @@ export class TopicService {
     return this.load(url);
   }
 
+  // 载入帖子回复列表
+  loadTopicReplies(id) {
+    let url = "https://ruby-china.org/api/v3/topics/" + id + "/replies.json";
+    return this.load(url);
+  }
+
   // 根据 URL 载入数据
   load(url) {
     return new Promise(resolve => {

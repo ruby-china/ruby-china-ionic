@@ -21,12 +21,8 @@ export class TopicsPage {
   updateTopics(type) {
     this.service.loadTopics(type)
       .then(data => {
-        this.topics =
-          data.topics.map(topic => {
-            topic._created_at = new Date(topic.created_at);
-            // console.info(topic);
-            return topic;
-          });
+        // console.info(data.topics);
+        this.topics = data.topics;
       });
   }
 

@@ -16,11 +16,13 @@ export class TutorialPage {
 
     this.slides = [
       {
+        id: 1,
         image: "img/ica-slidebox-img-1.png",
         title: "RubyChina App 2",
         desc: "体验新版 RubyChina App"
       },
       {
+        id: 2,
         image: "img/ica-slidebox-img-4.png",
         title: "采用 Ionic 2",
         desc: "新版采用 Ionic 2 开发"
