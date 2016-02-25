@@ -18,8 +18,8 @@ export class RubyChinaApp {
     this.platform = platform;
     this.rootPage = TutorialPage;
     this.appPages = [
-      { title: "讨论区", component: TopicsPage, type: "last_actived"  },
-      { title: "优质帖子", component: TopicsPage, type: "excellent" }
+      { title: "讨论区", component: TopicsPage, type: "last_actived", icon: "chatboxes", color: "red"  },
+      { title: "优质帖子", component: TopicsPage, type: "excellent", icon: "star", color: "orange" }
     ];
   }
 

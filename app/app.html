@@ -9,7 +9,7 @@
         Navigate
       </ion-list-header>
       <button ion-item menuClose *ngFor="#p of appPages" (click)="openPage(p)">
-        <ion-icon item-left></ion-icon>
+        <ion-icon item-left [name]="p.icon" class="icon-{{p.color}}"></ion-icon>
         {{p.title}}
       </button>
     </ion-list>

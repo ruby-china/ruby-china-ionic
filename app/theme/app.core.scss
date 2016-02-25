@@ -7,6 +7,20 @@
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
 
+// Menu Style
+ion-menu {
+  .outer-content {
+    .item {
+      .icon-red {
+        color: red;
+      }
+      .icon-orange {
+        color: orange;
+      }
+    }
+  }
+}
+
 @import "../pages/tutorial/tutorial";
 @import "../pages/topics/topics";
 @import "../pages/topic/topic";
