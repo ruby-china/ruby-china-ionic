@@ -19,7 +19,7 @@
       }
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
-        StatusBar.styleDefault();
+        StatusBar.styleLightContent();
       }
       window.addEventListener('native.keyboardshow', function(event) {
         $rootScope.keyboardHeight = event.keyboardHeight;

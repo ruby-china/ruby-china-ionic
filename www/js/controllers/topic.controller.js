@@ -282,6 +282,10 @@
         });
     }
 
+    $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {
+      BaseService.statusBar(1);
+    });
+
     $scope.$on('$ionicView.leave', function(viewInfo, state) {
       if (state.direction === "back") {
         BaseService.recycleModalById('reply-modal');

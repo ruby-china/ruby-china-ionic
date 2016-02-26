@@ -63,6 +63,10 @@
         });
     }
 
+    $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {
+      BaseService.statusBar(1);
+    });
+
   }
 
 })();

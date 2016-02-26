@@ -79,11 +79,6 @@
       doRefresh();
     });
 
-    $scope.$on('$ionicView.beforeLeave', function(viewInfo, state) {
-      BaseService.statusBar(1);
-    });
-
-
     $scope.$on('new_topic_success', function() {
       doRefresh();
     });

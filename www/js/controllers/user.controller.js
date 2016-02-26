@@ -65,6 +65,10 @@
           vm.is_block = !vm.is_block;
         });
     }
+
+    $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {
+      BaseService.statusBar(1);
+    });
   }
 
 })();
