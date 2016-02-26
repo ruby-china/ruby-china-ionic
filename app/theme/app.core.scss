@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/v2/theming/
-
-
 // App Shared Imports
 // --------------------------------------------------
 // These are the imports which make up the design of this app.
@@ -19,6 +17,24 @@ ion-menu {
       }
     }
   }
+}
+
+.loading-mask {
+  // height: 50vh;
+  // line-height: 50vh;
+  // text-align: center;
+  // margin: 15px auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  line-height: 80vh;
+  background-color: #222;
+  z-index: 10;
+  text-align: center;
+  opacity: .5;
+  color: whitesmoke;
 }
 
 @import "../pages/tutorial/tutorial";

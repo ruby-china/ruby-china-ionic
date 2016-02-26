@@ -7,6 +7,9 @@
   </ion-buttons>
 </ion-navbar>
 <ion-content class="topic">
+  <div *ngIf="!loaded" class="loading-mask">
+    加载中
+  </div>
   <ion-list class="topic-detail">
     <ion-item>
       <ion-avatar item-left>
@@ -37,7 +40,7 @@
     <ion-item *ngIf="loaded" divider-bottom>
       <div class="markdown" [innerHTML]="topic.body_html | exlink"></div>
     </ion-item>
-    <ion-item-divider light narrow></ion-item-divider>
+    <ion-item-divider *ngIf="loaded" light narrow></ion-item-divider>
     <ion-item-sliding *ngFor="#reply of replies; #i = index" #slidingReplies replies>
       <button ion-item>
         <h2>
