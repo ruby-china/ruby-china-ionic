@@ -1,6 +1,6 @@
 <ion-modal-view id="new-topic-modal">
   <div class="bar bar-header bar-stable flat">
-    <button class="button button-icon icon mdi mdi-close flat pull-left" ng-click="vm.closeNewTopicModal()"></button>
+    <button class="button button-icon icon ion-close flat pull-left" ng-click="vm.closeNewTopicModal()"></button>
     <h1 class="title"></h1>
     <button class="button button-icon icon mdi mdi-send flat pull-right" ng-disabled="!vm.new_topic.title || !vm.new_topic.node_id || !vm.new_topic.body" ng-click="vm.createTopic()"></button>
   </div>

@@ -16,13 +16,7 @@
   background: none;
   box-shadow: none;
   color: #444;
-  font-size: 17px;
-}
 
-.button-small {
-  font-size: 13px;
-  height: 24px;
-  line-height: 24px;
 }
 
 .item h2 {
@@ -34,38 +28,8 @@
 .flat.button.icon,
 .flat.hero,
 .flat.tabs {
-  padding: 0;
-}
-
-.nav-bar-container {
-  height: 35px;
-}
-
-.bar-header {
-  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, .3) !important;
-}
-
-.bar-header.flat {
-  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, .2) !important;
-}
-
-.bar {
+  border: 0px;
   box-shadow: 0 0 0 0;
-  border: 0px solid red !important;
-
-  .title {
-    text-align: left;
-  }
-}
-
-.bar .buttons.pull-right,
-.bar .title+.button:last-child,
-.bar .title+.buttons,
-.bar>.button+.button:last-child,
-.bar>.button.pull-right {
-  top: initial;
-  right: 0;
-  bottom: initial;
 }
 
 .list .item-avatar {
@@ -100,7 +64,7 @@
 .item-content h5,
 .item-content h6,
 .item-content p {
-  font-family: RobotoDraft, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: Roboto, RobotoDraft, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   white-space: normal;
 }
 
@@ -108,23 +72,6 @@
   .button {
     box-shadow: none;
   }
-}
-
-.bar .button.button-floating.disabled,
-.bar .button.button-floating:disabled,
-.bar .button.button-large.disabled,
-.bar .button.button-large:disabled,
-.bar .button.button:disabled,
-.bar .button.disabled,
-.bar .button.disabled.button-large,
-.button.button-floating.disabled,
-.button.button-floating:disabled,
-.button.button-large.disabled,
-.button.button-large:disabled,
-.button.button:disabled,
-.button.disabled,
-.button.disabled.button-large {
-  background-color: initial;
 }
 
 // .keyboard-open {

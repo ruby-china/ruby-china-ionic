@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function TopicController($rootScope, $scope, $stateParams, $timeout, $ionicActionSheet,
-    ionicMaterialInk, ionicMaterialMotion, $ionicPopup, $location,
+    $ionicPopup, $location,
     BaseService, AuthService, TopicService, CameraService) {
 
     var vm = this;
@@ -51,11 +51,8 @@
         focusFirstInput: true
       });
 
-      BaseService.showLoading('lines', '载入中...');
-
       return TopicService.getTopicWithReplies($stateParams.topic_id)
         .then(function(result) {
-          BaseService.hideLoading();
           vm.meta = result.meta;
           vm.topic = result.topic;
           vm.replies = result.replies;

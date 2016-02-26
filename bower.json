@@ -12,7 +12,6 @@
     "mdi": "~1.3.41",
     "lodash": "~3.10.1",
     "jquery": "~2.1.4",
-    "ngCordova": "~0.1.23-alpha",
-    "ionic-material": "~0.4.2"
+    "ngCordova": "~0.1.23-alpha"
   }
 }

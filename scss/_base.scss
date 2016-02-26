@@ -1,6 +1,5 @@
 body {
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-weight: 400;
+  font-family: "Roboto", "RobotoDraft", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .bg-assertive,
@@ -27,6 +26,23 @@ body {
 
 .bg-light-gray {
   background-color: $light-gray;
+}
+
+.button-fab {
+  line-height: 0; padding: 0;
+  border-radius: 180px;
+  min-width: 45px; min-height: 45px;
+  width: 45px; height: 45px;
+  overflow: hidden;
+  color: #FFF;
+
+  i { font-size: 28px; }
+}
+
+.button-fab-bottom-right {
+  position: fixed;
+  left: auto; top: auto;
+  right: 20px; bottom: 20px;
 }
 
 .gray {
@@ -78,10 +94,6 @@ body {
 
 .text-sm {
   font-size: 14px;
-}
-
-.has-status-bar-ios {
-  top: 20px;
 }
 
 .text-deleted {

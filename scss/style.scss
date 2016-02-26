@@ -19,9 +19,7 @@ $gray: #acacac !default;
 $RobotoDraftFontPath: "../lib/robotodraft/fonts" !default;
 $RobotoDraftFontName: "RobotoDraft";
 $RobotoDraftFontVersion: "1.0.0";
-$mdi-font-path: "../lib/mdi/fonts" !default;
 @import "www/lib/robotodraft/sass/robotodraft";
-@import "www/lib/mdi/scss/materialdesignicons";
 @import "override_libs";
 // Modules
 @import "base";

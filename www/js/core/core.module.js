@@ -7,7 +7,7 @@
       'ionic', 'ngCordova',
       // Vendors
       'angularMoment', 'angular-oauth2',
-      'ionic-material', 'ngFileUpload', 'templates'
+      'ngFileUpload', 'templates'
     ]);
 
 })();

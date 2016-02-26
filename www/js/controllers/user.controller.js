@@ -9,8 +9,7 @@
 
   /* @ngInject */
   function UserController($stateParams,
-    ionicMaterialInk, ionicMaterialMotion, $timeout,
-    BaseService, AuthService, UserService) {
+    $timeout, BaseService, AuthService, UserService) {
     var vm = this;
     vm.user = {}; // 所查看的用户
     vm.current_user = AuthService.getCurrentUser(); // 本人
