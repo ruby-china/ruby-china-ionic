@@ -1,12 +1,12 @@
 {
   "name": "ruby-china-app",
-  "version": "0.0.0-semantically-released",
   "description": "Ruby China App using Ionic2.",
   "author": "Jack Zhang <dothide@gmail.com> (https://github.com/DotHide)",
   "license": "MIT",
   "scripts": {
     "commit": "git-cz",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release pre && semantic-release post"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.6",
@@ -27,7 +27,8 @@
     "babel-preset-es2015": "6.5.0",
     "commitizen": "2.5.0",
     "cz-conventional-changelog": "1.1.5",
-    "strip-sourcemap-loader": "0.0.1"
+    "strip-sourcemap-loader": "0.0.1",
+    "semantic-release": "^4.3.5"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
@@ -46,7 +47,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruby-china/ruby-china-app.git"
+    "url": "https://github.com/ruby-china/ruby-china-app.git"
   },
   "keywords": [
     "ruby-china",
@@ -56,7 +57,8 @@
   ],
   "bugs": {
     "url": "https://github.com/ruby-china/ruby-china-app/issues"
-  },"config": {
+  },
+  "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
