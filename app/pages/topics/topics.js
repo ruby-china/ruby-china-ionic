@@ -31,7 +31,7 @@ export class TopicsPage {
     this.nav.push(TopicPage, topic);
   }
 
-  onPageLoaded() {
+  onPageDidEnter() {
     this.menu.swipeEnable(true);
   }
 }
