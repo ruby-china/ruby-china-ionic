@@ -8,7 +8,7 @@
     </button>
   </ion-nav-buttons>
   <ion-content>
-    <ion-refresher pulling-text="下拉刷新..." spinner="ios" on-refresh="vm.doRefresh()">
+    <ion-refresher pulling-text="刷新话题列表..." spinner="ios" on-refresh="vm.doRefresh()">
     </ion-refresher>
     <div class="list">
       <a class="item item-avatar" href="#/app/topic/{{topic.id}}/{{topic.replies_count}}" ui-sref="app.topic({topic_id: topic.id, replies_count: topic.replies_count})" ng-repeat="topic in vm.topics.items" ng-if="!topic.deleted">
