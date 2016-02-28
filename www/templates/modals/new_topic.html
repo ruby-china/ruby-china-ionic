@@ -1,27 +1,25 @@
 <ion-modal-view id="new-topic-modal">
-  <div class="bar bar-header bar-stable flat">
-    <button class="button button-icon icon ion-close flat pull-left" ng-click="vm.closeNewTopicModal()"></button>
+  <div class="bar bar-header">
+    <button class="button button-icon ion-ios-close-empty flat pull-left" ng-click="vm.closeNewTopicModal()"></button>
     <h1 class="title"></h1>
-    <button class="button button-icon icon mdi mdi-send flat pull-right" ng-disabled="!vm.new_topic.title || !vm.new_topic.node_id || !vm.new_topic.body" ng-click="vm.createTopic()"></button>
+    <button class="button button-icon ion-ios-paperplane-outline flat pull-right" ng-disabled="!vm.new_topic.title || !vm.new_topic.node_id || !vm.new_topic.body" ng-click="vm.createTopic()"></button>
   </div>
   <ion-content class="has-header" scroll="true" delegate-handle="new-topic">
     <div class="list">
       <label class="item item-input">
-        <i class="icon mdi mdi-message-draw placeholder-icon"></i>
-        <input type="text" id="new-topic-title" ng-model="vm.new_topic.title" placeholder="主题">
+        <i class="icon ion-ios-chatboxes-outline placeholder-icon"></i>
+        <input type="text" id="new-topic-title" ng-model="vm.new_topic.title" placeholder="帖子标题">
       </label>
       <label class="item item-input item-select" style="color: #aaa;">
-        <i class="icon mdi mdi-playlist-plus"></i>
-        <div class="input-label text-sm" style="margin-left:6px; color: #aaa;" ng-if="!vm.new_topic.node_id">
-          话题节点
-        </div>
+        <i class="icon ion-ios-pricetag-outline placeholder-icon"></i>
+        <div class="input-label text-sm" style="color: #aaa;" ng-if="!vm.new_topic.node_id">类别</div>
         <select class="node_seletor" ng-class="{ 'has_node': vm.new_topic.node_id }" ng-model="vm.new_topic.node_id">
           <option ng-repeat="node in vm.nodes" ng-value="node.id">{{ node.name }}</option>
         </select>
       </label>
-      <div class="item item-narrow item-new-topic item-noborder">
-        <textarea id="new-topic" ng-model="vm.new_topic.body" class="textarea" rows="1" placeholder=" 说点什么"></textarea>
-      </div>
+      <label class="item item-input">
+        <textarea id="new-topic" ng-model="vm.new_topic.body" rows="10" placeholder="话题正文..."></textarea>
+      </label>
       <div class="item item-block item-noborder"></div>
     </div>
   </ion-content>

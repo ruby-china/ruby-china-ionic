@@ -3,7 +3,7 @@
 
   angular
     .module('app.controller')
-    .controller('MainController', MainController);
+  .controller('MainController', MainController);
 
   ////////////////////////////////////////////////////////////
 
@@ -23,8 +23,7 @@
     vm.new_topic = {};
 
     $ionicHistory.nextViewOptions({
-     historyRoot: true,
-     disableAnimate: true
+     historyRoot: true
     });
 
     vm.codes = [{

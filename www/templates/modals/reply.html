@@ -1,6 +1,6 @@
 <ion-modal-view id="reply-modal">
-  <div class="bar bar-header bar-stable flat">
-    <button class="button button-icon icon ion-close flat pull-left" ng-click="vm.closeReplyModal()"></button>
+  <div class="bar bar-header">
+    <button class="button button-icon ion-ios-close-empty flat pull-left" ng-click="vm.closeReplyModal()"></button>
     <h1 class="title">回复</h1>
     <button class="button button-icon icon ion-ios-more flat pull-right" ng-click="vm.moreAction()"></button>
   </div>
@@ -11,12 +11,6 @@
       </div>
       <div class="item item-block">
         <div class="row">
-        <!-- 下一步开发 -->
-<!--           <div class="col">
-            <button class="button button-block button-balanced">
-              <i class="mdi mdi-eye"></i> 预览
-            </button>
-          </div> -->
           <div class="col">
             <button class="button button-block button-positive"
               ng-disabled="!vm.reply_content" ng-click="vm.saveReply()">

@@ -1,28 +1,26 @@
 <ion-modal-view id="login-modal">
-  <div class="bar bar-header bar-stable flat">
+  <div class="bar bar-header">
     <h1 class="title">账号登录</h1>
-    <button class="button button-icon icon ion-close flat pull-right" ng-click="vm.closeLoginModal()"></button>
+    <button class="button button-icon ion-ios-close-empty flat pull-right" ng-click="vm.closeLoginModal()"></button>
   </div>
-  <ion-content class="padding has-header" scroll="false">
+  <ion-content class='has-header' scroll="false">
     <form novalidate id="loginForm">
       <div class="row" ng-if="vm.errorMsg">
         <div class="col">
-          <p class="text assertive">
-            <i class="mdi mdi-alert-circle"></i> <span ng-bind="vm.errorMsg"></span>
-          </p>
+          <div class="alert alert-warning">
+            <i class="ion-alert-circled"></i> <span ng-bind="vm.errorMsg"></span>
+          </div>
         </div>
       </div>
       <div class="list">
         <label class="item item-input">
-          <i class="icon placeholder-icon mdi mdi-account"></i>
           <input type="text" ng-model="vm.account.username" placeholder="用户名 / Email" required>
         </label>
         <label class="item item-input">
-          <i class="icon placeholder-icon mdi mdi-lock"></i>
           <input type="password" ng-model="vm.account.password" placeholder="密码" required>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="vm.login()">登录</button>
+          <button class="button button-block button-positive" ng-click="vm.login()">登陆我的账号</button>
         </label>
       </div>
     </form>

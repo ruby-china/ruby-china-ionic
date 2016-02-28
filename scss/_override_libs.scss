@@ -1,24 +1,3 @@
-.bg-light-gray {
-  background: #F9F9F9;
-}
-
-.button {
-  background: #EBEBEB;
-  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, .19);
-}
-
-.button.button-stable {
-  background: #EBEBEB;
-}
-
-.bar-stable .button.button-clear {
-  border-color: transparent;
-  background: none;
-  box-shadow: none;
-  color: #444;
-
-}
-
 .item h2 {
   font-weight: 300;
 }
@@ -37,7 +16,16 @@
 }
 
 .list .item {
-  border-bottom: .05em solid #e0e0e0;
+  border: 0.06em solid #e0e0e0;
+}
+
+.item.active,
+.item.activated,
+.item-complex.active .item-content,
+.item-complex.activated .item-content,
+.item .item-content.active,
+.item .item-content.activated {
+  background: #FFFAF4;
 }
 
 .card>.item-avatar,
