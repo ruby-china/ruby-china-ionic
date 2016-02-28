@@ -42,7 +42,7 @@
             <div class="col item-avatar">
               <img ng-src="{{reply.user.avatar_url}}" ui-sref="app.user({ login: reply.user.login })" alt="{{ reply.user.login }}">
               <h2>
-                <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}<span>
+                <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}</span>
                 <span class="pull-right gray">
                   <span class="like" ng-class="{ 'active': vm.isReplyLiked(reply) == true }"><i class="ion-thumbsup"></i> <span ng-bind-html="reply.likes_count">{{ reply.likes_count }}</span> 个赞</span>
                   #{{ $index +1 }}
