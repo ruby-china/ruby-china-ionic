@@ -8,7 +8,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function UserController($stateParams,
+  function UserController($stateParams, $scope,
     $timeout, BaseService, AuthService, UserService) {
     var vm = this;
     vm.user = {}; // 所查看的用户
