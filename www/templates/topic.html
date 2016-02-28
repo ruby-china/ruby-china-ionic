@@ -20,7 +20,7 @@
       <div class="item item-narrow gray">
         <span class="pull-left">
           <span ng-class="{ 'active': vm.meta.liked === true, '': vm.meta.liked === false}">
-            <i class="ion-thumbsup"></i> <span ng-bind-html="vm.topic.likes_count">{{ vm.topic.likes_count }}></span> 个赞
+            <i class="ion-ios-heart"></i> <span ng-bind-html="vm.topic.likes_count">{{ vm.topic.likes_count }}></span> 个赞
           </span>
         </span>
         <span class="pull-right">
@@ -65,9 +65,9 @@
           <div class="fold-bottom"></div>
           <div class="item tabs tabs-positive">
             <a class="tab-item" ng-click="vm.quoteReply(reply, $index +1)"><i class="ion-ios-undo"></i></a>
-            <a class="tab-item" ng-class="{ 'active': vm.isReplyLiked(reply) == true }" ng-click="vm.likeReply(reply)"><i class="ion-thumbsup"></i></a>
+            <a class="tab-item" ng-class="{ 'active': vm.isReplyLiked(reply) == true }" ng-click="vm.likeReply(reply)"><i class="ion-ios-heart"></i></a>
             <a class="tab-item" ng-if="reply.abilities.update == true" ng-click="vm.editReply(reply)"><i class="ion-edit"></i></a>
-            <a class="tab-item" ng-if="reply.abilities.destroy == true" ng-click="vm.destroyReply(reply)"><i class="ion-trash-a"></i></a>
+            <a class="tab-item" ng-if="reply.abilities.destroy == true" ng-click="vm.destroyReply(reply)"><i class="ion-ios-trash"></i></a>
           </div>
         </div>
       </div>

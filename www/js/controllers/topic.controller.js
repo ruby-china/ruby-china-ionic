@@ -126,14 +126,14 @@
         return true;
       };
 
-      var likeButton = { text: '<i class="mdi mdi-thumb-up"></i> 赞' };
-      var unlikeButton = { text: '<i class="mdi mdi-thumb-up"></i> 取消赞' };
-      var favoriteButton = { text: '<i class="mdi mdi-star"></i> 收藏' };
-      var unfavoriteButton = { text: '<i class="mdi mdi-star"></i> 取消收藏' };
-      var followButton = { text: '<i class="mdi mdi-eye"></i> 关注' };
-      var unfollowButton = { text: '<i class="mdi mdi-eye"></i> 取消关注' };
-      var banButton = { text: '<i class="mdi mdi-pencil-box-outline"></i> 屏蔽' };
-      var deleteButton = { text: '<i class="mdi mdi-delete"></i> 删除' };
+      var likeButton = { text: '<i class="ion-ios-heart"></i> 赞' };
+      var unlikeButton = { text: '<i class="ion-ios-heart"></i> 取消赞' };
+      var favoriteButton = { text: '<i class="ion-ios-star"></i> 收藏' };
+      var unfavoriteButton = { text: '<i class="ion-ios-star"></i> 取消收藏' };
+      var followButton = { text: '<i class="ion-ios-eye"></i> 关注' };
+      var unfollowButton = { text: '<i class="ion-ios-eye"></i> 取消关注' };
+      var banButton = { text: '<i class="ion-ios-flag"></i> 屏蔽' };
+      var deleteButton = { text: '<i class="ion-ios-trash"></i> 删除' };
 
       var buttons = [];
       if (vm.meta.liked) {
