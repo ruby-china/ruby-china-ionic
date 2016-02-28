@@ -23,7 +23,7 @@
     vm.new_topic = {};
 
     $ionicHistory.nextViewOptions({
-     historyRoot: true
+      historyRoot: true
     });
 
     vm.codes = [{
@@ -89,7 +89,7 @@
       loadData("");
 
       UserService.getUnreadNotificationsCount().then(function(res) {
-        vm.unread_notifications_count = res.count;
+        vm.unread_notifications_count = 10 // res.count;
       });
 
       BaseService.registModal('modals/login.html', 'login-modal', $scope, {
@@ -360,6 +360,10 @@
         AuthService.logout();
         showLoginModal();
       });
+    });
+
+    $rootScope.$on('unread_notifications_count', function(event, count) {
+      vm.unread_notifications_count = count;
     });
 
     $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {

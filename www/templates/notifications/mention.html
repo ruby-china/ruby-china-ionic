@@ -1,10 +1,10 @@
-<div class="item item-avatar">
+<a class="item item-avatar" ui-sref="app.topic({ topic_id: nf.mention.topic_id })">
   <img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login">
   <h2>
     <span class="author">{{ nf.actor.login }}</span> 在
     <span am-time-ago="nf.created_at"></span>在帖子
-    <span class="positive" ui-sref="app.topic({ topic_id: nf.mention.topic_id })">{{ nf.mention.topic.title }}</span> 中提及你
+    <span class="positive">{{ nf.mention.topic.title }}</span> 中提及你
   </h2>
   <div class="text text-left markdown" ng-bind-html="nf.mention.body_html | externalLinks"></div>
   <span class="badge" ng-if="!nf.read"></span>
-</div>
+</a>

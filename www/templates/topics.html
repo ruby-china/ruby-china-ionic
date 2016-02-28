@@ -1,4 +1,12 @@
 <ion-view id="topics" view-title="Ruby China" ng-cont>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-ios-list-outline" menu-toggle="left">
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-ios-bell-outline" ng-class="{ 'new': vm.unread_notifications_count > 0 }" ui-sref="app.notification">
+    </button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-refresher pulling-text="下拉刷新..." spinner="ios" on-refresh="vm.doRefresh()">
     </ion-refresher>

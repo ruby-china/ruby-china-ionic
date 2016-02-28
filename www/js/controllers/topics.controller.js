@@ -8,7 +8,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function TopicsController($scope, $timeout,
+  function TopicsController($rootScope, $scope, $timeout,
     $stateParams, BaseService, AuthService, TopicService) {
 
     BaseService.statusBar(0);

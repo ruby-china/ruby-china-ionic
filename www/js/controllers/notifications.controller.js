@@ -8,7 +8,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function NotificationsController($scope, BaseService, UserService) {
+  function NotificationsController($scope, $rootScope, BaseService, UserService) {
     var vm = this;
     vm.current_page = 1; // 当前页码
     vm.notifications = [];
@@ -29,6 +29,8 @@
         });
         var ids = _.pluck(unread_items, 'id');
         UserService.markNotificationsRead(ids);
+
+        $rootScope.$broadcast('unread_notifications_count', 0);
 
         BaseService.formatTopicBody();
       });

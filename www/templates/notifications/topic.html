@@ -1,8 +1,8 @@
-<div class="item item-avatar">
-  <img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login"> <span class="author">{{ nf.actor.login }}</span> 于
+<a class="item item-avatar" ui-sref="app.topic({ topic_id: nf.topic.id })">
+  <img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login">
   <h2>
-    <span am-time-ago="nf.created_at"></span> 创建了帖子
-    <span class="positive" ui-sref="app.topic({ topic_id: nf.topic.id })">{{ nf.topic.title }}</span>
+    <span class="author">{{ nf.actor.login }}</span> 于 <span am-time-ago="nf.created_at"></span> 发布了新帖：
   </h2>
+  <div class="text">{{ nf.topic.title }}</div>
   <span class="badge" ng-if="!nf.read"></span>
-</div>
+</a>
