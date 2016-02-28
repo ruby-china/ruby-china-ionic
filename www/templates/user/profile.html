@@ -48,26 +48,26 @@
         </span>
       </div>
       <div class="item item-divider item-divider-narrow"></div>
-      <div class="item item-narrow item-info" ng-if="vm.user.email">
-        <i class="mdi mdi-email balanced"></i>
-        <span class="text black"><a href="mailto:{{ vm.user.email }}">{{ vm.user.email }}</a></span>
+      <a class="item item-narrow item-info" href="mailto:{{ vm.user.email }}" ng-if="vm.user.email">
+        <i class="ion-ios-email-outline balanced"></i>
+        <span class="text black">{{ vm.user.email }}</span>
+      </a>
+      <div class="item item-narrow item-info" ng-click="vm.openUrl('https://twitter.com/{{ vm.user.twitter }}')" ng-if="vm.user.twitter">
+        <i class="ion-social-twitter-outline calm"></i>
+        <span class="text black">{{ vm.user.twitter }}</span>
       </div>
-      <div class="item item-narrow item-info" ng-if="vm.user.twitter">
-        <i class="mdi mdi-twitter-circle calm"></i>
-        <span class="text black"><a href="https://twitter.com/{{ vm.user.twitter }}">{{ vm.user.twitter }}</a></span>
-      </div>
-      <div class="item item-narrow item-info" ng-if="vm.user.website">
-        <i class="mdi mdi-compass assertive"></i>
-        <span class="text black"><a href="{{ vm.user.website }}">{{ vm.user.website }}</a></span>
+      <div class="item item-narrow item-info" ng-click="vm.openUrl('{{vm.user.website}}')" ng-if="vm.user.website">
+        <i class="ion-ios-world-outline assertive"></i>
+        <span class="text black">{{ vm.user.website }}</span>
       </div>
       <div class="item item-divider item-divider-narrow"></div>
       <div class="item item-narrow item-info">
-        <i class="mdi mdi-message-text positive"></i>
+        <i class="ion-ios-chatboxes-outline positive"></i>
         <span class="text black">发布的话题</span>
         <span class="badge badge-stable">{{ vm.user.topics_count }}</span>
       </div>
       <div class="item item-narrow item-info">
-        <i class="mdi mdi-book-variant energized"></i>
+        <i class="ion-ios-star-outline energized"></i>
         <span class="text black">收藏</span>
         <span class="badge badge-stable">{{ vm.user.favorites_count }}</span>
       </div>

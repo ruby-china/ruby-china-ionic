@@ -218,6 +218,7 @@
     // https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller
     function openUrl(url) {
       url = encodeURI(url);
+
       SafariViewController.isAvailable(function(available) {
         if (available) {
           SafariViewController.show({

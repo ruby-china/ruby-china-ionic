@@ -20,6 +20,7 @@
     vm.isSelf = isSelf;
     vm.toggleFollow = toggleFollow;
     vm.toggleBlock = toggleBlock;
+    vm.openUrl = openUrl;
 
     activate();
 
@@ -63,6 +64,10 @@
         .then(function(result) {
           vm.is_block = !vm.is_block;
         });
+    }
+
+    function openUrl(url) {
+      BaseService.openUrl(url);
     }
 
     $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {

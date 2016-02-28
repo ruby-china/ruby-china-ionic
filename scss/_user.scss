@@ -72,6 +72,9 @@
       }
     }
     .item-info {
+      &:active {
+        background: #FFFAF4;
+      }
       i {
         font-size: 18px;
         margin-right: 4px;
