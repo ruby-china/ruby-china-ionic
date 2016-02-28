@@ -99,3 +99,86 @@ body {
 .text-deleted {
   text-decoration: line-through;
 }
+
+.item h2 {
+  font-weight: 300;
+}
+
+.pull-right {
+  float: right;
+}
+
+.flat,
+.flat.button,
+.flat.button.icon,
+.flat.hero,
+.flat.tabs {
+  border: 0px;
+  box-shadow: 0 0 0 0;
+}
+
+.list .item-avatar {
+  min-height: 80px;
+}
+
+.list .item {
+  border: 0.06em solid #e0e0e0;
+}
+
+.item.active,
+.item.activated,
+.item-complex.active .item-content,
+.item-complex.activated .item-content,
+.item .item-content.active,
+.item .item-content.activated {
+  background: #FFFAF4;
+}
+
+.card>.item-avatar,
+.item-avatar,
+.item-avatar .item-content,
+.item-avatar-left,
+.item-avatar-left .item-content {
+  padding-left: 70px;
+}
+
+.item,
+.item h1,
+.item h2,
+.item h3,
+.item h4,
+.item h5,
+.item h6,
+.item p,
+.item-content,
+.item-content h1,
+.item-content h2,
+.item-content h3,
+.item-content h4,
+.item-content h5,
+.item-content h6,
+.item-content p {
+  font-family: Roboto, RobotoDraft, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  white-space: normal;
+}
+
+.action-sheet {
+  .button {
+    box-shadow: none;
+  }
+}
+
+// .keyboard-open {
+//   .bar-footer {
+//     transform: translate3d(0px, -213px, 0px) !important;
+//   }
+// }
+
+#loading-bar .bar {
+  top:0px !important;
+}
+
+#loading-bar-spinner {
+  display: none;
+}
+

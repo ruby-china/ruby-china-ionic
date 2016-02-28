@@ -20,7 +20,6 @@ $RobotoDraftFontPath: "../lib/robotodraft/fonts" !default;
 $RobotoDraftFontName: "RobotoDraft";
 $RobotoDraftFontVersion: "1.0.0";
 @import "www/lib/robotodraft/sass/robotodraft";
-@import "override_libs";
 // Modules
 @import "base";
 @import "markdown";
