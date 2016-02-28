@@ -4,16 +4,15 @@
   </ion-nav-buttons>
   <ion-content>
     <div class="list">
-      <a class="item item-avatar" ui-sref="app.user({ login: vm.topic.user.login })">
-        <img ng-src="{{vm.topic.user.avatar_url}}" alt="{{ vm.topic.user.login }}">
-        <!-- <ionic-letter-avatar data="{{ vm.topic.user.login }}" shape="round"></ionic-letter-avatar> -->
+      <div class="item item-avatar">
+        <img ng-src="{{vm.topic.user.avatar_url}}" ui-sref="app.user({ login: vm.topic.user.login })" alt="{{ vm.topic.user.login }}">
         <h2>
-          {{ vm.topic.user.login }}
+          <span ui-sref="app.user({ login: vm.topic.user.login })">{{ vm.topic.user.login }}</span>
           <span class="pull-right dark">{{ vm.topic.node_name }} {{ vm.topic.created_at | date: 'MM月dd日' }}</span>
         </h2>
-      </a>
+      </div>
       <div class="item">
-        <h3>{{ vm.topic.title }}</h3>
+        <h3 class="topic-title">{{ vm.topic.title }}</h3>
       </div>
       <div class="item item-narrow gray">
         <span class="pull-left">
