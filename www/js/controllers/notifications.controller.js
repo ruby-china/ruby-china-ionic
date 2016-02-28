@@ -64,7 +64,7 @@
     }
 
     $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {
-      BaseService.statusBar(1);
+      BaseService.statusBar(0);
     });
 
   }

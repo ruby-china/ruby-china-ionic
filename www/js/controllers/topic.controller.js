@@ -280,7 +280,7 @@
     }
 
     $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {
-      BaseService.statusBar(1);
+      BaseService.statusBar(0);
     });
 
     $scope.$on('$ionicView.leave', function(viewInfo, state) {
