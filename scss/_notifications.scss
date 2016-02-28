@@ -1,5 +1,11 @@
 #notifications {
   .list {
+    .no-result {
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
     .item {
       padding: 10px 16px 10px 58px;
       min-height: 55px;

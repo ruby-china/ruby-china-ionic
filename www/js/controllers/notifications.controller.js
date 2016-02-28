@@ -16,6 +16,7 @@
     // Functions
     vm.doRefresh = doRefresh;
     vm.loadMore = loadMore;
+    vm.deleteAllNotifications = deleteAllNotifications;
 
     activate();
 
@@ -63,6 +64,14 @@
             $scope.$broadcast('scroll.infiniteScrollComplete');
           }
         });
+    }
+
+    function deleteAllNotifications() {
+      BaseService.confirm("清除通知", "", "确定要将你的所有通知清空吗？").then(function(res) {
+        UserService.deleteAllNotifications().then(function(res) {
+          doRefresh();
+        });
+      });
     }
 
     $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {

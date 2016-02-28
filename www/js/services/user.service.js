@@ -14,6 +14,7 @@
       getUnreadNotificationsCount: getUnreadNotificationsCount,
       getUserNotifications: getUserNotifications,
       markNotificationsRead: markNotificationsRead,
+      deleteAllNotifications: deleteAllNotifications,
       userAction: userAction
     };
 
@@ -76,6 +77,18 @@
         });
       return q.promise;
     }
+
+    function deleteAllNotifications(ids) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/notifications/all.json';
+      $http.delete(url).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
+      return q.promise;
+    }
+
 
     // 关注或屏蔽用户
     // action: follow-关注；block-屏蔽

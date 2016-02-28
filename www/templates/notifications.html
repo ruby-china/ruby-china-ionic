@@ -1,8 +1,15 @@
 <ion-view id="notifications" view-title="通知" can-swipe-back="true">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-ios-trash-outline" ng-click="vm.deleteAllNotifications()">
+    </button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-refresher pulling-text="下拉刷新..." spinner="ios" on-refresh="vm.doRefresh()">
     </ion-refresher>
     <div class="list">
+      <div class="no-result" ng-if="vm.notifications.length == 0">
+        暂无任何通知
+      </div>
       <div ng-repeat="nf in vm.notifications">
         <ng-include src="'notifications/' + nf.type.toLowerCase() + '.html'"></ng-include>
       </div>
