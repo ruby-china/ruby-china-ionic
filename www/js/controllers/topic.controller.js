@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function TopicController($rootScope, $scope, $stateParams, $timeout, $ionicActionSheet,
-    $ionicPopup, $location,
+    $ionicPopup, $location, $ionicPosition, $ionicScrollDelegate,
     BaseService, AuthService, TopicService, CameraService) {
 
     var vm = this;
@@ -30,6 +30,7 @@
     vm.current_page = 1; // 当前页码
 
     // Functions
+    vm.showReplies = showReplies;
     vm.showTopicPopupMenu = showTopicPopupMenu;
     vm.showReplyModal = showReplyModal;
     vm.closeReplyModal = closeReplyModal;
@@ -286,6 +287,11 @@
             $scope.$broadcast('scroll.infiniteScrollComplete');
           }
         });
+    }
+
+    function showReplies() {
+      var pos = $ionicPosition.position(angular.element(document.getElementById('replies')));
+      $ionicScrollDelegate.scrollTo(0, pos.top, true);
     }
 
     $scope.$on('$ionicView.beforeEnter', function(viewInfo, state) {
