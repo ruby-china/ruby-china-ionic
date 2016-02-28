@@ -62,8 +62,15 @@
         // 处理@链接
         var atuser_links = $('.at_user');
         _.forEach(atuser_links, function(link) {
-          var orig = $(link).attr("href");
-          $(link).attr("href", "#/app/user/" + orig.slice(1));
+          var orig = $(link).attr("href") || '';
+          if (orig.indexOf('#/app/user/') == -1) {
+            $(link).attr("href", "#/app/user/" + orig.slice(1));
+          }
+        });
+
+        var atfloor_links = $('.at_floor');
+        atfloor_links.on('click', function() {
+          return false;
         });
       });
     }

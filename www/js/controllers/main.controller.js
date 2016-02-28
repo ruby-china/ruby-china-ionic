@@ -26,44 +26,6 @@
       historyRoot: true
     });
 
-    vm.codes = [{
-      id: 'ruby',
-      name: 'Ruby'
-    }, {
-      id: 'erb',
-      name: 'HTML / ERB'
-    }, {
-      id: 'scss',
-      name: 'CSS / SCSS'
-    }, {
-      id: 'js',
-      name: 'JavaScript'
-    }, {
-      id: 'yml',
-      name: 'YAML(.yml)'
-    }, {
-      id: 'coffee',
-      name: 'CoffeeScript'
-    }, {
-      id: 'conf',
-      name: 'Nginx / Redis'
-    }, {
-      id: 'python',
-      name: 'Python'
-    }, {
-      id: 'php',
-      name: 'PHP'
-    }, {
-      id: 'java',
-      name: 'Java'
-    }, {
-      id: 'erlang',
-      name: 'Erlang'
-    }, {
-      id: 'shell',
-      name: 'Shell / Bash'
-    }];
-
     // Functions
     vm.showLoginModal = showLoginModal;
     vm.showRegisterModal = showRegisterModal;

@@ -53,15 +53,18 @@
         focusFirstInput: true
       });
 
-      return TopicService.getTopicWithReplies($stateParams.topic_id)
-        .then(function(result) {
-          vm.meta = result.meta;
-          vm.topic = result.topic;
-          vm.replies = result.replies;
-          vm.user_liked_reply_ids = result.user_liked_reply_ids;
-          vm.has_more = vm.replies.length === 20; // 默认这里20条一页
-          BaseService.formatTopicBody();
-        });
+      TopicService.getTopic($stateParams.topic_id).then(function(result) {
+        vm.meta = result.meta;
+        vm.topic = result.topic;
+        BaseService.formatTopicBody();
+      });
+
+      TopicService.getRepliesByTopic($stateParams.topic_id, 0).then(function(result) {
+        vm.replies = result.replies;
+        vm.user_liked_reply_ids = result.meta.user_liked_reply_ids || [];
+        vm.has_more = vm.replies.length === 150; // 默认这里 100 条一页
+        BaseService.formatTopicBody();
+      });
     }
 
     function showReplyModal() {

@@ -16,6 +16,7 @@
     }];
     var service = {
       getTopics: getTopics,
+      getTopic: getTopic,
       getTopicWithReplies: getTopicWithReplies,
       getRepliesByTopic: getRepliesByTopic,
       createReply: createReply,
@@ -172,7 +173,7 @@
       $http.get(url, {
           params: {
             offset: offset,
-            limit: 20
+            limit: 150
           }
         })
         .success(function(result) {
