@@ -29,6 +29,7 @@
       like: like,
       favorite: favorite,
       follow: follow,
+      ban: ban,
       destroy: destroy
     };
 
@@ -128,6 +129,17 @@
       var q = $q.defer();
       var method = followd == true ? 'unfollow' : 'follow';
       var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/' + method + '.json';
+      $http.post(url).success(function(result) {
+        q.resolve(result);
+      }).error(function(err) {
+        q.reject(err);
+      });
+      return q.promise;
+    }
+
+    function ban(topic_id) {
+      var q = $q.defer();
+      var url = rbchina_api.url_prefix + '/topics/' + topic_id + '/ban.json';
       $http.post(url).success(function(result) {
         q.resolve(result);
       }).error(function(err) {

@@ -8,7 +8,10 @@
         <img ng-src="{{vm.topic.user.avatar_url}}" ui-sref="app.user({ login: vm.topic.user.login })" alt="{{ vm.topic.user.login }}">
         <h2>
           <span ui-sref="app.user({ login: vm.topic.user.login })">{{ vm.topic.user.login }}</span>
-          <span class="pull-right dark">{{ vm.topic.node_name }} {{ vm.topic.created_at | date: 'MM月dd日' }}</span>
+          <span class="pull-right dark">
+            <span ng-bind-html="vm.topic.node_name">{{ vm.topic.node_name }}</span>
+            {{ vm.topic.created_at | date: 'MM月dd日' }}
+          </span>
         </h2>
       </div>
       <div class="item">

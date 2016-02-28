@@ -14,6 +14,7 @@
 
     var vm = this;
     vm.is_logined = false;
+    vm.current_user = null;
     vm.user_liked_reply_ids = [];
     vm.meta = {};
     vm.topic = {
@@ -46,6 +47,7 @@
     function activate() {
 
       vm.is_logined = AuthService.isAuthencated();
+      vm.current_user = AuthService.getCurrentUser();
       vm.reply_content = "";
       BaseService.registModal('modals/reply.html', 'reply-modal', $scope, {
         focusFirstInput: true
@@ -130,7 +132,7 @@
       var unfavoriteButton = { text: '<i class="mdi mdi-star"></i> 取消收藏' };
       var followButton = { text: '<i class="mdi mdi-eye"></i> 关注' };
       var unfollowButton = { text: '<i class="mdi mdi-eye"></i> 取消关注' };
-      var editButton = { text: '<i class="mdi mdi-pencil-box-outline"></i> 编辑' };
+      var banButton = { text: '<i class="mdi mdi-pencil-box-outline"></i> 屏蔽' };
       var deleteButton = { text: '<i class="mdi mdi-delete"></i> 删除' };
 
       var buttons = [];
@@ -152,8 +154,8 @@
         buttons.push(followButton);
       }
 
-      if (vm.topic.abilities.update) {
-        buttons.push(editButton);
+      if (vm.is_logined && vm.current_user.level == 'admin') {
+        buttons.push(banButton);
       }
 
       if (vm.topic.abilities.destroy) {
@@ -179,18 +181,22 @@
           }
 
           if (index == buttons.indexOf(favoriteButton) || index == buttons.indexOf(unfavoriteButton)) {
-            TopicService.favorite(vm.topic.id, vm.meta.favorited).then(function(result) {
+            TopicService.favorite(vm.topic.id, vm.meta.favorited).then(function(res) {
               vm.meta.favorited = !vm.meta.favorited;
             });
           }
 
           if (index == buttons.indexOf(followButton) || index == buttons.indexOf(unfollowButton)) {
-            TopicService.follow(vm.topic.id, vm.meta.followed).then(function(result) {
+            TopicService.follow(vm.topic.id, vm.meta.followed).then(function(res) {
               vm.meta.followed = !vm.meta.followed;
             });
           }
 
-          if (index == buttons.indexOf(editButton)) {
+          if (index == buttons.indexOf(banButton)) {
+            TopicService.ban(vm.topic.id).then(function(res) {
+              BaseService.alert('屏蔽话题', '', '已经成功将话题移到了 NoPoint 节点。');
+              vm.topic.node_name = "NoPoint";
+            });
           }
 
           if (index == buttons.indexOf(deleteButton)) {
