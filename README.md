@@ -1,67 +1,99 @@
 # Ruby China App
-这是 Ruby China 使用 Ionic 框架开发的适用于 iOS 和 Android 两个平台客户端 APP。
+Official Ruby China Mobile App for iOS and Android using Ionic framework.
 
-🚀 **根据 Johnpapa's AngularJS Style 重构了上一版，根据设计稿重画界面（加入了 Material 元素）**  
-⏳ **此外还加入了 Gulp 自动化部署脚本，使得开发更顺畅，使得部署生产软件精简包更便捷！**  
-🚿 **全新的视觉体验 + 全新的开发体验，让你更从容地面对前端应用开发！**
+[![Download on the app store](https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg)](https://itunes.apple.com/cn/app/ruby-china-guan-fang-ke-hu-duan/id1072028763?mt=8)
 
-## 第一版的主要功能（已完成度）
-1. 用户登陆、退出（100%）
-2. 帖子列表（100%）
-3. 帖子详情（100%）
-4. 发表新帖（100%）
-5. 回复帖子（100%）
-6. 我的主页（100%）
-7. 个人资料（0%）
-8. 我的帖子（0%）
-9. 我的收藏（0%）
-10. 通知提醒（0%）
-11. 设置（0%）
+🚀 **An refactor version according to Johnpapa's AngularJS Style, and redraw UI with Material elements**  
+⏳ **Additional, adding Gulp make it easy to build**  
+🚿 **New UI + New DE make it more fun to play Front-end Development**
 
-## 安装 (Installation)
-在运行程序前，你需要首先安装 NodeJS 以及 Ionic
-- NodeJS 安装请移步：[Install NodeJS](https://nodejs.org/en/)
-- Ionic 安装请移步：[Install Ionic](http://ionicframework.com/getting-started/)
+## The 1st Major Release (Progress)
+1. User Login / Logout（100%）
+2. Topic List（100%）
+3. Topic Detail（100%）
+4. New Topic（100%）
+5. Reply（100%）
+6. HomePage（100%）
+7. Profile（0%）
+8. My Topics（0%）
+9. My Favorites（0%）
+10. Push Notification（80%）
+11. Settings（0%）
 
-进入项目根目录执行：`$ npm install && bower install`
-添加 iOS 工程 `$ cordova platform add ios`
-添加 Android 工程 `$ cordova platform add android`
+## Installation
+It really need NodeJS & Ionic installed before you can play Our Project
 
-## 开发（Development）
-在开发程序时，请使用 `$ foreman start` 打开开发服务器，并使用 Chrome 作为调试工具，（前提使用 `$ gem install foreman` 安装 foreman）
-- 使用 `bower install ***` 安装组件时，最好加上 `--save` 参数。如果此时开发服务器正打开着，Gulp会自动将组件文件引用至 `index.html`
-如果没有打开开发服务器时，可以运行 `$ gulp` 自动部署文件
-- 使用 `npm install ***` 安装组件时，最好加上 `--save-dev` 参数。
-- 完成开发时，需要部署到iOS，先运行 `$ gulp useref` 生成本地 dist 目录，然后再运行 `$ ionic build ios` 生成 iOS 工程（暂时只支持iOS）
+* NodeJS following：[Install NodeJS](https://nodejs.org/en/)
+* Ionic following：[Install Ionic](http://ionicframework.com/getting-started/)
 
-## 在 Chrome 里运行
-项目下载后（并已安装 Ionic）可以先在 Chrome 里运行查看效果
-在终端中运行 `$ foreman start` ，然后打开 Chrome 并输入： `http://localhost:8100` 访问
+```bash
+# Enter project root folder and input：
+$ npm install && bower install
 
-打开后效果如下：
-> 此时可以自行选择设备查看
+# auto-generater dist/ folder
+$ gulp useref
 
+# Adding iOS Platform
+$ ionic platform add ios
+
+# Adding Android Platform
+$ ionic platform add android
+```
+
+## Development
+Use `$ foreman start` or `$ ionic serve -w chrome -a` to start Server
+> cannot run foreman? run `$ gem install foreman` first.
+
+Use `bower install *** --save` install Bower components
+> If the dev server is running，Gulp will help you to adding all js dependency to `index.html`
+> If not, run `$ gulp` to make it.
+
+Use `npm install *** --save-dev` install npm modules
+
+
+## Run in Chrome
+
+Open your Chrome and locate: http://localhost:8100/
+> Select device what you like
+
+##### Screenshots
 ![](docs/images/doc_1.png)
 
-## 在 Xcode 中运行
-如果能在 Chrome 中顺利看到效果后，可以在终端输入以下命令，使项目能在 Xcode 中运行：
+## Run in Xcode
+Following these step, and you'll see it.
 
-1. 首先，运行 `$ ionic platform add ios` (添加 iOS 平台支持)
-2. 然后，运行 `$ ionic build ios` (编译生成项目)
-3. 最后，运行 `$ ionic emulate ios` (在模拟器中运行程序) 或者 打开 `platforms/ios/Ruby China App.xcodeproj` 运行 Xcode，并在 Xcode 中运行项目
+```bash
+# 1. Adding iOS Support
+$ ionic platform add ios 
 
-运行效果如下：
+# 2. Building
+$ ionic build ios 
 
+# 3. run it in your simulator
+$ ionic emulate ios 
+# another way, open Xcode first then run.
+$ open platforms/ios/Ruby China App.xcodeproj
+```
+
+##### Screenshots
 ![](docs/images/doc_2.png)
 
-## 在 Android 平台运行
-根据如下步骤建立安卓工程：
+## Run in Android
+Following these step, and you'll see it.
 
-1. 首先，运行 `$ ionic platform add android`
-2. 然后，下载安卓SDK及模拟器，Mac下可参考[Android Studio 安装](http://developer.android.com/sdk/installing/index.html?pkg=studio)
-3. 安卓开发环境准备就绪后，运行 `$ionic build android`
-4. 打开安卓模拟器，然后运行 `$ ionic emulate android`
+```bash
+# 1. Adding Android Support
+$ ionic platform add android
 
-运行效果如下：
+# 2. Download Android SDK & Simulator first
+> Ref on Mac[Android Studio Installation](http://developer.android.com/sdk/installing/index.html?pkg=studio)
 
+# 3. Everythings ok then build it
+$ ionic build android
+
+# 4. Open your simulator
+$ ionic emulate android
+```
+
+##### Screenshots
 ![](docs/images/doc_3.png)
