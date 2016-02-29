@@ -1,3 +1,10 @@
+html {
+  // 16px = 1em; rem = root em 即根据 html 设置的百分比来
+  // 因此设置字体基准：16px * 62.5% = 10px
+  // 这样其他字体就可以这样定义：12px = 1.2rem，14px = 1.4rem
+  font-size: 62.5%;
+}
+
 body {
   font-family: "Roboto", "RobotoDraft", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
@@ -137,7 +144,7 @@ textarea {
 .item-complex.activated .item-content,
 .item .item-content.active,
 .item .item-content.activated {
-  background: #FFFAF4;
+  background: #d9d9d9;
 }
 
 .card>.item-avatar,

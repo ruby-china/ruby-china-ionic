@@ -10,8 +10,8 @@
   <ion-content>
     <ion-refresher pulling-text="刷新话题列表..." spinner="ios" on-refresh="vm.doRefresh()">
     </ion-refresher>
-    <div class="list">
-      <div class="item item-avatar" 
+    <ion-list>
+      <ion-item class="item-avatar" 
         ui-sref="app.topic({topic_id: topic.id, replies_count: topic.replies_count})" 
         ng-repeat="topic in vm.topics.items" 
         ng-if="!topic.deleted">
@@ -19,8 +19,8 @@
         <h2>{{ topic.title }}</h2>
         <div class="author"><span class="node">{{ topic.node_name }}</span> {{ topic.user.login }} </div>
         <span class="badge badge-clear">{{ topic.replies_count }}</span>
-      </div>
-    </div>
+      </ion-item>
+    </ion-list>
     <ion-infinite-scroll on-infinite="vm.loadMore()" immediate-check="false" distance="1%">
     </ion-infinite-scroll>
   </ion-content>
