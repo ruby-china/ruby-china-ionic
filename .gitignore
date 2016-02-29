@@ -11,6 +11,7 @@ plugins/
 *.swo
 *.log
 *.DS_Store
+www/lib
 www/dist/**
 www/css
 www/annotated_js/**
