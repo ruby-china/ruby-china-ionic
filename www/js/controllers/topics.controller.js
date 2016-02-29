@@ -31,7 +31,6 @@
       loadData($stateParams.node_id, $stateParams.type)
         .then(function(result) {
           vm.topics = result;
-
         });
     }
 
