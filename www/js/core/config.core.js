@@ -7,6 +7,7 @@
     // .config(oauthConfigDevelopment)
     .config(backButtonConfig)
     .config(httpConfig)
+    .config(jsScrolling)
     .constant('rbchina_api', {
       url_prefix: "https://ruby-china.org/api/v3"
       // url_prefix: "http://localhost:3000/api/v3"
@@ -62,5 +63,12 @@
   /* @ngInject */
   function backButtonConfig($ionicConfigProvider) {
     $ionicConfigProvider.backButton.text('').icon('mdi mdi-arrow-left');
+  }
+
+  /* @ngInject */
+  function jsScrolling($ionicConfigProvider) {
+    if (!ionic.Platform.isIOS()) {
+      $ionicConfigProvider.scrolling.jsScrolling(false);
+    }
   }
 })();

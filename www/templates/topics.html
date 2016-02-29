@@ -7,11 +7,11 @@
     <button class="button button-icon ion-ios-bell-outline" ng-class="{ 'new': vm.unread_notifications_count > 0 }" ui-sref="app.notification">
     </button>
   </ion-nav-buttons>
-  <ion-content class="has-header" overflow-scroll="true">
-    <ion-refresher 
-      pulling-text="刷新话题列表..." 
+  <ion-content class="has-header">
+    <ion-refresher
+      pulling-text="刷新话题列表..."
       pulling-icon="ion-arrow-up-b"
-      spinner="ios" 
+      spinner="ios"
       on-refresh="vm.doRefresh()">
     </ion-refresher>
     <ion-list>
@@ -19,9 +19,14 @@
       参考以下文章改善滚动条的性能
       > http://www.thomasmaximini.com/2015/01/12/improving-scroll-performance-for-lists-in-ionic-framework.html
       > http://ionicframework.com/docs/api/directive/collectionRepeat/
+
+      将 ng-repeat 调整为 collection-repeat 后发现滚动条出现卡顿和失去惯性的问题，根据以下帖子解决
+      需要删除 jQuery ，从 1.7.0 版本及之后的版本就会有这种问题出现
+      > https://forum.ionicframework.com/t/issue-with-collection-repeat-choppy-perf-no-inertia-when-scrolling/9824
+      > https://github.com/driftyco/ionic/issues/2297
       -->
       <ion-item class="item-avatar" 
-        collection-repeat="topic in vm.topics.items | filter: {deleted: false}" 
+        ng-repeat="topic in vm.topics.items | filter: { deleted: false }"
         ui-sref="app.topic({topic_id: topic.id, replies_count: topic.replies_count})" >
         <img ng-src="{{topic.user.avatar_url}}" alt="{{ topic.user.login }}">
         <h2>{{ topic.title }}</h2>

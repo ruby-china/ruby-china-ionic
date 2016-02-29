@@ -40,6 +40,7 @@
     return service;
 
     //////////////////////////////////////////////////////////////////////
+    // 说明：由于删除 jQuery 的缘故，不再使用 BaseService.formatTopicBody 方法调整链接
     function formatTopicBody() {
       $timeout(function() {
         // 处理外部链接
@@ -217,6 +218,7 @@
 
     // https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller
     function openUrl(url) {
+      // console.debug(url);
       url = encodeURI(url);
 
       SafariViewController.isAvailable(function(available) {

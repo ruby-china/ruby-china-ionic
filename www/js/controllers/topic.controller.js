@@ -45,6 +45,10 @@
 
     activate();
 
+    function openUrl() {
+      console.log('open');
+    }
+
     function activate() {
 
       vm.is_logined = AuthService.isAuthencated();
@@ -57,14 +61,14 @@
       TopicService.getTopic($stateParams.topic_id).then(function(result) {
         vm.meta = result.meta;
         vm.topic = result.topic;
-        BaseService.formatTopicBody();
+        // BaseService.formatTopicBody();
       });
 
       TopicService.getRepliesByTopic($stateParams.topic_id, 0).then(function(result) {
         vm.replies = result.replies;
         vm.user_liked_reply_ids = result.meta.user_liked_reply_ids || [];
         vm.has_more = vm.replies.length === 150; // 默认这里 100 条一页
-        BaseService.formatTopicBody();
+        // BaseService.formatTopicBody();
       });
     }
 
@@ -270,7 +274,7 @@
           }).catch(function(err) {
             BaseService.alert('提交回复', '', '提交失败！');
           })
-        }
+      }
     }
 
     function loadMore() {
@@ -283,7 +287,7 @@
             vm.current_page--;
           } else {
             vm.replies = _.union(vm.replies, result.replies);
-            vm.user_liked_reply_ids =  _.union(vm.user_liked_reply_ids, result.meta.user_liked_reply_ids);
+            vm.user_liked_reply_ids = _.union(vm.user_liked_reply_ids, result.meta.user_liked_reply_ids);
             $scope.$broadcast('scroll.infiniteScrollComplete');
           }
         });

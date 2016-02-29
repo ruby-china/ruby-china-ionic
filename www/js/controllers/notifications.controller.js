@@ -33,7 +33,7 @@
 
         $rootScope.$broadcast('unread_notifications_count', 0);
 
-        BaseService.formatTopicBody();
+        // BaseService.formatTopicBody();
       });
     }
 

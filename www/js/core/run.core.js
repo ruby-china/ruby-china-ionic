@@ -4,7 +4,8 @@
   angular
     .module('app.core')
     .run(ionicRun)
-    .run(oauthRun);
+    .run(oauthRun)
+    .run(openUrl);
 
   ////////////////////////////////////////////////////////////
 
@@ -44,6 +45,11 @@
       // Redirect to `/login` with the `error_reason`.
       return $window.location.href = '/login?error_reason=' + rejection.data.error;
     });
+  }
+
+  /* @ngInject */
+  function openUrl($window, BaseService) {
+    $window.openUrl = BaseService.openUrl;
   }
 
 })();
