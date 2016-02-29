@@ -65,7 +65,10 @@
         }
       })
       .state('app.topic', {
-        url: '/topic/:topic_id/:replies_count',
+        url: '/topic/:topic_id',
+        params: {
+          replies_count: null
+        },
         views: {
           'menuContent': {
             templateUrl: 'topic.html',
