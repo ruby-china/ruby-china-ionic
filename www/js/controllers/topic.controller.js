@@ -34,6 +34,7 @@
     vm.showTopicPopupMenu = showTopicPopupMenu;
     vm.showReplyModal = showReplyModal;
     vm.closeReplyModal = closeReplyModal;
+    vm.toggleLikeTopic = toggleLikeTopic;
     vm.moreAction = moreAction;
     vm.saveReply = saveReply;
     vm.loadMore = loadMore;
@@ -174,18 +175,8 @@
         buttons: buttons,
         cancelText: '取消',
         buttonClicked: function(index) {
-          if (index == buttons.indexOf(likeButton)) {
-            TopicService.likeTopic(vm.topic.id).then(function(result) {
-              vm.topic.likes_count = result.count;
-              vm.meta.liked = true;
-            });
-          }
-
-          if (index == buttons.indexOf(unlikeButton)) {
-            TopicService.unlikeTopic(vm.topic.id).then(function(result) {
-              vm.topic.likes_count = result.count;
-              vm.meta.liked = false;
-            });
+          if (index == buttons.indexOf(likeButton) || index == buttons.indexOf(unlikeButton)) {
+            toggleLikeTopic();
           }
 
           if (index == buttons.indexOf(favoriteButton) || index == buttons.indexOf(unfavoriteButton)) {
@@ -219,6 +210,20 @@
         }
       };
       return $ionicActionSheet.show(options);
+    }
+
+    function toggleLikeTopic() {
+      if (vm.meta.liked) {
+        TopicService.unlikeTopic(vm.topic.id).then(function(result) {
+          vm.topic.likes_count = result.count;
+          vm.meta.liked = false;
+        });
+      } else {
+        TopicService.likeTopic(vm.topic.id).then(function(result) {
+          vm.topic.likes_count = result.count;
+          vm.meta.liked = true;
+        });
+      }
     }
 
     function moreAction() {
