@@ -18,7 +18,7 @@
       <div class="item">
         <h3 class="topic-title">{{ vm.topic.title }}</h3>
       </div>
-      <div class="item item-narrow gray">
+      <div class="item item-info item-narrow gray">
         <span class="pull-left">
           <span ng-class="{ 'active': vm.meta.liked === true, '': vm.meta.liked === false}">
             <i class="ion-ios-heart"></i> <span ng-bind-html="vm.topic.likes_count">{{ vm.topic.likes_count }}></span> 个赞
@@ -35,31 +35,25 @@
       <div id="replies">
         <div class="reply-item" ng-repeat="reply in vm.replies">
           <div class="item item-narrow reply" ng-click="vm.visable_reply_button = reply.id">
-            <div class="row" ng-if="reply.deleted">
-              <div class="col">
-                <div class="text text-deleted text-center">
-                  {{ $index + 1 }} 楼已删除
-                </div>
+            <div class="item-deleted" ng-if="reply.deleted">
+              <div class="text text-deleted text-center">
+                {{ $index + 1 }} 楼已删除
               </div>
             </div>
-            <div class="row" ng-if="!reply.deleted">
-              <div class="col item-avatar">
-                <img ng-src="{{reply.user.avatar_url}}" ui-sref="app.user({ login: reply.user.login })" alt="{{ reply.user.login }}">
-                <h2>
-                  <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}</span>
-                  <span class="pull-right gray">
-                    <span class="like" ng-class="{ 'active': vm.isReplyLiked(reply) == true }"><i class="ion-thumbsup"></i> <span ng-bind-html="reply.likes_count">{{ reply.likes_count }}</span> 个赞</span>
-                    #{{ $index +1 }}
-                    <span class="dark">{{ reply.created_at | date: 'MM月dd日' }}</span>
-                  </span>
-                </h2>
-              </div>
+
+            <div class="item-avatar" ng-if="!reply.deleted">
+              <img ng-src="{{reply.user.avatar_url}}" ui-sref="app.user({ login: reply.user.login })" alt="{{ reply.user.login }}">
+              <h2>
+                <span ui-sref="app.user({ login: reply.user.login })">{{ reply.user.login }}</span>
+                <span class="pull-right gray">
+                  <span class="like" ng-class="{ 'active': vm.isReplyLiked(reply) == true }"><i class="ion-ios-heart"></i> <span ng-bind-html="reply.likes_count">{{ reply.likes_count }}</span> 个赞</span>
+                  <span class="floor">#{{ $index +1 }}</span>
+                  <span class="time">{{ reply.created_at | date: 'MM月dd日' }}</span>
+                </span>
+              </h2>
             </div>
-            <div class="row" ng-if="!reply.deleted">
-              <div class="col">
-                <div class="markdown" ng-bind-html="reply.body_html | externalLinks"></div>
-              </div>
-            </div>
+
+            <div class="markdown" ng-bind-html="reply.body_html | externalLinks"></div>
           </div>
 
           <div class="toolbar" ng-if="vm.is_logined && !reply.deleted" ng-class="{ 'open': vm.visable_reply_button == reply.id }">
