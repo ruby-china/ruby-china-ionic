@@ -294,7 +294,7 @@
     }
 
     function showReplies() {
-      var pos = $ionicPosition.position(angular.element(document.getElementById('replies')));
+      var pos = $ionicPosition.position(angular.element(document.getElementById('topic-stats')));
       $ionicScrollDelegate.scrollTo(0, pos.top, true);
     }
 

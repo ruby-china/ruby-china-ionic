@@ -73,8 +73,6 @@
       }
     }
 
-    .item-info { background: #f9f9f9; }
-
     .item {
       border-bottom: 1px solid $light-gray;
 
@@ -85,6 +83,13 @@
       span {
         font-size: 12px;
       }
+
+      &.item-info {
+        background: #f9f9f9; color: #555;
+        span { font-size: 14px; }
+        i { font-size: 15px; }
+      }
+
       h2,
       h3 {
         font-weight: 300;
@@ -95,6 +100,7 @@
       h3 {
         font-size: 18px;
       }
+
       &.reply {
         .row { padding: 0px; }
         padding-top: 0;

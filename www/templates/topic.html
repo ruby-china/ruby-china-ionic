@@ -18,18 +18,19 @@
       <div class="item">
         <h3 class="topic-title">{{ vm.topic.title }}</h3>
       </div>
-      <div class="item item-info item-narrow gray">
+      <div class="item">
+        <div class="markdown" ng-bind-html="vm.topic.body_html | externalLinks"></div>
+      </div>
+
+      <div id="topic-stats" class="item item-info item-narrow gray">
         <span class="pull-left">
           <span ng-class="{ 'active': vm.meta.liked === true, '': vm.meta.liked === false}">
             <i class="ion-ios-heart"></i> <span ng-bind-html="vm.topic.likes_count">{{ vm.topic.likes_count }}></span> 个赞
           </span>
         </span>
         <span class="pull-right">
-          <i class="ion-ios-undo"></i> {{ vm.topic.replies_count }} 条回复
+          <i class="ion-ios-chatbubble"></i> {{ vm.topic.replies_count }} 条回复
         </span>
-      </div>
-      <div class="item">
-        <div class="markdown" ng-bind-html="vm.topic.body_html | externalLinks"></div>
       </div>
 
       <div id="replies">

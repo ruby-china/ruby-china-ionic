@@ -14,8 +14,9 @@
       spinner="ios"
       on-refresh="vm.doRefresh()">
     </ion-refresher>
+
     <ion-list>
-      <!-- 
+      <!--
       参考以下文章改善滚动条的性能
       > http://www.thomasmaximini.com/2015/01/12/improving-scroll-performance-for-lists-in-ionic-framework.html
       > http://ionicframework.com/docs/api/directive/collectionRepeat/
@@ -25,7 +26,7 @@
       > https://forum.ionicframework.com/t/issue-with-collection-repeat-choppy-perf-no-inertia-when-scrolling/9824
       > https://github.com/driftyco/ionic/issues/2297
       -->
-      <ion-item class="item-avatar" 
+      <ion-item class="item-avatar"
         ng-repeat="topic in vm.topics.items | filter: { deleted: false }"
         ui-sref="app.topic({topic_id: topic.id, replies_count: topic.replies_count})" >
         <img ng-src="{{topic.user.avatar_url}}" alt="{{ topic.user.login }}">
@@ -34,9 +35,9 @@
         <span class="badge badge-clear">{{ topic.replies_count }}</span>
       </ion-item>
     </ion-list>
-    <ion-infinite-scroll 
-      on-infinite="vm.loadMore()" 
-      immediate-check="false" 
+    <ion-infinite-scroll
+      on-infinite="vm.loadMore()"
+      immediate-check="false"
       distance="10%">
     </ion-infinite-scroll>
   </ion-content>

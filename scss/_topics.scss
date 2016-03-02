@@ -12,6 +12,11 @@
           font-size: 1.4rem;
           font-weight: 400;
         }
+        &:visited {
+          h2 {
+            color: #666;
+          }
+        }
       }
       .badge {
         color: #ababab;
@@ -27,11 +32,6 @@
         .node {
           margin-right: 6px;
           font-weight: bold;
-        }
-      }
-      &:visited {
-        h2 {
-          color: #666;
         }
       }
     }
