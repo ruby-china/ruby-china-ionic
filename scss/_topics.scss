@@ -1,11 +1,17 @@
 #topics {
   .list {
     .item {
+      &:visited {
+        h2 {
+          color: #666;
+        }
+      }
+
       .item-content {
         min-height: 5.5rem;
-        padding: 5px 25px 5px 70px;
+        padding: 5px 32px 5px 64px;
         img {
-          top: 8px;
+          top: 8px; left: 12px;
         }
         h2 {
           margin-top: 5px;
@@ -22,7 +28,7 @@
         color: #ababab;
         font-size: 1.2rem;
         font-weight: normal;
-        right: 5px;
+        right: 8px;
       }
       .author {
         font-size: 1.1rem;
