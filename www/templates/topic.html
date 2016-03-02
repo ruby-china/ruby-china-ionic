@@ -56,10 +56,10 @@
             <div class="markdown" ng-bind-html="reply.body_html | externalLinks"></div>
           </div>
 
-          <div class="toolbar" ng-if="vm.is_logined && !reply.deleted" ng-class="{ 'open': vm.visable_reply_button == reply.id }">
+          <div class="toolbar" ng-if="vm.is_logined" ng-class="{ 'open': vm.visable_reply_button == reply.id }">
             <div class="fold-top"></div>
             <div class="fold-bottom"></div>
-            <div class="item tabs tabs-positive">
+            <div class="tabs tabs-positive">
               <a class="tab-item" ng-click="vm.quoteReply(reply, $index +1)"><i class="ion-ios-undo"></i></a>
               <a class="tab-item" ng-class="{ 'active': vm.isReplyLiked(reply) == true }" ng-click="vm.likeReply(reply)"><i class="ion-ios-heart"></i></a>
               <a class="tab-item" ng-if="reply.abilities.update == true" ng-click="vm.editReply(reply)"><i class="ion-edit"></i></a>
