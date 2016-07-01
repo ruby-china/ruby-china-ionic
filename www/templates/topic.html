@@ -54,7 +54,7 @@
               </h2>
             </div>
 
-            <div class="markdown" ng-bind-html="reply.body_html | externalLinks"></div>
+            <div class="markdown" ng-if="!reply.deleted" ng-bind-html="reply.body_html | externalLinks"></div>
           </div>
 
           <div class="toolbar" ng-if="vm.is_logined" ng-class="{ 'open': vm.visable_reply_button == reply.id }">

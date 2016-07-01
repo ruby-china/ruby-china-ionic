@@ -116,6 +116,9 @@ textarea {
 }
 
 .text-deleted {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 6px;
   text-decoration: line-through;
 }
 
@@ -177,7 +180,7 @@ textarea {
 .item-content h5,
 .item-content h6,
 .item-content p {
-  font-family: Roboto, RobotoDraft, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Source Han Sans CN",Roboto,"Heiti SC","Microsoft Yahei",sans-serif !important;
   white-space: normal;
 }
 
