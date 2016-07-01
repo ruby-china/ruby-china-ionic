@@ -14,6 +14,12 @@ body {
   box-shadow: 0 0px 1px rgba(0, 0, 0, 0.14);
 }
 
+.bar-header {
+  .back-button {
+    min-width: 35px;
+  }
+}
+
 .bg-assertive,
 .bg-positive,
 .bg-balanced {
@@ -194,4 +200,3 @@ textarea {
 #loading-bar-spinner {
   display: none;
 }
-
