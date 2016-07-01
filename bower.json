@@ -1,5 +1,5 @@
 {
-  "name": "RubyChina App",
+  "name": "ruby-china-app",
   "private": "true",
   "devDependencies": {
     "ionic": "~1.2.1"
