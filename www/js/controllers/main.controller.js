@@ -304,11 +304,11 @@
         snd.play();
       }
 
+      // store state for open /notifications page when rescume app.
+      $window.localStorage['goafterpush'] = 1;
+
       if (notification.badge) {
         vm.unread_notifications_count = notification.badge;
-
-        // store state for open /notifications page when rescume app.
-        $window.localStorage['goafterpush'] = 1;
 
         $cordovaPush.setBadgeNumber(notification.badge).then(function(result) {
           // Success!
