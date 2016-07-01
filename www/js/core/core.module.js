@@ -4,7 +4,7 @@
   angular
     .module('app.core', [
       // Ionic modules
-      'ionic', 'ngCordova',
+      'ionic', 'ngCordova', 'ui.router',
       // Vendors
       'angularMoment', 'angular-oauth2',
       'ngFileUpload', 'templates'

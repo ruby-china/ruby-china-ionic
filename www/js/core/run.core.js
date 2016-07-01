@@ -10,7 +10,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function ionicRun($rootScope, $ionicPlatform, amMoment) {
+  function ionicRun($rootScope, $ionicPlatform, $window, $state, amMoment) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -25,7 +25,16 @@
       window.addEventListener('native.keyboardshow', function(event) {
         $rootScope.keyboardHeight = event.keyboardHeight;
       });
+    })
+
+    $ionicPlatform.on('resume', function(event) {
+      var goafterpush = $window.localStorage['goafterpush'];
+      if (goafterpush) {
+        $window.localStorage['goafterpush'] = null;
+        $state.go('app.notification');
+      }
     });
+
     amMoment.changeLocale('zh-cn');
   }
 

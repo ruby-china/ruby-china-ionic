@@ -51,7 +51,7 @@
       loadData("");
 
       UserService.getUnreadNotificationsCount().then(function(res) {
-        vm.unread_notifications_count = 10 // res.count;
+        vm.unread_notifications_count = res.count;
       });
 
       BaseService.registModal('modals/login.html', 'login-modal', $scope, {
@@ -306,6 +306,10 @@
 
       if (notification.badge) {
         vm.unread_notifications_count = notification.badge;
+
+        // store state for open /notifications page when rescume app.
+        $window.localStorage['goafterpush'] = 1;
+
         $cordovaPush.setBadgeNumber(notification.badge).then(function(result) {
           // Success!
         }, function(err) {
