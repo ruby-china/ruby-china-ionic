@@ -10,7 +10,7 @@
   /* @ngInject */
   function MainController($rootScope, $scope, $state, $ionicScrollDelegate, $ionicPopup, $ionicHistory,
     $timeout, BaseService, UserService, AuthService, $location, $cordovaAppVersion, $cordovaPush,
-    CameraService, TopicService) {
+    CameraService, TopicService, $window) {
 
     initPushNotification();
 
@@ -280,7 +280,7 @@
 
       document.addEventListener('resume', function() {
         var goafterpush = $window.localStorage['goafterpush'];
-        if (goafterpush) {
+        if (goafterpush == 1) {
           $window.localStorage['goafterpush'] = null;
           $state.go('app.notification');
         }
