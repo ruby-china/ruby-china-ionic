@@ -27,14 +27,6 @@
       });
     })
 
-    $ionicPlatform.on('resume', function(event) {
-      var goafterpush = $window.localStorage['goafterpush'];
-      if (goafterpush) {
-        $window.localStorage['goafterpush'] = null;
-        $state.go('app.notification');
-      }
-    });
-
     amMoment.changeLocale('zh-cn');
   }
 

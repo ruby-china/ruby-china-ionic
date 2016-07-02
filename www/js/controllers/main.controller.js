@@ -8,7 +8,7 @@
   ////////////////////////////////////////////////////////////
 
   /* @ngInject */
-  function MainController($rootScope, $scope, $ionicScrollDelegate, $ionicPopup, $ionicHistory,
+  function MainController($rootScope, $scope, $state, $ionicScrollDelegate, $ionicPopup, $ionicHistory,
     $timeout, BaseService, UserService, AuthService, $location, $cordovaAppVersion, $cordovaPush,
     CameraService, TopicService) {
 
@@ -277,6 +277,14 @@
           console.log("Registration error: " + err)
         });
       }, false);
+
+      document.addEventListener('resume', function() {
+        var goafterpush = $window.localStorage['goafterpush'];
+        if (goafterpush) {
+          $window.localStorage['goafterpush'] = null;
+          $state.go('app.notification');
+        }
+      });
     }
 
     $rootScope.$on('relogin', function() {
