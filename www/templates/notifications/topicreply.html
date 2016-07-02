@@ -2,9 +2,9 @@
   <img ng-src="{{ nf.actor.avatar_url }}" alt="nf.actor.login">
   <h2>
     <span class="author">{{ nf.actor.login }}</span> 于
-    <span am-time-ago="nf.created_at"></span>在帖子
-    <span class="positive">{{ nf.reply.topic_title }}</span> 中回复了：
+    <span am-time-ago="nf.created_at"></span>在帖子中回复了：
   </h2>
+  <div class="notify-title">{{ nf.topic.title }}</div>
   <div class="text text-left markdown" ng-bind-html="nf.reply.body_html | externalLinks"></div>
   <span class="badge" ng-if="!nf.read"></span>
 </a>
