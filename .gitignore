@@ -2,7 +2,11 @@
 # http://git-scm.com/docs/gitignore
 
 node_modules/
-platforms/
+platforms/ios/build
+platforms/ios/cordova
+platforms/ios/CordovaLib
+platforms/ios/www
+platforms/ios/platform_www
 plugins/
 .idea
 .temp
