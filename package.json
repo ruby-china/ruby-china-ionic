@@ -36,7 +36,12 @@
     "cordova-plugin-app-version",
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    {
+      "locator": "https://github.com/phonegap-build/PushPlugin",
+      "id": "phonegap-plugin-push",
+      "tag": "2.5.0"
+    }
   ],
   "cordovaPlatforms": [
     "ios"

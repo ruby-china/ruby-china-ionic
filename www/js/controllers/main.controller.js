@@ -9,7 +9,7 @@
 
   /* @ngInject */
   function MainController($rootScope, $scope, $state, $ionicScrollDelegate, $ionicPopup, $ionicHistory,
-    $timeout, BaseService, UserService, AuthService, $location, $cordovaAppVersion, $cordovaPush,
+    $timeout, BaseService, UserService, AuthService, $location, $cordovaAppVersion, $cordovaPushV5,
     CameraService, TopicService, $window) {
 
     initPushNotification();
@@ -261,20 +261,25 @@
     }
 
     function initPushNotification() {
-      var iosConfig = {
-        "badge": true,
-        "sound": true,
-        "alert": true,
+      var config = {
+        ios: {
+          "badge": true,
+          "sound": true,
+          "alert": true
+        }
       };
 
       document.addEventListener("deviceready", function(){
-        $cordovaPush.register(iosConfig).then(function(deviceToken) {
-          // Success -- send deviceToken to server, and store for future use
-          console.log("deviceToken: " + deviceToken)
-          AuthService.submitDeviceToken(deviceToken).then(function(res) {
+        $cordovaPushV5.initialize(config).then(function(result) {
+          $cordovaPushV5.onNotification();
+          $cordovaPushV5.onError();
+          $cordovaPushV5.register().then(function (deviceToken) {
+            console.log("deviceToken: " + deviceToken)
+            AuthService.submitDeviceToken(deviceToken).then(function(res) { });
+          }, function (err) {
+            // handle error
+            console.log("Registration error: " + err)
           });
-        }, function(err) {
-          console.log("Registration error: " + err)
         });
       }, false);
 
@@ -302,7 +307,7 @@
       vm.unread_notifications_count = count;
     });
 
-    $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
+    $rootScope.$on('$cordovaPushV5:notificationReceived', function(event, notification) {
       // if (notification.alert) {
       //   navigator.notification.alert(notification.alert);
       // }
@@ -318,7 +323,7 @@
       if (notification.badge) {
         vm.unread_notifications_count = notification.badge;
 
-        $cordovaPush.setBadgeNumber(notification.badge).then(function(result) {
+        $cordovaPushV5.setBadgeNumber(notification.badge).then(function(result) {
           // Success!
         }, function(err) {
           // An error occurred. Show a message to the user
