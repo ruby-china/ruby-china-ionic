@@ -101,6 +101,10 @@
       }
 
       var deviceToken = $window.localStorage['device_token'];
+      if (deviceToken === undefined) {
+        return q.promise;
+      }
+
       var params = {
         platform: 'ios',
         token: deviceToken

@@ -281,6 +281,8 @@
             console.log("Registration error: " + err)
           });
         });
+
+        AuthService.submitDeviceToken(deviceToken).then(function(res) { });
       }, false);
 
       document.addEventListener('resume', function() {
@@ -294,6 +296,7 @@
 
     $rootScope.$on('relogin', function() {
       // 自动重新登录
+      AuthService.submitDeviceToken().then(function(res) { });
       AuthService.refreshAccessToken().then(function(res) {
         console.log('refreshAccessToken result', res);
       }).catch(function(err) {
