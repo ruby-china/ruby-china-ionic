@@ -24,7 +24,7 @@
 
       <div id="topic-stats" class="item item-info item-narrow gray">
         <span class="pull-left">
-          <span ng-class="{ 'active': vm.meta.liked === true, '': vm.meta.liked === false}">
+          <span ng-class="{ 'active': vm.meta.liked === true, '': vm.meta.liked === false}" ng-click="vm.toggleLikeTopic()">
             <i class="ion-ios-heart"></i> <span ng-bind-html="vm.topic.likes_count">{{ vm.topic.likes_count }}></span> 个赞
           </span>
         </span>
